@@ -17,10 +17,10 @@
 
       MEM_SLEEP_ON_AC = "s2idle";
       MEM_SLEEP_ON_BAT = "deep";
-      
+
       SOUND_POWER_SAVE_ON_AC = 1;
       SOUND_POWER_SAVE_ON_BAT = 1;
-      
+
       WIFI_PWR_ON_AC = "on";
       WIFI_PWR_ON_BAT = "on";
 

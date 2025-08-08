@@ -1,5 +1,8 @@
-{ pkgs, systemSettings, ... }:
 {
+  pkgs,
+  systemSettings,
+  ...
+}: {
   programs.nh = {
     package = pkgs.nh;
     enable = true;

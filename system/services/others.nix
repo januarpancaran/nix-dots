@@ -1,5 +1,4 @@
-{ userSettings, ... }:
-{
+{userSettings, ...}: {
   services = {
     getty.autologinUser = userSettings.username;
     printing.enable = true;

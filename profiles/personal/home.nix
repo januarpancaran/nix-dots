@@ -1,6 +1,5 @@
-{ userSettings, ... }: 
-{
-  imports = [ 
+{userSettings, ...}: {
+  imports = [
     ../../theme
     ../../user/wm/niri
     ../../user/app/terminal/ghostty.nix
@@ -16,7 +15,7 @@
     username = userSettings.username;
     homeDirectory = "/home/" + userSettings.username;
     stateVersion = "25.05";
-    sessionVariables = { EDITOR = "nvim"; };
+    sessionVariables = {EDITOR = "nvim";};
   };
 
   programs.home-manager.enable = true;

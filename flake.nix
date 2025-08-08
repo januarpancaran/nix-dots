@@ -25,17 +25,16 @@
     };
   };
 
-  outputs = { self, ... } @ inputs: 
-  let
+  outputs = {self, ...} @ inputs: let
     systemSettings = {
       system = "x86_64-linux";
       hostname = "hayudaang";
       profile = "personal";
       bootloader = "grub";
-      bootloaderDevice = [ "nodev" ];
+      bootloaderDevice = ["nodev"];
       bootloaderEfiMountPoint = "/boot/efi";
       timeZone = "Asia/Jakarta";
-      flakeDir = ("/home/" + userSettings.username + "/.dotfiles");
+      flakeDir = "/home/" + userSettings.username + "/.dotfiles";
     };
 
     userSettings = {
@@ -47,40 +46,39 @@
     pkgs = import inputs.nixpkgs {
       system = systemSettings.system;
       config = {
-	allowUnfree = inputs.nixpkgs.lib.mkDefault true;
-	allowBroken = inputs.nixpkgs.lib.mkDefault false;
+        allowUnfree = inputs.nixpkgs.lib.mkDefault true;
+        allowBroken = inputs.nixpkgs.lib.mkDefault false;
       };
-      overlays = [ inputs.niri.overlays.niri ];
+      overlays = [inputs.niri.overlays.niri];
     };
-  in
-  {
+  in {
     nixosConfigurations.${systemSettings.hostname} = inputs.nixpkgs.lib.nixosSystem {
       system = systemSettings.system;
 
-      specialArgs = { 
-	inherit inputs; 
-	inherit systemSettings;
-	inherit userSettings;
+      specialArgs = {
+        inherit inputs;
+        inherit systemSettings;
+        inherit userSettings;
       };
 
-      modules = [ 
-	(./. + "/profiles" + ("/" + systemSettings.profile) + "/configuration.nix")
+      modules = [
+        (./. + "/profiles" + ("/" + systemSettings.profile) + "/configuration.nix")
       ];
     };
 
     homeConfigurations.${userSettings.username} = inputs.home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
 
-      extraSpecialArgs = { 
-	inherit inputs; 
-	inherit systemSettings;
-	inherit userSettings;
+      extraSpecialArgs = {
+        inherit inputs;
+        inherit systemSettings;
+        inherit userSettings;
       };
 
       modules = [
-	inputs.niri.homeModules.niri
-	inputs.catppuccin.homeModules.catppuccin
-	(./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix")
+        inputs.niri.homeModules.niri
+        inputs.catppuccin.homeModules.catppuccin
+        (./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix")
       ];
     };
   };

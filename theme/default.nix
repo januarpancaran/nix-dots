@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   gtk = {
     enable = true;
 
@@ -31,8 +29,7 @@
   };
 
   # Catppuccin
-  catppuccin = 
-  let 
+  catppuccin = let
     default = {
       enable = true;
       flavor = "mocha";
@@ -43,8 +40,7 @@
       flavor = "mocha";
       accent = "mauve";
     };
-  in
-  {
+  in {
     bat = default;
 
     fcitx5 = {

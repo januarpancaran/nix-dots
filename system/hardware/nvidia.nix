@@ -1,7 +1,5 @@
-{ config, ... }:
-
-{
-  services.xserver.videoDrivers = [ "nvidia" ];
+{config, ...}: {
+  services.xserver.videoDrivers = ["nvidia"];
 
   hardware.nvidia = {
     package = config.boot.kernelPackages.nvidiaPackages.stable;
@@ -19,8 +17,8 @@
       nvidiaBusId = "PCI:1:0:0";
 
       offload = {
-	enable = true;
-	enableOffloadCmd = true;
+        enable = true;
+        enableOffloadCmd = true;
       };
     };
   };
