@@ -1,15 +1,11 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   services.hypridle = {
     package = pkgs.hypridle;
     enable = true;
 
-    settings = 
-    let
+    settings = let
       monitor = "eDP-1";
-    in
-    {
+    in {
       general = {
         lock_cmd = "pidof hyprlock || hyprlock";
         before_sleep_cmd = "loginctl lock-session";
