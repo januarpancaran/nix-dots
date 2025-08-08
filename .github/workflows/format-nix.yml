@@ -1,4 +1,4 @@
-name: Format & Lint Nix Files with Alejandra
+name: Format Nix Files with Alejandra
 
 on: 
   push: 
@@ -6,8 +6,11 @@ on:
   pull_request:
 
 jobs:
-  format-lint:
+  auto-format:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout repository
@@ -19,3 +22,8 @@ jobs:
       - name: Run Alejandra formatter check
         run: |
           nix run nixpkgs#alejandra -- .
+
+      - name: Push back changes
+        uses: stefanzweifel/git-auto-commit-action@v6
+        with: 
+          commit_message: "format: format nix files"
