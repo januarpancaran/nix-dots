@@ -1,0 +1,25 @@
+name: Format & Lint Nix Files with Alejandra
+
+on: 
+  push: 
+    branches: [ "*" ]
+  pull_request:
+
+jobs:
+  format-lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Nix
+        uses: cachix/install-nix-action@v25
+
+      - name: Run Alejandra formatter check
+        run: |
+          nix run nixpkgs#alejandra -- --check .
+
+      - name: Lint with nix-linter
+        run: |
+          nix run nixpkgs#nix-linter -- .
