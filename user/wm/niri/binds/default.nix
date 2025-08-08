@@ -1,8 +1,11 @@
-{lib, pkgs, ...}: 
-let
+{
+  lib,
+  pkgs,
+  ...
+}: let
   volumeNotifier = pkgs.writeShellScriptBin "volume-notifier" ''
     #!/usr/bin/env bash
-    
+
     ICON_DIR="$HOME/.config/mako/icons"
 
     function send_notification() {
@@ -11,7 +14,7 @@ let
       notify-send -a "changevolume" -u low -r 9993 -h int:value:"$VOLUME" -i "$1" "Volume: $VOLUME%" -t 2000
     }
 
-    case $1 in 
+    case $1 in
     up)
       wpctl set-volume -l 2 @DEFAULT_AUDIO_SINK@ 5%+
       send_notification "$ICON_DIR/volume-change.png"
@@ -22,7 +25,7 @@ let
       ;;
     mute)
       wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-      if wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED; then 
+      if wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED; then
         notify-send -a "changevolume" -u low -r 9993 -i "$ICON_DIR/volume-change.png" "Muted" -t 2000
       else
         send_notification "$ICON_DIR/volume-change.png"
@@ -44,7 +47,7 @@ let
       notify-send -a "changebrightness" -u low -r 9994 -h int:value:"$PERCENTAGE" -i "$ICON_DIR/brightness-change.png" "Brightness: $PERCENTAGE%" -t 2000
     }
 
-    case $1 in 
+    case $1 in
     up)
       brightnessctl set +5%
       send_notification
@@ -55,8 +58,7 @@ let
       ;;
     esac
   '';
-in
-{
+in {
   programs.niri.settings.binds = let
     inherit (lib.attrsets) setAttrByPath recursiveUpdate;
 
