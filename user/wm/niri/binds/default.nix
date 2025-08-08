@@ -128,11 +128,12 @@
       ]
       ++ (
         builtins.concatLists (builtins.genList (i: let
-          idx = i + 1;
-        in [
-          (bindVal "${toString idx}" "focus-workspace" idx)
-          (bindVal "Shift+${toString idx}" "move-column-to-workspace" idx)
-        ]) 9)
+            idx = i + 1;
+          in [
+            (bindVal "${toString idx}" "focus-workspace" idx)
+            (bindVal "Shift+${toString idx}" "move-column-to-workspace" idx)
+          ])
+          9)
       );
   in
     lib.foldl' lib.recursiveUpdate {} bindList;
