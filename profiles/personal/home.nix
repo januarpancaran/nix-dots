@@ -9,6 +9,7 @@
     ../../user/shell/zsh.nix
     ../../user/shell/shell-utils/fastfetch.nix
     ../../user/shell/shell-utils/starship
+    ../../user/app/fuzzel
   ];
 
   home = {
