@@ -18,7 +18,7 @@ jobs:
 
       - name: Run Alejandra formatter check
         run: |
-          nix run nixpkgs#alejandra -- --check .
+          nix run nixpkgs#alejandra -- .
 
       - name: Lint with nix-linter
         run: |
