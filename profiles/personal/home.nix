@@ -5,6 +5,7 @@
     ../../user/app/terminal/ghostty.nix
     ../../user/app/browser/google-chrome.nix
     ../../user/app/git
+    ../../user/app/hyprlock
     ../../user/services/hypridle.nix
     ../../user/services/mako
     ../../user/services/swww.nix
