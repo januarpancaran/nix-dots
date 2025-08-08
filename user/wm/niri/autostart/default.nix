@@ -3,7 +3,6 @@
     map (exe: {
       command = pkgs.lib.strings.splitString " " exe;
     }) [
-      "mako"
       "eww daemon"
       "eww open bar"
       "hypridle"

@@ -4,6 +4,8 @@
     ghostty
     nautilus
     polkit_gnome
+    wireplumber
+    wl-clipboard
   ];
 
   imports = [
