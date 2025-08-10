@@ -1,21 +1,22 @@
 {userSettings, ...}: {
   imports = [
     ../../theme
-    ../../user/wm/niri
-    ../../user/app/terminal/ghostty.nix
     ../../user/app/browser/google-chrome.nix
+    ../../user/app/fuzzel
     ../../user/app/git
     ../../user/app/hyprlock
+    ../../user/app/terminal/ghostty.nix
+    ../../user/app/wlogout
     ../../user/services/hypridle.nix
     ../../user/services/mako
+    ../../user/services/swww.nix
     ../../user/services/systemd-services.nix
     ../../user/services/systemd-timers.nix
-    ../../user/services/swww.nix
     ../../user/services/xdg-portal.nix
-    ../../user/shell/zsh.nix
     ../../user/shell/shell-utils/fastfetch.nix
     ../../user/shell/shell-utils/starship
-    ../../user/app/fuzzel
+    ../../user/shell/zsh.nix
+    ../../user/wm/niri
   ];
 
   home = {

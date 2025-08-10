@@ -7,11 +7,11 @@
   ...
 }: {
   imports = [
-    ../../system/hardware-configuration.nix
     ../../system/app/nh.nix
     ../../system/boot/bootloader.nix
     ../../system/boot/kernel.nix
     ../../system/fonts
+    ../../system/hardware-configuration.nix
     ../../system/hardware/bluetooth.nix
     ../../system/hardware/intel.nix
     ../../system/hardware/nvidia.nix
