@@ -3,6 +3,8 @@
     map (exe: {
       command = pkgs.lib.strings.splitString " " exe;
     }) [
+      "fcitx5 -d -r"
+      "fcitx5-remote -d -r"
       "eww daemon"
       "eww open bar"
       "gsettings set org.gnome.desktop.interface gtk-theme Dracula"

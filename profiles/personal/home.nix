@@ -7,6 +7,7 @@
     ../../user/app/hyprlock
     ../../user/app/terminal/ghostty.nix
     ../../user/app/wlogout
+    ../../user/inputs/fcitx5.nix
     ../../user/services/hypridle.nix
     ../../user/services/mako
     ../../user/services/swww.nix

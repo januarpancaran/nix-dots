@@ -43,12 +43,6 @@
   in {
     bat = default;
 
-    fcitx5 = {
-      apply = true;
-      flavor = "mocha";
-      accent = "mauve";
-    };
-
     fzf = defaultAccent;
 
     ghostty = default;
