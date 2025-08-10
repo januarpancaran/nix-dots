@@ -9,6 +9,7 @@
     ../../user/services/hypridle.nix
     ../../user/services/mako
     ../../user/services/swww.nix
+    ../../user/services/xdg-portal.nix
     ../../user/shell/zsh.nix
     ../../user/shell/shell-utils/fastfetch.nix
     ../../user/shell/shell-utils/starship
