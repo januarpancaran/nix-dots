@@ -20,6 +20,7 @@
     ../../system/services/dbus.nix
     ../../system/services/docker.nix
     ../../system/services/gdm.nix
+    ../../system/services/mysql.nix
     ../../system/services/others.nix
     ../../system/services/pipewire.nix
     ../../system/services/tlp.nix
