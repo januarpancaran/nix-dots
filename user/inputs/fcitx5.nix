@@ -1,6 +1,4 @@
-{ pkgs, ... }: 
-
-{
+{pkgs, ...}: {
   i18n = {
     inputMethod = {
       enable = true;
@@ -42,7 +40,7 @@
               Theme = "Nord-Dark";
               Font = "JetBrainsMono Nerd Font 14";
               MenuFont = "JetBrainsMono Nerd Font 14";
-              TrayFont = "JetBrainsMono Nerd Font Bold 14"; 
+              TrayFont = "JetBrainsMono Nerd Font Bold 14";
             };
           };
         };
