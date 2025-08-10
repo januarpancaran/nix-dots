@@ -8,6 +8,8 @@
     ../../user/app/hyprlock
     ../../user/services/hypridle.nix
     ../../user/services/mako
+    ../../user/services/systemd-services.nix
+    ../../user/services/systemd-timers.nix
     ../../user/services/swww.nix
     ../../user/services/xdg-portal.nix
     ../../user/shell/zsh.nix
