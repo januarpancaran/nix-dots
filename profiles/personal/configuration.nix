@@ -24,7 +24,7 @@
     ../../system/services/others.nix
     ../../system/services/pipewire.nix
     ../../system/services/tlp.nix
-    ../../system/udev
+    ../../system/udev-rules
   ];
 
   networking.hostName = systemSettings.hostname;
