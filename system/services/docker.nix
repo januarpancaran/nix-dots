@@ -1,6 +1,4 @@
-{pkgs, ...}:
-
-{
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     docker-buildx
     docker-compose
