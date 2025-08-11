@@ -2,6 +2,7 @@
   imports = [
     ../../theme
     ../../user/app/browser/google-chrome.nix
+    ../../user/app/eww
     ../../user/app/fuzzel
     ../../user/app/git
     ../../user/app/hyprlock

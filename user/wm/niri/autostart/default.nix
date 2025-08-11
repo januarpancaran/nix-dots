@@ -5,7 +5,6 @@
     }) [
       "fcitx5 -d -r"
       "fcitx5-remote -d -r"
-      "eww daemon"
       "eww open bar"
       "gsettings set org.gnome.desktop.interface gtk-theme Dracula"
       "gsettings set org.gnome.desktop.interface icon-theme Tela-nord-dark"
