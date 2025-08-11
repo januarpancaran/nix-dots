@@ -17,6 +17,7 @@
     ../../user/services/xdg-portal.nix
     ../../user/shell/shell-utils/fastfetch.nix
     ../../user/shell/shell-utils/starship
+    ../../user/shell/shell-utils/tmux.nix
     ../../user/shell/zsh.nix
     ../../user/wm/niri
   ];
