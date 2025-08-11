@@ -27,7 +27,7 @@ get_volume_icon() {
   elif [ "$volume_power" -le 60 ]; then
     eww update volume_muted=false
     echo "󰖀"
-  else 
+  else
     eww update volume_muted=false
     echo "󰕾"
   fi
@@ -58,5 +58,5 @@ handle() {
 
 handle
 pactl subscribe | grep --line-buffered "sink\|source" | while read -r _; do
-	handle
+  handle
 done
