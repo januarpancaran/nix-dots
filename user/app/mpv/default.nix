@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   programs.mpv = {
     package = pkgs.mpv;
     enable = true;
