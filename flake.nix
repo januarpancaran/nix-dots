@@ -18,6 +18,12 @@
     # Catppuccin
     catppuccin.url = "github:catppuccin/nix";
 
+    # Nvf
+    nvf = {
+      url = "github:NotAShelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Zsh plugins
     zsh-fzf-tab = {
       url = "github:Aloxaf/fzf-tab";
@@ -78,6 +84,7 @@
       modules = [
         inputs.niri.homeModules.niri
         inputs.catppuccin.homeModules.catppuccin
+        inputs.nvf.homeManagerModules.default
         (./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix")
       ];
     };

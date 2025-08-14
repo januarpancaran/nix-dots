@@ -64,7 +64,6 @@
   environment.systemPackages = with pkgs; [
     cudatoolkit
     libnotify
-    neovim
     trash-cli
   ];
 
