@@ -1,4 +1,8 @@
-{userSettings, ...}: {
+{
+  pkgs,
+  userSettings,
+  ...
+}: {
   imports = [
     ../../theme
     ../../user/app/browser/google-chrome.nix
@@ -30,6 +34,38 @@
     stateVersion = "25.05";
     sessionVariables = {EDITOR = "nvim";};
   };
+
+  home.packages = with pkgs; [
+    bat
+    blueberry
+    curl
+    devbox
+    discord
+    eog
+    evince
+    foliate
+    fzf
+    glib
+    gnome-control-center
+    htop
+    insomnia
+    kdePackages.xwaylandvideobridge
+    libreoffice
+    obs-studio
+    pavucontrol
+    playerctl
+    ripgrep
+    spotify
+    telegram-desktop
+    tree
+    unrar
+    unzip
+    wget
+    yazi
+    zip
+    zotero
+    zoxide
+  ];
 
   programs.home-manager.enable = true;
 }
