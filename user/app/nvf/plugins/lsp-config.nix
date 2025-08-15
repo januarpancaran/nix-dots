@@ -118,16 +118,16 @@
           dap.enable = true;
         };
 
-      # rust =
-      #   mkDefaultFormat "rust_analyzer" "rustfmt"
-      #   // {
-      #     lsp = builtins.removeAttrs (mkDefault "rust_analyzer").lsp ["server"];
-      #     crates = {
-      #       enable = true;
-      #       codeActions = true;
-      #     };
-      #     dap.enable = true;
-      #   };
+      rust =
+        mkDefaultFormat "rust_analyzer" "rustfmt"
+        // {
+          lsp = builtins.removeAttrs (mkDefault "rust_analyzer").lsp ["server"];
+          crates = {
+            enable = true;
+            codeActions = true;
+          };
+          dap.enable = true;
+        };
 
       sql =
         mkDefaultFormat "sqls" "sqlfluff"
