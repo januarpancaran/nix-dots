@@ -40,5 +40,14 @@
       highlightedyank.enable = true;
       smartRelativeLine = true;
     };
+
+    nix = {
+      enableLanguageServer = true;
+      serverPath = "nixd";
+      serverSettings = {
+        nixd.formatting.command = ["alejandra"];
+      };
+      formatterPath = "alejandra";
+    };
   };
 }

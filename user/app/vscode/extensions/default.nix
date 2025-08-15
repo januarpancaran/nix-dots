@@ -100,6 +100,9 @@
     "yzhang.markdown-all-in-one"
     "davidanson.vscode-markdownlint"
 
+    # Nix
+    "jnoortheen.nix-ide"
+
     # Path Intellisense
     "christian-kohler.path-intellisense"
 
