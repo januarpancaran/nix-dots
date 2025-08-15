@@ -40,7 +40,6 @@
     blueberry
     curl
     devbox
-    discord
     eog
     evince
     foliate
@@ -60,6 +59,7 @@
     tree
     unrar
     unzip
+    webcord
     wget
     yazi
     zip
