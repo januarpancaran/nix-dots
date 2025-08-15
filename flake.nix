@@ -24,6 +24,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Nix4vscode
+    nix4vscode = {
+      url = "github:nix-community/nix4vscode";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Zsh plugins
     zsh-fzf-tab = {
       url = "github:Aloxaf/fzf-tab";
@@ -50,16 +56,20 @@
     };
 
     pkgs = import inputs.nixpkgs {
-      system = systemSettings.system;
+      inherit (systemSettings) system;
+
       config = {
-        allowUnfree = inputs.nixpkgs.lib.mkDefault true;
-        allowBroken = inputs.nixpkgs.lib.mkDefault false;
+        allowUnfree = true;
+        allowBroken = false;
       };
-      overlays = [inputs.niri.overlays.niri];
+      overlays = [
+        inputs.niri.overlays.niri
+        inputs.nix4vscode.overlays.default
+      ];
     };
   in {
     nixosConfigurations.${systemSettings.hostname} = inputs.nixpkgs.lib.nixosSystem {
-      system = systemSettings.system;
+      inherit (systemSettings) system;
 
       specialArgs = {
         inherit inputs;
