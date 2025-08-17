@@ -26,6 +26,9 @@
     "dart-code.dart-code"
     "dart-code.flutter"
 
+    # Devbox
+    "jetpack-io.devbox"
+
     # Docker
     "ms-azuretools.vscode-docker"
     "ms-kubernetes-tools.vscode-kubernetes-tools"
