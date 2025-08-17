@@ -25,7 +25,7 @@
     };
   };
 
-  outputs = { self, ... } @ inputs: let
+  outputs = {self, ...} @ inputs: let
     systemSettings = {
       system = "x86_64-linux";
       hostname = "hayudaang";
@@ -43,8 +43,8 @@
       inherit (systemSettings) system;
 
       config = {
-	allowUnfree = true;
-	allowBroken = false;
+        allowUnfree = true;
+        allowBroken = false;
       };
     };
   in {
@@ -52,18 +52,18 @@
       inherit (systemSettings) system;
 
       specialArgs = {
-	inherit inputs;
-	inherit systemSettings;
-	inherit userSettings;
+        inherit inputs;
+        inherit systemSettings;
+        inherit userSettings;
       };
 
       modules = [
-	inputs.nixos-wsl.nixosModules.default
-	{
-	  system.stateVersion = "25.05";
-	  wsl.enable = true;
-	}
-	./configuration.nix
+        inputs.nixos-wsl.nixosModules.default
+        {
+          system.stateVersion = "25.05";
+          wsl.enable = true;
+        }
+        ./configuration.nix
       ];
     };
 
@@ -71,15 +71,15 @@
       inherit pkgs;
 
       extraSpecialArgs = {
-	inherit inputs;
-	inherit systemSettings;
-	inherit userSettings;
+        inherit inputs;
+        inherit systemSettings;
+        inherit userSettings;
       };
 
       modules = [
-	inputs.catppuccin.homeModules.catppuccin
-	inputs.nvf.homeManagerModules.default
-	./home.nix
+        inputs.catppuccin.homeModules.catppuccin
+        inputs.nvf.homeManagerModules.default
+        ./home.nix
       ];
     };
   };

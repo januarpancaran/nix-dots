@@ -1,6 +1,11 @@
-{ config, lib, pkgs, systemSettings, userSettings, ... }:
-
 {
+  config,
+  lib,
+  pkgs,
+  systemSettings,
+  userSettings,
+  ...
+}: {
   imports = [
     ../../system/app/nh.nix
     ../../system/fonts
@@ -23,9 +28,9 @@
   networking.firewall.enable = true;
 
   nix.settings = {
-    experimental-features = [ "nix-command" "flakes" ];
+    experimental-features = ["nix-command" "flakes"];
     auto-optimise-store = true;
-    trusted-users = [ "root" "@wheel" ];
+    trusted-users = ["root" "@wheel"];
   };
 
   nixpkgs.config = {
@@ -48,5 +53,5 @@
   programs.nix-ld.enable = true;
   programs.zsh.enable = true;
 
-  system.stateVersion = "25.05"; 
+  system.stateVersion = "25.05";
 }

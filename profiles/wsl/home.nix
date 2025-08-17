@@ -1,6 +1,8 @@
-{ pkgs, userSettings, ... }:
-
 {
+  pkgs,
+  userSettings,
+  ...
+}: {
   imports = [
     ../../theme
     ../../user/app/git
@@ -15,7 +17,7 @@
     username = userSettings.username;
     homeDirectory = "/home/" + userSettings.username;
     stateVersion = "25.05";
-    sessionVariables = { EDITOR="nvim"; };
+    sessionVariables = {EDITOR = "nvim";};
   };
 
   home.packages = with pkgs; [
