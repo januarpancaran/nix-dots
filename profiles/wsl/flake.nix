@@ -36,7 +36,7 @@
       system = "x86_64-linux";
       hostname = "nixos";
       profile = "wsl";
-      flakeDir = "/home/" + userSettings.username + "/.dotfiles";
+      flakeDir = "/home/" + userSettings.username + "/.dotfiles/profiles/" + systemSettings.profile;
     };
 
     userSettings = {
