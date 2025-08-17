@@ -21,8 +21,6 @@
     docker-desktop.enable = true;
     startMenuLaunchers = true;
     useWindowsDriver = true;
-
-    wslConf.network.hostname = systemSettings.hostname;
   };
 
   networking.firewall.enable = true;

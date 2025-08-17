@@ -28,7 +28,7 @@
   outputs = {self, ...} @ inputs: let
     systemSettings = {
       system = "x86_64-linux";
-      hostname = "hayudaang";
+      hostname = "nixos";
       profile = "wsl";
       flakeDir = "/home/" + userSettings.username + "/.dotfiles";
     };
