@@ -10,7 +10,6 @@
     ../../system/app/nh.nix
     ../../system/fonts
     ../../system/services/dbus.nix
-    ../../system/services/docker.nix
     ../../system/services/mysql.nix
     ../../system/services/others.nix
   ];
@@ -30,6 +29,9 @@
     auto-optimise-store = true;
     trusted-users = ["root" "@wheel"];
   };
+
+  virtualisation.docker.enable = true;
+  users.users.${userSettings.username}.extraGroups = ["docker"];
 
   nixpkgs.config = {
     allowUnfree = true;
