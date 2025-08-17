@@ -10,6 +10,7 @@
     ../../system/app/nh.nix
     ../../system/boot/bootloader.nix
     ../../system/boot/kernel.nix
+    ../../system/env
     ../../system/fonts
     ../../system/hardware-configuration.nix
     ../../system/hardware/bluetooth.nix
@@ -47,7 +48,11 @@
     auto-optimise-store = true;
     trusted-users = ["root" "@wheel"];
   };
-  nixpkgs.config.allowUnfree = true;
+
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowBroken = false;
+  };
 
   users = {
     users.${userSettings.username} = {
