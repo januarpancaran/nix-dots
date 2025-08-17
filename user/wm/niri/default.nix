@@ -17,7 +17,7 @@
   ];
 
   programs.niri = {
-    package = pkgs.niri-unstable;
+    package = pkgs.niri-stable;
     enable = true;
 
     settings = {
