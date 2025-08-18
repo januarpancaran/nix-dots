@@ -112,14 +112,14 @@ in {
         (bind "H" "focus-column-left")
         (bind "L" "focus-column-right")
 
-        (bind "Ctrl+H" "move-column-left")
-        (bind "Ctrl+L" "move-column-right")
+        (bind "Shift+H" "move-column-left")
+        (bind "Shift+L" "move-column-right")
 
         (bind "J" "focus-window-or-workspace-down")
         (bind "K" "focus-window-or-workspace-up")
 
-        (bind "Ctrl+J" "move-window-down-or-to-workspace-down")
-        (bind "Ctrl+K" "move-window-up-or-to-workspace-up")
+        (bind "Shift+J" "move-window-down-or-to-workspace-down")
+        (bind "Shift+K" "move-window-up-or-to-workspace-up")
 
         (bind "Home" "focus-column-first")
         (bind "End" "focus-column-last")
@@ -127,10 +127,10 @@ in {
         (bind "Ctrl+Home" "move-column-to-first")
         (bind "Ctrl+End" "move-column-to-last")
 
-        (bind "Shift+H" "focus-monitor-left")
-        (bind "Shift+L" "focus-monitor-right")
-        (bind "Shift+J" "focus-monitor-down")
-        (bind "Shift+K" "focus-monitor-up")
+        (bind "Ctrl+H" "focus-monitor-left")
+        (bind "Ctrl+L" "focus-monitor-right")
+        (bind "Ctrl+J" "focus-monitor-down")
+        (bind "Ctrl+K" "focus-monitor-up")
 
         (bind "Shift+Ctrl+H" "move-column-to-monitor-left")
         (bind "Shift+Ctrl+L" "move-column-to-monitor-right")
