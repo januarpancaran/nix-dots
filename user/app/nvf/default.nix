@@ -8,6 +8,7 @@
     ./plugins/lsp-config.nix
     ./plugins/markdown-preview.nix
     ./plugins/nvim-cmp.nix
+    ./plugins/telescope.nix
     ./plugins/vim-tmux-navigator.nix
   ];
 
@@ -31,7 +32,6 @@
 
       vim.dashboard.alpha.enable = true;
       vim.comments.comment-nvim.enable = true;
-      vim.telescope.enable = true;
     };
   };
 }
