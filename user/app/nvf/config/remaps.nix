@@ -7,7 +7,13 @@
         key = "<leader>pp";
         mode = "n";
         silent = true;
-        action = "<cmd>Ex<CR>";
+        action = "<cmd>Oil<CR>";
+      }
+      {
+        key = "<leader>ee";
+        mode = "n";
+        silent = true;
+        action = "<cmd>Neotree toggle<CR>";
       }
       {
         key = "j";

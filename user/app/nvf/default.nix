@@ -8,6 +8,7 @@
     ./plugins/indent-blankline.nix
     ./plugins/lsp-config.nix
     ./plugins/markdown-preview.nix
+    ./plugins/neo-tree.nix
     ./plugins/noice.nix
     ./plugins/nvim-cmp.nix
     ./plugins/telescope.nix
