@@ -2,6 +2,7 @@
   imports = [
     ./config/options.nix
     ./config/remaps.nix
+    ./plugins/bufferline.nix
     ./plugins/copilot.nix
     ./plugins/gitsigns.nix
     ./plugins/indent-blankline.nix
