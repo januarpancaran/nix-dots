@@ -8,6 +8,7 @@
     ./plugins/indent-blankline.nix
     ./plugins/lsp-config.nix
     ./plugins/markdown-preview.nix
+    ./plugins/noice.nix
     ./plugins/nvim-cmp.nix
     ./plugins/telescope.nix
     ./plugins/vim-tmux-navigator.nix
@@ -33,6 +34,7 @@
 
       vim.dashboard.alpha.enable = true;
       vim.comments.comment-nvim.enable = true;
+      vim.ui.noice.enable = true;
     };
   };
 }
