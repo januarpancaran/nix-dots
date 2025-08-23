@@ -35,6 +35,7 @@
       vim.dashboard.alpha.enable = true;
       vim.comments.comment-nvim.enable = true;
       vim.ui.noice.enable = true;
+      vim.utility.oil-nvim.enable = true;
     };
   };
 }
