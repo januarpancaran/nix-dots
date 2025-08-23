@@ -10,7 +10,7 @@
         action = "<cmd>Oil<CR>";
       }
       {
-        key = "<leader>ee";
+        key = "<leader>ne";
         mode = "n";
         silent = true;
         action = "<cmd>Neotree toggle<CR>";
