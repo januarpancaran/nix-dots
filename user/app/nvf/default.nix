@@ -13,6 +13,7 @@
     ./plugins/nvim-cmp.nix
     ./plugins/telescope.nix
     ./plugins/vim-tmux-navigator.nix
+    ./plugins/which-key.nix
   ];
 
   programs.nvf = {
