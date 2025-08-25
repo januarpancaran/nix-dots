@@ -33,6 +33,10 @@
 
         default-column-width.proportion = 0.5;
 
+        focus-ring = {
+          enable = false;
+        };
+
         border = {
           enable = true;
           width = 4;
