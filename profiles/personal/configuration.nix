@@ -38,7 +38,7 @@
   time.timeZone = systemSettings.timeZone;
 
   i18n = {
-    defaultLocale = "de_DE.UTF-8";
+    defaultLocale = "en_US.UTF-8";
     supportedLocales = [
       "de_DE.UTF-8/UTF-8"
       "fr_FR.UTF-8/UTF-8"
