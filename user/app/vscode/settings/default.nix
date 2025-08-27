@@ -34,7 +34,11 @@
         visualline = cursor;
       };
       enableNeovim = true;
-      neovimConfigPath = "~/.config/nvim/init.lua";
+      neovimConfigPath = let
+        nvfConfig = pkgs.writeShellScriptBin "nvf-config-path" ''
+          exec $(nvf-print-config-path)
+        '';
+      in "${nvfConfig}/bin/nvf-config-path";
       neovimPath = "${pkgs.neovim-unwrapped}/bin/nvim";
       neovimUseConfigFile = true;
       highlightedyank.enable = true;
