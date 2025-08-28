@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   programs.vscode.profiles.default.userSettings = {
     editor = {
       fontFamily = "JetBrainsMono Nerd Font";
@@ -34,11 +38,11 @@
         visualline = cursor;
       };
       enableNeovim = true;
-      neovimConfigPath = let
-        nvfConfig = pkgs.writeShellScriptBin "nvf-config-path" ''
-          exec $(nvf-print-config-path)
-        '';
-      in "${nvfConfig}/bin/nvf-config-path";
+      neovimConfigPath = builtins.readFile (pkgs.runCommand "nvf-config-path" {
+          buildInputs = [inputs.nvf.packages.${pkgs.system}.default];
+        } ''
+          nvf-print-config-path > $out
+        '');
       neovimPath = "${pkgs.neovim-unwrapped}/bin/nvim";
       neovimUseConfigFile = true;
       highlightedyank.enable = true;
