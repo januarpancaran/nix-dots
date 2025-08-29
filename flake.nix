@@ -15,6 +15,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Hyprland
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Catppuccin
     catppuccin = {
       url = "github:catppuccin/nix";
@@ -54,6 +60,7 @@
 
     userSettings = {
       username = "daangsangu";
+      wm = "Hyprland"; # Choose between "niri" or "Hyprland"
       githubUsername = "januarpancaran";
       githubEmail = "januar352@gmail.com";
     };
@@ -65,6 +72,7 @@
         allowUnfree = true;
         allowBroken = false;
       };
+
       overlays = [
         inputs.niri.overlays.niri
         inputs.nix4vscode.overlays.default

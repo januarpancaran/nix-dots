@@ -1,11 +1,19 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
+    blueberry
     brightnessctl
-    ghostty
+    gnome-control-center
+    kdePackages.xwaylandvideobridge
     nautilus
+    obs-studio
+    pavucontrol
     polkit_gnome
-    wireplumber
+    spotify
+    webcord
     wl-clipboard
+    xdg-desktop-portal
+    xdg-desktop-portal-gnome
+    xdg-desktop-portal-gtk
   ];
 
   imports = [

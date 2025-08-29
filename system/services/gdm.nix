@@ -1,4 +1,8 @@
-{userSettings, ...}: {
+{
+  lib,
+  userSettings,
+  ...
+}: {
   services.displayManager = {
     autoLogin = {
       enable = true;
@@ -10,6 +14,6 @@
       wayland = true;
     };
 
-    defaultSession = "niri";
+    defaultSession = lib.strings.toLower userSettings.wm;
   };
 }

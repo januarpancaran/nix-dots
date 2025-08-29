@@ -29,11 +29,13 @@
   ];
 
   networking.hostName = systemSettings.hostname;
+
   networking.networkmanager = {
     enable = lib.mkDefault true;
     wifi.powersave = true;
   };
-  networking.firewall.enable = true;
+
+  networking.firewall.enable = lib.mkDefault true;
 
   time.timeZone = systemSettings.timeZone;
 
@@ -71,7 +73,8 @@
     defaultUserShell = pkgs.zsh;
   };
 
-  programs.niri.enable = true;
+  programs.niri.enable = userSettings.wm == "niri";
+  programs.hyprland.enable = userSettings.wm == "Hyprland";
   programs.zsh.enable = true;
 
   environment.systemPackages = with pkgs; [

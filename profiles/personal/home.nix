@@ -3,31 +3,35 @@
   userSettings,
   ...
 }: {
-  imports = [
-    ../../theme
-    ../../user/app/browser/google-chrome.nix
-    ../../user/app/eww
-    ../../user/app/fuzzel
-    ../../user/app/git
-    ../../user/app/hyprlock
-    ../../user/app/mpv
-    ../../user/app/nvf
-    ../../user/app/terminal/ghostty.nix
-    ../../user/app/vscode
-    ../../user/app/wlogout
-    ../../user/inputs/fcitx5.nix
-    ../../user/services/hypridle.nix
-    ../../user/services/mako
-    ../../user/services/swww.nix
-    ../../user/services/systemd-services.nix
-    ../../user/services/systemd-timers.nix
-    ../../user/services/xdg-portal.nix
-    ../../user/shell/shell-utils/fastfetch.nix
-    ../../user/shell/shell-utils/starship
-    ../../user/shell/shell-utils/tmux.nix
-    ../../user/shell/zsh.nix
-    ../../user/wm/niri
-  ];
+  imports =
+    [
+      ../../theme
+      ../../user/app/browser/google-chrome.nix
+      ../../user/app/fuzzel
+      ../../user/app/git
+      ../../user/app/hyprlock
+      ../../user/app/mpv
+      ../../user/app/nvf
+      ../../user/app/terminal/ghostty.nix
+      ../../user/app/vscode
+      ../../user/app/wlogout
+      ../../user/inputs/fcitx5.nix
+      ../../user/services/hypridle.nix
+      ../../user/services/mako
+      ../../user/services/swww.nix
+      ../../user/services/systemd-services.nix
+      ../../user/services/systemd-timers.nix
+      ../../user/services/xdg-portal.nix
+      ../../user/shell/shell-utils/fastfetch.nix
+      ../../user/shell/shell-utils/starship
+      ../../user/shell/shell-utils/tmux.nix
+      ../../user/shell/zsh.nix
+    ]
+    ++ (
+      if userSettings.wm == "niri"
+      then [../../user/wm/niri ../../user/app/eww]
+      else [../../user/wm/hyprland]
+    );
 
   home = {
     username = userSettings.username;
@@ -38,7 +42,6 @@
 
   home.packages = with pkgs; [
     bat
-    blueberry
     curl
     devbox
     eog
@@ -46,21 +49,15 @@
     foliate
     fzf
     glib
-    gnome-control-center
     htop
     insomnia
-    kdePackages.xwaylandvideobridge
     libreoffice
-    obs-studio
-    pavucontrol
-    playerctl
     ripgrep
-    spotify
     telegram-desktop
     tree
+    unityhub
     unrar
     unzip
-    webcord
     wget
     yazi
     zip

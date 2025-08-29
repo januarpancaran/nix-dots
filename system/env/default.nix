@@ -1,10 +1,14 @@
-{systemSettings, ...}: {
+{
+  systemSettings,
+  userSettings,
+  ...
+}: {
   environment.sessionVariables = {
     EDITOR = "nvim";
     XCURSOR_THEME = "Bibata-Modern-Classic";
     XCURSOR_SIZE = 24;
-    XDG_CURRENT_DESKTOP = "niri";
-    XDG_SESSION_DESKTOP = "niri";
+    XDG_CURRENT_DESKTOP = userSettings.wm;
+    XDG_SESSION_DESKTOP = userSettings.wm;
     XDG_SESSION_TYPE = "wayland";
     QT_QPA_PLATFORMTHEME = "qt6ct";
     QT_QPA_PLATFORM = "wayland;xcb";
