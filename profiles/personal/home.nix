@@ -30,7 +30,7 @@
     ++ (
       if userSettings.wm == "niri"
       then [../../user/wm/niri ../../user/app/eww]
-      else [../../user/wm/hyprland]
+      else [../../user/wm/hyprland ../../user/app/waybar]
     );
 
   home = {
