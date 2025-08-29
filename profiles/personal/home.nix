@@ -7,7 +7,6 @@
     [
       ../../theme
       ../../user/app/browser/google-chrome.nix
-      ../../user/app/fuzzel
       ../../user/app/git
       ../../user/app/hyprlock
       ../../user/app/mpv
@@ -29,8 +28,8 @@
     ]
     ++ (
       if userSettings.wm == "niri"
-      then [../../user/wm/niri ../../user/app/eww]
-      else [../../user/wm/hyprland ../../user/app/waybar]
+      then [../../user/wm/niri ../../user/app/eww ../../user/app/fuzzel]
+      else [../../user/wm/hyprland ../../user/app/waybar ../../user/app/rofi]
     );
 
   home = {
