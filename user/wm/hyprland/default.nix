@@ -28,7 +28,6 @@
   ];
 
   wayland.windowManager.hyprland = {
-    # package = pkgs.hyprland;
     package = inputs.hyprland.packages.${pkgs.system}.default;
     enable = true;
     xwayland.enable = true;
@@ -42,10 +41,9 @@
         no_hardware_cursors = true;
       };
 
-      gestures = {
-        workspace_swipe = true;
-        workspace_swipe_fingers = 3;
-      };
+      gesture = [
+        "3, horizontal, scale: 1, workspace"
+      ];
 
       dwindle = {
         pseudotile = true;
