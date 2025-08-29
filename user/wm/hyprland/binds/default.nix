@@ -2,11 +2,10 @@
   volumeNotifier = pkgs.writeShellScriptBin "volume-notifier" ''
     #!/usr/bin/env bash
 
-    ICON_DIR="$HOME/.config/mako/icons"
+    ICON_DIR="$HOME/.config/dunst/icons"
 
     function send_notification() {
       VOLUME=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2 * 100)}')
-      makoctl dismiss -a "changevolume"
       notify-send -a "changevolume" -u low -r 9993 -h int:value:"$VOLUME" -i "$1" "Volume: $VOLUME%" -t 2000
     }
 
@@ -33,13 +32,12 @@
   brightnessNotifier = pkgs.writeShellScriptBin "brightness-notifier" ''
     #!/usr/bin/env bash
 
-    ICON_DIR="$HOME/.config/mako/icons"
+    ICON_DIR="$HOME/.config/dunst/icons"
 
     function send_notification() {
       BRIGHTNESS=$(brightnessctl get)
       MAX_BRIGHTNESS=$(brightnessctl max)
       PERCENTAGE=$((BRIGHTNESS * 100 / MAX_BRIGHTNESS))
-      makoctl dismiss -a "changebrightness"
       notify-send -a "changebrightness" -u low -r 9994 -h int:value:"$PERCENTAGE" -i "$ICON_DIR/brightness-change.png" "Brightness: $PERCENTAGE%" -t 2000
     }
 

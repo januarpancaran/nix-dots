@@ -16,7 +16,6 @@
       ../../user/app/wlogout
       ../../user/inputs/fcitx5.nix
       ../../user/services/hypridle.nix
-      ../../user/services/mako
       ../../user/services/swww.nix
       ../../user/services/systemd-services.nix
       ../../user/services/systemd-timers.nix
@@ -28,8 +27,18 @@
     ]
     ++ (
       if userSettings.wm == "niri"
-      then [../../user/wm/niri ../../user/app/eww ../../user/app/fuzzel]
-      else [../../user/wm/hyprland ../../user/app/waybar ../../user/app/rofi]
+      then [
+        ../../user/app/eww
+        ../../user/app/fuzzel
+        ../../user/services/mako
+        ../../user/wm/niri
+      ]
+      else [
+        ../../user/app/rofi
+        ../../user/app/waybar
+        ../../user/services/dunst
+        ../../user/wm/hyprland
+      ]
     );
 
   home = {

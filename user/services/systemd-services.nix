@@ -1,16 +1,24 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  userSettings,
+  ...
+}: {
   home.packages = with pkgs; [
     acpi
   ];
 
   systemd.user.services = let
+    notifier =
+      if userSettings.wm == "niri"
+      then "mako"
+      else "dunst";
     waylandDisplay = "wayland-0";
     dbus = "unix:path=/run/user/1000/bus";
 
     batteryNotifier = pkgs.writeShellScriptBin "battery-notifier" ''
       #!/usr/bin/env bash
 
-      ICON_DIR="$HOME/.config/mako/icons";
+      ICON_DIR="$HOME/.config/${notifier}/icons";
 
       export WAYLAND_DISPLAY=${waylandDisplay}
       export DBUS_SESSION_BUS_ADDRESS=${dbus}
