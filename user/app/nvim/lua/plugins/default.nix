@@ -18,6 +18,13 @@
       config = read ../../after/plugins/comment-nvim.lua;
     }
 
+    # bufferline
+    {
+      plugin = bufferline-nvim;
+      type = "lua";
+      config = read ../../after/plugins/bufferline-nvim.lua;
+    }
+
     # lsp
     {
       plugin = nvim-lspconfig;
