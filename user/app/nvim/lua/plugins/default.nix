@@ -118,6 +118,13 @@
       config = read ../../after/plugins/rainbow-delimiters-nvim.lua;
     }
 
+    # render markdown
+    {
+      plugin = render-markdown-nvim;
+      type = "lua";
+      config = read ../../after/plugins/render-markdown-nvim.lua;
+    }
+
     # telescope
     {
       plugin = telescope-nvim;
@@ -148,6 +155,7 @@
     blink-cmp-copilot
     friendly-snippets
     mini-icons
+    mini-nvim
     nvim-web-devicons
     plenary-nvim
     telescope-ui-select-nvim
