@@ -15,11 +15,11 @@
 
     # lualine
     {
-        plugin = lualine-nvim;
-        type = "lua";
-        config = read ../../after/plugins/lualine-nvim.lua;
+      plugin = lualine-nvim;
+      type = "lua";
+      config = read ../../after/plugins/lualine-nvim.lua;
     }
-      nvim-web-devicons
+    nvim-web-devicons
 
     # treesitter
     {
@@ -35,9 +35,9 @@
 
     # theme
     {
-        plugin = catppuccin-nvim;
-        type = "lua";
-        config = read ../../after/plugins/theme.lua;
+      plugin = catppuccin-nvim;
+      type = "lua";
+      config = read ../../after/plugins/theme.lua;
     }
-    ];
+  ];
 }
