@@ -13,8 +13,8 @@
     vimdiffAlias = true;
 
     extraLuaConfig = ''
-      ${builtins.readFile ./lua/config/mappings.lua}
       ${builtins.readFile ./lua/config/options.lua}
+      ${builtins.readFile ./lua/config/mappings.lua}
     '';
   };
 }

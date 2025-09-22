@@ -19,6 +19,9 @@ vim.keymap.set("n", "<leader>gf", function()
 	vim.lsp.buf.format({ async = true })
 end, { desc = "Format" })
 
+-- oil
+vim.keymap.set("n", "<leader>pp", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
 -- tresitter-context
 vim.keymap.set("n", "[c", function()
 	require("treesitter-context").go_to_context(vim.v.count1)

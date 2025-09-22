@@ -31,7 +31,13 @@
       type = "lua";
       config = read ../../after/plugins/lualine-nvim.lua;
     }
-    nvim-web-devicons
+
+    # oil
+    {
+      plugin = oil-nvim;
+      type = "lua";
+      config = read ../../after/plugins/oil-nvim.lua;
+    }
 
     # treesitter
     {
@@ -51,5 +57,9 @@
       type = "lua";
       config = read ../../after/plugins/theme.lua;
     }
+
+    # dependencies
+    nvim-web-devicons
+    mini-icons
   ];
 }
