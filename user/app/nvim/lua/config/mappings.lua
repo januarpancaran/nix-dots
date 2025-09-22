@@ -10,3 +10,16 @@ vim.keymap.set("n", "<C-h>", "wincmd h<CR>")
 vim.keymap.set("n", "<C-j>", "wincmd j<CR>")
 vim.keymap.set("n", "<C-k>", "wincmd k<CR>")
 vim.keymap.set("n", "<C-l>", "wincmd l<CR>")
+
+-- lsp
+vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "LSP Hover" })
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
+vim.keymap.set("n", "<leader>gf", function()
+	vim.lsp.buf.format({ async = true })
+end, { desc = "Format" })
+
+-- tresitter-context
+vim.keymap.set("n", "[c", function()
+	require("treesitter-context").go_to_context(vim.v.count1)
+end, { silent = true })
