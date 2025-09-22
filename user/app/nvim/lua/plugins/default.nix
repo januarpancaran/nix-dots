@@ -27,6 +27,13 @@
       config = read ../../after/plugins/bufferline-nvim.lua;
     }
 
+    # colorizer
+    {
+      plugin = nvim-colorizer-lua;
+      type = "lua";
+      config = read ../../after/plugins/nvim-colorizer.lua;
+    }
+
     # comment
     {
       plugin = comment-nvim;
@@ -46,6 +53,13 @@
       plugin = nvim-docs-view;
       type = "lua";
       config = read ../../after/plugins/nvim-docs-view.lua;
+    }
+
+    # gitsigns
+    {
+      plugin = gitsigns-nvim;
+      type = "lua";
+      config = read ../../after/plugins/gitsigns-nvim.lua;
     }
 
     # lightbulb
