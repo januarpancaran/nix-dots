@@ -32,9 +32,6 @@
       type = "lua";
       config = read ../../after/plugins/nvim-treesitter-context.lua;
     }
-<<<<<<< Updated upstream
-  ];
-=======
 
     # theme
     {
@@ -43,5 +40,4 @@
         config = read ../../after/plugins/theme.lua;
     }
     ];
->>>>>>> Stashed changes
 }
