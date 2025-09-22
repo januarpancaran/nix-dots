@@ -23,18 +23,13 @@ jobs:
       - name: Setup nix
         uses: cachix/install-nix-action@v25
 
-      - name: Install shfmt
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y shfmt
-
       - name: Run alejandra
         run: |
           nix run nixpkgs#alejandra -- .
 
       - name: Run shfmt
         run: |
-          shfmt -w -i 2 -ci -sr -- .
+          nix run nixpkgs#shfmt -- -w -i 2 -ci -sr .
 
       - name: Run stylua
         run: |
