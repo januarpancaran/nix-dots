@@ -1,11 +1,12 @@
-name: Autoformat Files 
+name: Autoformat Files
 
-on: 
-  push: 
-    branches: [ "*" ]
-    paths: 
-      - '**.nix'
-      - '**.sh'
+on:
+  push:
+    branches: ["*"]
+    paths:
+      - "**.nix"
+      - "**.sh"
+      - "**.lua"
   pull_request:
 
 jobs:
@@ -27,15 +28,19 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y shfmt
 
-      - name: Run alejandra 
+      - name: Run alejandra
         run: |
           nix run nixpkgs#alejandra -- .
 
       - name: Run shfmt
         run: |
-          shfmt -w -i 2 -ci -sr .
+          shfmt -w -i 2 -ci -sr -- .
+
+      - name: Run stylua
+        run: |
+          nix run nixpkgs#stylua -- .
 
       - name: Push back changes
         uses: stefanzweifel/git-auto-commit-action@v6
-        with: 
+        with:
           commit_message: "format: format files"
