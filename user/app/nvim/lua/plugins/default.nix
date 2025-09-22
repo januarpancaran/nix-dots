@@ -39,6 +39,13 @@
       config = read ../../after/plugins/oil-nvim.lua;
     }
 
+    # telescope
+    {
+      plugin = telescope-nvim;
+      type = "lua";
+      config = read ../../after/plugins/telescope-nvim.lua;
+    }
+
     # treesitter
     {
       plugin = nvim-treesitter.withAllGrammars;
@@ -59,7 +66,9 @@
     }
 
     # dependencies
-    nvim-web-devicons
     mini-icons
+    nvim-web-devicons
+    plenary-nvim
+    telescope-ui-select-nvim
   ];
 }
