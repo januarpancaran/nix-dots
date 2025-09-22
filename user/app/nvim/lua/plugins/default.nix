@@ -13,6 +13,14 @@
       config = read ../../after/plugins/lspconfig-nvim.lua;
     }
 
+    # lualine
+    {
+        plugin = lualine-nvim;
+        type = "lua";
+        config = read ../../after/plugins/lualine-nvim.lua;
+    }
+      nvim-web-devicons
+
     # treesitter
     {
       plugin = nvim-treesitter.withAllGrammars;
@@ -24,5 +32,16 @@
       type = "lua";
       config = read ../../after/plugins/nvim-treesitter-context.lua;
     }
+<<<<<<< Updated upstream
   ];
+=======
+
+    # theme
+    {
+        plugin = catppuccin-nvim;
+        type = "lua";
+        config = read ../../after/plugins/theme.lua;
+    }
+    ];
+>>>>>>> Stashed changes
 }
