@@ -7,50 +7,83 @@
       logo = {
         type = "small";
       };
-
       display = {
-        separator = " ";
-        color = {
-          keys = "magenta";
-        };
-        size = {
-          ndigits = 0;
-          maxPrefix = "MB";
-        };
+        separator = "";
         key = {
-          type = "icon";
+          "width" = 15;
         };
       };
-
       modules = [
         {
+          key = " user";
           type = "title";
-          color = {
-            user = "green";
-            at = "red";
-            host = "blue";
-          };
-        }
-        "os"
-        "kernel"
-        "memory"
-        "packages"
-        "terminal"
-        "shell"
-        "terminalfont"
-        "wm"
-        "uptime"
-        {
-          type = "command";
-          key = "OS Age";
-          text = "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days";
+          format = "{user-name}";
+          keyColor = "31";
         }
         {
+          key = "󰇅 hostname";
+          type = "title";
+          format = "{host-name}";
+          keyColor = "32";
+        }
+        {
+          key = "󰅐 uptime";
+          type = "uptime";
+          keyColor = "33";
+        }
+        {
+          key = "{icon} distro";
+          type = "os";
+          keyColor = "34";
+        }
+        {
+          key = " kernel";
+          type = "kernel";
+          keyColor = "35";
+        }
+        {
+          key = "󰇄 desktop";
+          type = "de";
+          keyColor = "36";
+        }
+        {
+          key = " term";
+          type = "terminal";
+          keyColor = "31";
+        }
+        {
+          key = " shell";
+          type = "shell";
+          keyColor = "32";
+        }
+        {
+          key = "󰍛 cpu";
+          type = "cpu";
+          showPeCoreCount = true;
+          keyColor = "33";
+        }
+        {
+          key = "󰉉 disk";
+          type = "disk";
+          folders = "/";
+          keyColor = "34";
+        }
+        {
+          key = " memory";
+          type = "memory";
+          keyColor = "35";
+        }
+        {
+          key = "󰩟 network";
+          type = "localip";
+          format = "{ipv4} ({ifname})";
+          keyColor = "36";
+        }
+        {
+          key = " colors";
           type = "colors";
-          key = "Colors";
-          block = {
-            range = [1 6];
-          };
+          symbol = "circle";
+          keyColor = "39";
         }
       ];
     };
