@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, inputs, ...}: {
   imports = [
     ./extra-packages.nix
   ];
@@ -110,6 +110,18 @@
       type = "lua";
       config = read ../../after/plugins/noice-nvim.lua;
     }
+
+    # none-ls
+    {
+      plugin = none-ls-nvim;
+      type = "lua";
+      config = read ../../after/plugins/none-ls-nvim.lua;
+    }
+    (pkgs.vimUtils.buildVimPlugin {
+      name = "none-ls-extras-nvim";
+      src = inputs.none-ls-extras-nvim;
+      dependencies = [none-ls-nvim];
+    })
 
     # oil
     {

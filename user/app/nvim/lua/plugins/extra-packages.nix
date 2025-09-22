@@ -22,5 +22,18 @@
     typescript-language-server
     vscode-langservers-extracted
     yaml-language-server
+
+    # none-ls
+    alejandra
+    black
+    gofumpt
+    google-java-format
+    isort
+    prettier
+    prettierd
+    rustfmt
+    shfmt
+    sqlfluff
+    stylua
   ];
 }

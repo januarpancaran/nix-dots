@@ -1,6 +1,6 @@
 local lspconfig = require("lspconfig")
 
-local on_attach = function(_, bufnr)
+local lsp_on_attach = function(_, bufnr)
 	vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
 end
 
@@ -32,7 +32,13 @@ local servers = {
 		},
 	},
 	marksman = {},
-	nixd = {},
+	nixd = {
+		settings = {
+			nixd = {
+				formatting = { command = { "alejandra" } },
+			},
+		},
+	},
 	intelephense = {},
 	pyright = {},
 	rust_analyzer = {},
@@ -49,7 +55,7 @@ for server, config in pairs(servers) do
 
 	if lsp and lsp.setup then
 		lsp.setup(vim.tbl_extend("force", {
-			on_attach = on_attach,
+			on_attach = lsp_on_attach,
 			capabilities = vim.lsp.protocol.make_client_capabilities(),
 		}, config))
 	end
