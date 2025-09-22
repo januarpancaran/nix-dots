@@ -10,7 +10,6 @@
       ../../user/app/git
       ../../user/app/hyprlock
       ../../user/app/mpv
-      ../../user/app/nvf
       ../../user/app/terminal/ghostty.nix
       ../../user/app/vscode
       ../../user/app/wlogout
@@ -24,6 +23,12 @@
       ../../user/shell/shell-utils/starship
       ../../user/shell/shell-utils/tmux.nix
       ../../user/shell/zsh.nix
+
+      (
+        if userSettings.nvimFlavour == "nvf"
+        then ../../user/app/nvf
+        else ../../user/app/nvim
+      )
     ]
     ++ (
       if userSettings.wm == "niri"

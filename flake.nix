@@ -60,7 +60,8 @@
 
     userSettings = {
       username = "daangsangu";
-      wm = "niri"; # Choose between "niri" or "Hyprland"
+      wm = "niri"; # of "Hyprland"
+      nvimFlavour = "nvim"; # or nvf
       githubUsername = "januarpancaran";
       githubEmail = "januar352@gmail.com";
     };
