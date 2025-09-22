@@ -60,7 +60,7 @@
 
     userSettings = {
       username = "daangsangu";
-      wm = "Hyprland"; # Choose between "niri" or "Hyprland"
+      wm = "niri"; # Choose between "niri" or "Hyprland"
       githubUsername = "januarpancaran";
       githubEmail = "januar352@gmail.com";
     };
