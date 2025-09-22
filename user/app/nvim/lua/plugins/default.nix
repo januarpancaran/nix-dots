@@ -41,11 +41,32 @@
       config = read ../../after/plugins/copilot.lua;
     }
 
+    # docs-view
+    {
+      plugin = nvim-docs-view;
+      type = "lua";
+      config = read ../../after/plugins/nvim-docs-view.lua;
+    }
+
+    # lightbulb
+    {
+      plugin = nvim-lightbulb;
+      type = "lua";
+      config = read ../../after/plugins/nvim-lightbulb.lua;
+    }
+
     # lsp
     {
       plugin = nvim-lspconfig;
       type = "lua";
       config = read ../../after/plugins/lspconfig-nvim.lua;
+    }
+
+    # lspsaga
+    {
+      plugin = lspsaga-nvim;
+      type = "lua";
+      config = read ../../after/plugins/lspsaga-nvim.lua;
     }
 
     # lualine
