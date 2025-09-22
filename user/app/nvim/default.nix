@@ -1,7 +1,7 @@
 {pkgs, ...}: {
-    imports = [
-      ./lua/plugins
-    ];
+  imports = [
+    ./lua/plugins
+  ];
 
   programs.neovim = {
     package = pkgs.neovim-unwrapped;
