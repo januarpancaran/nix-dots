@@ -12,7 +12,7 @@
       type = "lua";
       config = read ../../after/plugins/alpha-nvim.lua;
     }
-    
+
     # blink-cmp
     {
       plugin = blink-cmp;

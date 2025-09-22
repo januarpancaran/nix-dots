@@ -1,11 +1,11 @@
 require("copilot").setup({
-  suggestion = { enabled = false },
-  panel = { enabled = false },
-  server_opts_overrides = {
-    settings = {
-      telemetry = {
-        telemetryLevel = "off"
-      },
-    },
-  },
+	suggestion = { enabled = false },
+	panel = { enabled = false },
+	server_opts_overrides = {
+		settings = {
+			telemetry = {
+				telemetryLevel = "off",
+			},
+		},
+	},
 })
