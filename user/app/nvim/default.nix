@@ -1,4 +1,8 @@
 {pkgs, ...}: {
+    imports = [
+      ./lua/plugins
+    ];
+
   programs.neovim = {
     package = pkgs.neovim-unwrapped;
     enable = true;
