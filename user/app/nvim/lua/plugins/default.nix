@@ -97,6 +97,13 @@
       config = read ../../after/plugins/lualine-nvim.lua;
     }
 
+    # markdown preview
+    {
+      plugin = markdown-preview-nvim;
+      type = "lua";
+      config = read ../../after/plugins/markdown-preview-nvim.lua;
+    }
+
     # oil
     {
       plugin = oil-nvim;

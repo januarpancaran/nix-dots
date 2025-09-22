@@ -68,6 +68,9 @@ vim.keymap.set("n", "<leader>gf", function()
 	vim.lsp.buf.format({ async = true })
 end, { desc = "Format" })
 
+-- markdown-preview
+vim.keymap.set("n", "<C-m>", "<CMD>MarkdownPreview<CR>", { desc = "Open markdown in browser" })
+
 -- oil
 vim.keymap.set("n", "<leader>pp", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
