@@ -62,6 +62,13 @@
       config = read ../../after/plugins/gitsigns-nvim.lua;
     }
 
+    # indent-blankline
+    {
+      plugin = indent-blankline-nvim;
+      type = "lua";
+      config = read ../../after/plugins/indent-blankline-nvim.lua;
+    }
+
     # lightbulb
     {
       plugin = nvim-lightbulb;
@@ -95,6 +102,13 @@
       plugin = oil-nvim;
       type = "lua";
       config = read ../../after/plugins/oil-nvim.lua;
+    }
+
+    # rainbow delimiters
+    {
+      plugin = rainbow-delimiters-nvim;
+      type = "lua";
+      config = read ../../after/plugins/rainbow-delimiters-nvim.lua;
     }
 
     # telescope
