@@ -104,6 +104,13 @@
       config = read ../../after/plugins/markdown-preview-nvim.lua;
     }
 
+    # noice
+    {
+      plugin = noice-nvim;
+      type = "lua";
+      config = read ../../after/plugins/noice-nvim.lua;
+    }
+
     # oil
     {
       plugin = oil-nvim;
@@ -156,6 +163,8 @@
     friendly-snippets
     mini-icons
     mini-nvim
+    nui-nvim
+    nvim-notify
     nvim-web-devicons
     plenary-nvim
     telescope-ui-select-nvim
