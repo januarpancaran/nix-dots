@@ -3,7 +3,6 @@
     blueberry
     brightnessctl
     gnome-control-center
-    kdePackages.xwaylandvideobridge
     nautilus
     obs-studio
     pavucontrol
@@ -14,6 +13,7 @@
     xdg-desktop-portal
     xdg-desktop-portal-gnome
     xdg-desktop-portal-gtk
+    xwayland-satellite-stable
   ];
 
   imports = [
