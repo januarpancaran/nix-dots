@@ -2,13 +2,13 @@
   home.packages = with pkgs; [
     blueberry
     brightnessctl
+    discord
     gnome-control-center
     nautilus
     obs-studio
     pavucontrol
     polkit_gnome
     spotify
-    webcord
     wl-clipboard
     xdg-desktop-portal
     xdg-desktop-portal-gnome

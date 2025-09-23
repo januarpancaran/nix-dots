@@ -91,7 +91,7 @@ in {
         (bindSpawn "C" "code")
         (bindSpawn "Shift+C" ["env" "XDG_CURRENT_DESKTOP=gnome" "gnome-control-center"])
         (bindSpawn "SemiColon" "spotify")
-        (bindSpawn "D" "webcord")
+        (bindSpawn "D" "discord")
         (bindSpawn "M" "wlogout")
 
         # Volumes
