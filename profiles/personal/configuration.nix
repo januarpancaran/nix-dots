@@ -8,7 +8,6 @@
 }: {
   imports = [
     ../../system/app/nh.nix
-    ../../system/app/steam.nix
     ../../system/boot/bootloader.nix
     ../../system/boot/kernel.nix
     ../../system/env
