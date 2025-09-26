@@ -24,6 +24,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Neovim Plugins
+    none-ls-extras-nvim = {
+      url = "github:nvimtools/none-ls-extras.nvim";
+      flake = false;
+    };
+
     # Zsh Plugins
     zsh-fzf-tab = {
       url = "github:Aloxaf/fzf-tab";
@@ -41,6 +47,7 @@
 
     userSettings = {
       username = "daangsangu";
+      nvimFlavour = "nvim"; # or nvf
       githubUsername = "januarpancaran";
       githubEmail = "januar352@gmail.com";
     };
@@ -65,10 +72,6 @@
 
       modules = [
         inputs.nixos-wsl.nixosModules.default
-        {
-          system.stateVersion = "25.05";
-          wsl.enable = true;
-        }
         ./configuration.nix
       ];
     };

@@ -6,11 +6,16 @@
   imports = [
     ../../theme
     ../../user/app/git
-    ../../user/app/nvf
     ../../user/shell/shell-utils/fastfetch.nix
     ../../user/shell/shell-utils/starship
     ../../user/shell/shell-utils/tmux.nix
     ../../user/shell/zsh.nix
+
+    (
+      if userSettings.nvimFlavour == "nvf"
+      then ../../user/app/nvf
+      else ../../user/app/nvim
+    )
   ];
 
   home = {
