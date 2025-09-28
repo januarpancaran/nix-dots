@@ -66,6 +66,7 @@
     insomnia
     libreoffice
     ripgrep
+    sqlitebrowser
     telegram-desktop
     tree
     unityhub
