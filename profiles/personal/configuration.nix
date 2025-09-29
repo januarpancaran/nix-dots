@@ -21,6 +21,7 @@
     ../../system/services/btrfs-autoscrub.nix
     ../../system/services/dbus.nix
     ../../system/services/docker.nix
+    ../../system/services/flatpak.nix
     ../../system/services/gdm.nix
     ../../system/services/mysql.nix
     ../../system/services/others.nix
