@@ -22,6 +22,7 @@
       ../../user/shell/shell-utils/fastfetch.nix
       ../../user/shell/shell-utils/starship
       ../../user/shell/shell-utils/tmux.nix
+      ../../user/shell/bash.nix
       ../../user/shell/zsh.nix
 
       (

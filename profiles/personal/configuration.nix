@@ -70,13 +70,21 @@
     users.${userSettings.username} = {
       isNormalUser = true;
       extraGroups = ["wheel" "video" "audio" "networkmanager"];
+      shell =
+        if userSettings.defaultShell == "bash"
+        then pkgs.bashInteractive
+        else pkgs.zsh;
     };
 
-    defaultUserShell = pkgs.zsh;
+    defaultUserShell =
+      if userSettings.defaultShell == "bash"
+      then pkgs.bashInteractive
+      else pkgs.zsh;
   };
 
   programs.niri.enable = userSettings.wm == "niri";
   programs.hyprland.enable = userSettings.wm == "Hyprland";
+  programs.bash.enable = true;
   programs.zsh.enable = true;
 
   environment.systemPackages = with pkgs; [

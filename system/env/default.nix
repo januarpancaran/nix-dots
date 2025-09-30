@@ -20,5 +20,5 @@
     NH_FLAKE = systemSettings.flakeDir;
   };
 
-  environment.pathsToLink = ["/share/zsh"];
+  environment.pathsToLink = ["/share/bash-completion" "/share/zsh"];
 }
