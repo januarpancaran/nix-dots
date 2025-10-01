@@ -29,6 +29,7 @@
     gofumpt
     google-java-format
     isort
+    php84Packages.php-cs-fixer
     prettier
     prettierd
     rustfmt
