@@ -26,6 +26,7 @@
     # none-ls
     alejandra
     black
+    blade-formatter
     gofumpt
     google-java-format
     isort
