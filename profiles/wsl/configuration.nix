@@ -31,7 +31,13 @@
   };
 
   virtualisation.docker.enable = true;
-  users.users.${userSettings.username}.extraGroups = ["docker"];
+  users.users.${userSettings.username} = {
+    extraGroups = ["docker"];
+    shell =
+      if userSettings.defaultShell == "bash"
+      then pkgs.bashInteractive
+      else pkgs.zsh;
+  };
 
   nixpkgs.config = {
     allowUnfree = true;
@@ -46,11 +52,15 @@
     NH_FLAKE = systemSettings.flakeDir;
   };
 
-  environment.pathsToLink = ["/share/zsh"];
+  environment.pathsToLink = ["/share/bash-completion" "/share/zsh"];
 
-  users.defaultUserShell = pkgs.zsh;
+  users.defaultUserShell =
+    if userSettings.defaultShell == "bash"
+    then pkgs.bashInteractive
+    else pkgs.zsh;
 
   programs.nix-ld.enable = true;
+  programs.bash.enable = true;
   programs.zsh.enable = true;
 
   system.stateVersion = "25.05";

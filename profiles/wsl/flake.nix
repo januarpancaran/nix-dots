@@ -47,6 +47,7 @@
 
     userSettings = {
       username = "daangsangu";
+      defaultShell = "zsh"; # or bash
       nvimFlavour = "nvim"; # or nvf
       githubUsername = "januarpancaran";
       githubEmail = "januar352@gmail.com";
