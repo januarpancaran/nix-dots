@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  userSettings,
   ...
 }: let
   volumeNotifier = pkgs.writeShellScriptBin "volume-notifier" ''
@@ -84,8 +85,16 @@ in {
       [
         # Programs
         (bindSpawn "T" "ghostty")
-        (bindSpawn "B" "google-chrome-stable")
-        (bindSpawn "I" ["google-chrome-stable" "--incognito"])
+        (bindSpawn "B" (
+          if userSettings.defaultBrowser == "chrome"
+          then "google-chrome-stable"
+          else "zen"
+        ))
+        (bindSpawn "I" (
+          if userSettings.defaultBrowser == "chrome"
+          then ["google-chrome-stable" "--incognito"]
+          else ["zen" "--private-window"]
+        ))
         (bindSpawn "E" "nautilus")
         (bindSpawn "R" "fuzzel")
         (bindSpawn "C" "code")

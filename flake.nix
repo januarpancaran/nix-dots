@@ -39,6 +39,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Zen Browser
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Neovim plugins
     none-ls-extras-nvim = {
       url = "github:nvimtools/none-ls-extras.nvim";
@@ -66,8 +72,9 @@
 
     userSettings = {
       username = "daangsangu";
-      wm = "niri"; # or "Hyprland"
+      wm = "niri"; # or Hyprland
       defaultShell = "zsh"; # or bash
+      defaultBrowser = "zen"; # or chrome
       nvimFlavour = "nvim"; # or nvf
       githubUsername = "januarpancaran";
       githubEmail = "januar352@gmail.com";
@@ -114,6 +121,7 @@
         inputs.niri.homeModules.niri
         inputs.catppuccin.homeModules.catppuccin
         inputs.nvf.homeManagerModules.default
+        inputs.zen-browser.homeModules.beta
         (./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix")
       ];
     };

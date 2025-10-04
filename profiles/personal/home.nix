@@ -6,7 +6,6 @@
   imports =
     [
       ../../theme
-      ../../user/app/browser/google-chrome.nix
       ../../user/app/git
       ../../user/app/hyprlock
       ../../user/app/mpv
@@ -24,6 +23,12 @@
       ../../user/shell/shell-utils/tmux.nix
       ../../user/shell/bash.nix
       ../../user/shell/zsh.nix
+
+      (
+        if userSettings.defaultBrowser == "chrome"
+        then ../../user/app/browser/google-chrome
+        else ../../user/app/browser/zen-browser
+      )
 
       (
         if userSettings.nvimFlavour == "nvf"

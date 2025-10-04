@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  userSettings,
+  ...
+}: let
   volumeNotifier = pkgs.writeShellScriptBin "volume-notifier" ''
     #!/usr/bin/env bash
 
@@ -57,7 +61,10 @@ in {
     "$terminal" = "ghostty";
     "$fileManager" = "nautilus";
     "$menu" = "rofi";
-    "$browser" = "google-chrome-stable";
+    "$browser" =
+      if userSettings.defaultBrowser == "chrome"
+      then "google-chrome-stable"
+      else "zen";
 
     "$mainMod" = "SUPER";
 
@@ -73,7 +80,12 @@ in {
         "Alt, Tab, exec, $menu -show window"
         "$mainMod, F, fullscreen"
         "$mainMod, B, exec, $browser"
-        "$mainMod, I, exec, $browser --incognito"
+        ("$mainMod, I, exec, $browser "
+          + (
+            if userSettings.defaultBrowser == "chrome"
+            then "--incognito"
+            else "--private-window"
+          ))
         "$mainMod SHIFT, C, exec, env XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
         "$mainMod, SemiColon, exec, spotify"
         "$mainMod, C, exec, code"
