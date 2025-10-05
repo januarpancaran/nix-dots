@@ -3,6 +3,13 @@
   userSettings,
   ...
 }: {
+  home.packages = with pkgs; [
+    bat
+    fzf
+    trash-cli
+    zoxide
+  ];
+
   programs.bash = {
     package = pkgs.bashInteractive;
     enable = true;
