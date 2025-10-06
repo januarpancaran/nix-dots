@@ -27,6 +27,7 @@
     ../../system/services/others.nix
     ../../system/services/pipewire.nix
     ../../system/services/tlp.nix
+    ../../system/services/vm.nix
     ../../system/udev-rules
   ];
 
@@ -69,7 +70,7 @@
   users = {
     users.${userSettings.username} = {
       isNormalUser = true;
-      extraGroups = ["wheel" "video" "audio" "networkmanager"];
+      extraGroups = ["wheel" "video" "audio" "networkmanager" "libvirtd"];
       shell =
         if userSettings.defaultShell == "bash"
         then pkgs.bashInteractive
