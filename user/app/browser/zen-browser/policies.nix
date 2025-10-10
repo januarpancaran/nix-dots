@@ -22,6 +22,7 @@
     in
       builtins.listToAttrs [
         (extension "ublock-origin" "uBlock0@raymondhill.net")
+        (extension "always-visible" "{4b7825da-0dd1-44f9-9717-bee5b2408af6}")
       ];
 
     Preferences = let
