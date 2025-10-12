@@ -63,14 +63,14 @@
     bat
     curl
     devbox
-    eog
-    evince
     foliate
     fzf
     glib
     htop
     insomnia
     libreoffice
+    loupe
+    papers
     ripgrep
     sqlitebrowser
     telegram-desktop
