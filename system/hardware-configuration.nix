@@ -25,16 +25,16 @@
     options = ["noatime" "space_cache=v2" "compress=zstd" "ssd" "discard=async" "subvol=root"];
   };
 
+  fileSystems."/home" = {
+    device = "/dev/disk/by-label/NIXOS_ROOT";
+    fsType = "btrfs";
+    options = ["noatime" "space_cache=v2" "compress=zstd" "ssd" "discard=async" "subvol=home"];
+  };
+
   fileSystems."/nix" = {
     device = "/dev/disk/by-label/NIXOS_ROOT";
     fsType = "btrfs";
     options = ["noatime" "space_cache=v2" "compress=zstd" "ssd" "discard=async" "subvol=nix"];
-  };
-
-  fileSystems."/persist" = {
-    device = "/dev/disk/by-label/NIXOS_ROOT";
-    fsType = "btrfs";
-    options = ["noatime" "space_cache=v2" "compress=zstd" "ssd" "discard=async" "subvol=persist"];
   };
 
   fileSystems."/opt" = {
@@ -43,16 +43,16 @@
     options = ["noatime" "space_cache=v2" "compress=zstd" "ssd" "discard=async" "subvol=opt"];
   };
 
+  fileSystems."/srv" = {
+    device = "/dev/disk/by-label/NIXOS_ROOT";
+    fsType = "btrfs";
+    options = ["noatime" "space_cache=v2" "compress=zstd" "ssd" "discard=async" "subvol=srv"];
+  };
+
   fileSystems."/tmp" = {
     device = "/dev/disk/by-label/NIXOS_ROOT";
     fsType = "btrfs";
     options = ["noatime" "space_cache=v2" "compress=zstd" "ssd" "discard=async" "subvol=tmp"];
-  };
-
-  fileSystems."/swap" = {
-    device = "/dev/disk/by-label/NIXOS_ROOT";
-    fsType = "btrfs";
-    options = ["noatime" "space_cache=v2" "compress=zstd" "ssd" "discard=async" "subvol=swap"];
   };
 
   fileSystems."/var/cache" = {
@@ -65,17 +65,6 @@
     device = "/dev/disk/by-label/NIXOS_ROOT";
     fsType = "btrfs";
     options = ["noatime" "space_cache=v2" "compress=zstd" "ssd" "discard=async" "subvol=log"];
-  };
-
-  fileSystems."/home" = {
-    device = "/dev/disk/by-label/NIXOS_HOME";
-    fsType = "btrfs";
-    options = ["noatime" "space_cache=v2" "compress=zstd" "ssd" "discard=async" "subvol=home"];
-  };
-
-  fileSystems."/home/daangsangu/Disks/ACER" = {
-    device = "/dev/disk/by-label/ACER";
-    fsType = "ntfs";
   };
 
   fileSystems."/home/daangsangu/Disks/KINGSTON" = {
@@ -96,8 +85,7 @@
 
   swapDevices = [
     {
-      device = "/swap/swapfile";
-      size = 16 * 1024;
+      device = "/dev/disk/by-label/NIXOS_SWAP";
     }
   ];
 
