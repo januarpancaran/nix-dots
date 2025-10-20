@@ -1,5 +1,3 @@
-local lspconfig = require("lspconfig")
-
 local lsp_on_attach = function(_, bufnr)
 	vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
 end
@@ -51,7 +49,7 @@ local servers = {
 }
 
 for server, config in pairs(servers) do
-	local lsp = lspconfig[server]
+	local lsp = vim.lsp.config[server]
 
 	if lsp and lsp.setup then
 		lsp.setup(vim.tbl_extend("force", {
