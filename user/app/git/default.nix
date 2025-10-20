@@ -7,10 +7,12 @@
     package = pkgs.git;
     enable = true;
 
-    userName = userSettings.githubUsername;
-    userEmail = userSettings.githubEmail;
+    settings = {
+      user = {
+        name = userSettings.githubUsername;
+        email = userSettings.githubEmail;
+      };
 
-    extraConfig = {
       init.defaultBranch = "main";
     };
   };
