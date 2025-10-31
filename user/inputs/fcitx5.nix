@@ -10,7 +10,7 @@
         addons = with pkgs; [
           fcitx5-gtk
           fcitx5-nord
-          fcitx5-chinese-addons
+          qt6Packages.fcitx5-chinese-addons
           fcitx5-anthy
           fcitx5-hangul
         ];
