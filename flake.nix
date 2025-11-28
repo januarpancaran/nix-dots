@@ -33,6 +33,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Nix4vscode
+    nix4vscode = {
+      url = "github:nix-community/nix4vscode";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Zen Browser
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
@@ -84,6 +90,7 @@
 
       overlays = [
         inputs.niri.overlays.niri
+        inputs.nix4vscode.overlays.default
       ];
     };
   in {
