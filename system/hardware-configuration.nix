@@ -67,11 +67,6 @@
     options = ["noatime" "space_cache=v2" "compress=zstd" "ssd" "discard=async" "subvol=log"];
   };
 
-  fileSystems."/home/daangsangu/Disks/KINGSTON" = {
-    device = "/dev/disk/by-label/KINGSTON";
-    fsType = "ntfs";
-  };
-
   fileSystems."/boot" = {
     device = "/dev/disk/by-label/NIXOS_BOOT";
     fsType = "ext4";
@@ -88,6 +83,16 @@
       device = "/dev/disk/by-label/NIXOS_SWAP";
     }
   ];
+
+  fileSystems."/home/daangsangu/Disks/ACER" = {
+    device = "/dev/disk/by-label/ACER";
+    fsType = "ntfs";
+  };
+
+  fileSystems."/home/daangsangu/Disks/KINGSTON" = {
+    device = "/dev/disk/by-label/KINGSTON";
+    fsType = "ntfs";
+  };
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
