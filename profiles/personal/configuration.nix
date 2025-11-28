@@ -43,11 +43,11 @@
   time.timeZone = systemSettings.timeZone;
 
   i18n = {
-    defaultLocale = "en_US.UTF-8";
+    defaultLocale = "en_GB.UTF-8";
     supportedLocales = [
+      "en_GB.UTF-8/UTF-8"
       "de_DE.UTF-8/UTF-8"
       "fr_FR.UTF-8/UTF-8"
-      "en_US.UTF-8/UTF-8"
     ];
   };
 
