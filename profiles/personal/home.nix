@@ -56,7 +56,9 @@
     username = userSettings.username;
     homeDirectory = "/home/" + userSettings.username;
     stateVersion = "25.05";
-    sessionVariables = {EDITOR = "nvim";};
+    sessionVariables = {
+      EDITOR = "nvim";
+    };
   };
 
   home.packages = with pkgs; [
@@ -83,6 +85,49 @@
     zip
     zotero
     zoxide
+
+    # C/C++
+    gcc
+
+    # C#
+    dotnet-sdk
+    dotnet-runtime
+
+    # Go
+    go
+
+    # Java
+    jdk
+
+    # JS/TS
+    nodejs
+
+    # Lua
+    lua
+
+    # Nix
+    nixd
+
+    # PHP
+    php
+    php84Packages.composer
+
+    # Python
+    (python312.withPackages (pkgs:
+      with pkgs; [
+        numpy
+        pandas
+        matplotlib
+        seaborn
+        scikit-learn
+        flask
+        flask-cors
+        django
+        django-cors-headers
+      ]))
+
+    # Others
+    ngrok
   ];
 
   programs.home-manager.enable = true;
