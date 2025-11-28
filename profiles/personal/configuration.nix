@@ -87,6 +87,7 @@
   programs.hyprland.enable = userSettings.wm == "Hyprland";
   programs.bash.enable = true;
   programs.zsh.enable = true;
+  programs.nix-ld.enable = true;
 
   environment.systemPackages = with pkgs; [
     libnotify
