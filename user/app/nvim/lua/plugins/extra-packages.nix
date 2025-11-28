@@ -1,8 +1,5 @@
 {pkgs, ...}: {
   programs.neovim.extraPackages = with pkgs; [
-    # dependency for copilot.lua
-    nodejs
-
     # lsp
     bash-language-server
     clang-tools

@@ -45,13 +45,6 @@
       config = read ../../after/plugins/comment-nvim.lua;
     }
 
-    # copilot
-    {
-      plugin = copilot-lua;
-      type = "lua";
-      config = read ../../after/plugins/copilot.lua;
-    }
-
     # docs-view
     {
       plugin = nvim-docs-view;
@@ -175,7 +168,6 @@
     }
 
     # dependencies
-    blink-cmp-copilot
     friendly-snippets
     mini-icons
     mini-nvim

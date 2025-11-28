@@ -1,8 +1,10 @@
-local lightbulb = require("nvim-lightbulb")
+if not vim.g.vscode then
+	local lightbulb = require("nvim-lightbulb")
 
-vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-	group = vim.api.nvim_create_augroup("LightBulb", {}),
-	callback = function()
-		lightbulb.update_lightbulb()
-	end,
-})
+	vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+		group = vim.api.nvim_create_augroup("LightBulb", {}),
+		callback = function()
+			lightbulb.update_lightbulb()
+		end,
+	})
+end
