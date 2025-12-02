@@ -115,6 +115,7 @@
     # Python
     (python312.withPackages (pkgs:
       with pkgs; [
+        pip
         numpy
         pandas
         matplotlib
