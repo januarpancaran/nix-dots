@@ -28,6 +28,7 @@
     ../../system/services/pipewire.nix
     ../../system/services/tlp.nix
     ../../system/services/vm.nix
+    ../../system/services/vpn.nix
     ../../system/udev-rules
   ];
 
