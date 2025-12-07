@@ -10,7 +10,6 @@
       ../../user/app/hyprlock
       ../../user/app/mpv
       ../../user/app/terminal/ghostty.nix
-      ../../user/app/vscode
       ../../user/app/wlogout
       ../../user/inputs/fcitx5.nix
       ../../user/services/hypridle.nix
