@@ -34,5 +34,8 @@
     shfmt
     sqlfluff
     stylua
+
+    # others
+    nodejs
   ];
 }
