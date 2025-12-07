@@ -112,7 +112,7 @@
     php84Packages.composer
 
     # Python
-    (python312.withPackages (pkgs:
+    (python3.withPackages (pkgs:
       with pkgs; [
         pip
         numpy
@@ -120,6 +120,7 @@
         matplotlib
         seaborn
         scikit-learn
+        streamlit
         flask
         flask-cors
         django
