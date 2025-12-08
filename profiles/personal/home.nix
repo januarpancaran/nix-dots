@@ -84,51 +84,6 @@
     zip
     zotero
     zoxide
-
-    # C/C++
-    gcc
-
-    # C#
-    dotnet-sdk
-    dotnet-runtime
-
-    # Go
-    go
-
-    # Java
-    jdk
-
-    # JS/TS
-    nodejs
-
-    # Lua
-    lua
-
-    # Nix
-    nixd
-
-    # PHP
-    php
-    php84Packages.composer
-
-    # Python
-    (python3.withPackages (pkgs:
-      with pkgs; [
-        pip
-        numpy
-        pandas
-        matplotlib
-        seaborn
-        scikit-learn
-        streamlit
-        flask
-        flask-cors
-        django
-        django-cors-headers
-      ]))
-
-    # Others
-    ngrok
   ];
 
   programs.home-manager.enable = true;
