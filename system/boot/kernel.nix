@@ -4,7 +4,7 @@
   ...
 }: {
   boot = {
-    kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages;
     kernelParams = ["quiet" "acpi_backlight=native" "i915.force_probe=46a6" "mem_sleep_default=s2idle" "modprobe.blacklist=iTCO_wdt"];
 
     initrd.kernelModules = ["i915" "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm"];
