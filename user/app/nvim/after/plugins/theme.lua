@@ -1,3 +1,3 @@
 if not vim.g.vscode then
-	vim.cmd.colorscheme("catppuccin-mocha")
+	vim.cmd.colorscheme("tokyonight-night")
 end

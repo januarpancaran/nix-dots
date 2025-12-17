@@ -169,7 +169,7 @@
 
     # theme
     {
-      plugin = catppuccin-nvim;
+      plugin = tokyonight-nvim;
       type = "lua";
       config = read ../../after/plugins/theme.lua;
     }
