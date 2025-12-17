@@ -48,6 +48,8 @@
         fastfetch
       fi
 
+      export PATH="$PATH:$HOME/go/bin"
+
       eval "$(fzf --bash)"
       eval "$(starship init bash)"
       eval "$(zoxide init bash)"

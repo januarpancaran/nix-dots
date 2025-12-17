@@ -68,9 +68,11 @@
       bindkey "^p" history-search-backward
       bindkey "^n" history-search-forward
 
-      if [ -f ${pkgs.fastfetch}/bin/fastfetch ]; then
+      if command -v fastfetch &>/dev/null; then
         fastfetch
       fi
+
+      export PATH="$PATH:$HOME/go/bin"
 
       source <(fzf --zsh)
       eval "$(zoxide init zsh)
