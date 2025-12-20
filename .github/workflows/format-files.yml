@@ -38,4 +38,4 @@ jobs:
       - name: Push back changes
         uses: stefanzweifel/git-auto-commit-action@v6
         with:
-          commit_message: "format: format files"
+          commit_message: "refactor: format files"
