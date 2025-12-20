@@ -101,6 +101,9 @@
         seaborn
         scikit-learn
         streamlit
+        fastapi
+        pydantic
+        uvicorn
         flask
         flask-cors
         django
