@@ -79,6 +79,7 @@
     unityhub
     unrar
     unzip
+    vscode
     wget
     yazi
     zip
