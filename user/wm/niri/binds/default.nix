@@ -79,6 +79,11 @@ in {
       (setAttrByPath [key args] argsVal)
       (setAttrByPath [key "action" "spawn"] cmd);
 
+    bindSpawnShArgs = key: args: argsVal: cmd:
+      recursiveUpdate
+      (setAttrByPath ["Mod+${key}" args] argsVal)
+      (setAttrByPath ["Mod+${key}" "action" "spawn-sh"] cmd);
+
     bindVal = key: cmd: cmdVal: setAttrByPath ["Mod+${key}" "action" cmd] cmdVal;
 
     bindList =
@@ -102,6 +107,7 @@ in {
         (bindSpawn "SemiColon" "spotify")
         (bindSpawn "D" "discord")
         (bindSpawn "M" "wlogout")
+        (bindSpawnShArgs "Shift+SemiColon" "repeat" false "wl-mirror $(niri msg --json focused-output | jq -r .name)")
 
         # Volumes
         (bindSpawnArgs "XF86AudioRaiseVolume" "allow-when-locked" true ["${volumeNotifier}/bin/volume-notifier" "up"])

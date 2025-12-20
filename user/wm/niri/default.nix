@@ -10,6 +10,7 @@
     polkit_gnome
     spotify
     wl-clipboard
+    wl-mirror
     xdg-desktop-portal
     xdg-desktop-portal-gnome
     xdg-desktop-portal-gtk
