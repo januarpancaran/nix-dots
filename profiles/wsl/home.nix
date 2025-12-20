@@ -42,6 +42,31 @@
     yazi
     zip
     zoxide
+
+    gcc
+    go
+    jdk
+    lua
+    ngrok
+    nodejs
+    php
+    php84Packages.composer
+    (python3.withPackages (ps:
+      with ps; [
+        numpy
+        pandas
+        matplotlib
+        seaborn
+        scikit-learn
+        streamlit
+        fastapi
+        pydantic
+        uvicorn
+        flask
+        flask-cors
+        django
+        django-cors-headers
+      ]))
   ];
 
   programs.home-manager.enable = true;
