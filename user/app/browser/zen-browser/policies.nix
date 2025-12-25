@@ -86,6 +86,7 @@
       "urlclassifier.trackingSkipURLs" = "*.reddit.com, *.twitter.com, *.twimg.com, *.tiktok.com";
       "urlclassifier.features.socialtracking.skipURLs" = "*.instagram.com, *.twitter.com, *.twimg.com";
       "browser.download.start_downloads_in_tmp_dir" = lock-true;
+      "browser.download.useDownloadDir" = lock-false;
       "browser.helperApps.deleteTempFileOnExit" = lock-true;
       "browser.uitour.enabled" = lock-false;
       "privacy.globalprivacycontrol.enabled" = lock-true;
