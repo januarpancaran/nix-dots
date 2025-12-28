@@ -84,6 +84,11 @@
     }
   ];
 
+  fileSystems."/home/daangsangu/Disks/ACER" = {
+    device = "/dev/disk/by-label/ACER";
+    fsType = "ntfs";
+  };
+
   fileSystems."/home/daangsangu/Disks/KINGSTON" = {
     device = "/dev/disk/by-label/KINGSTON";
     fsType = "ntfs";
