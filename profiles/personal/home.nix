@@ -61,6 +61,7 @@
   };
 
   home.packages = with pkgs; [
+    antigravity
     bat
     curl
     devbox
@@ -86,11 +87,14 @@
     zotero
     zoxide
 
+    alejandra
+    bun
     gcc
     go
     jdk
     lua
     ngrok
+    nixd
     nodejs
     php
     php84Packages.composer

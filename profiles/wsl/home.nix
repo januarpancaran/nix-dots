@@ -43,11 +43,14 @@
     zip
     zoxide
 
+    alejandra
+    bun
     gcc
     go
     jdk
     lua
     ngrok
+    nixd
     nodejs
     php
     php84Packages.composer
