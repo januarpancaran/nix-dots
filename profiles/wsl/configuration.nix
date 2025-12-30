@@ -12,6 +12,7 @@
     ../../system/services/dbus.nix
     ../../system/services/mysql.nix
     ../../system/services/others.nix
+    ../../system/services/postgresql.nix
   ];
 
   wsl = {

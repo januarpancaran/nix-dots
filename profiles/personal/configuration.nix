@@ -26,6 +26,7 @@
     ../../system/services/mysql.nix
     ../../system/services/others.nix
     ../../system/services/pipewire.nix
+    ../../system/services/postgresql.nix
     ../../system/services/tlp.nix
     ../../system/services/vm.nix
     ../../system/services/vpn.nix
