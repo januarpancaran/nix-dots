@@ -33,12 +33,14 @@
     fzf
     glib
     htop
+    mailhog
+    meilisearch
     ripgrep
     tree
     unrar
     unzip
-    wl-clipboard
     wget
+    wl-clipboard
     yazi
     zip
     zoxide

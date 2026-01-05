@@ -72,6 +72,8 @@
     insomnia
     libreoffice
     loupe
+    mailhog
+    meilisearch
     papers
     ripgrep
     sqlitebrowser
