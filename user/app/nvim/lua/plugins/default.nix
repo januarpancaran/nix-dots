@@ -24,13 +24,6 @@
       config = read ../../after/plugins/blink-cmp.lua;
     }
 
-    # bufferline
-    {
-      plugin = bufferline-nvim;
-      type = "lua";
-      config = read ../../after/plugins/bufferline-nvim.lua;
-    }
-
     # colorizer
     {
       plugin = nvim-colorizer-lua;
@@ -108,6 +101,13 @@
       config = read ../../after/plugins/markdown-preview-nvim.lua;
     }
 
+    # neo-tree
+    {
+      plugin = neo-tree-nvim;
+      type = "lua";
+      config = read ../../after/plugins/neo-tree-nvim.lua;
+    }
+
     # noice
     {
       plugin = noice-nvim;
@@ -126,13 +126,6 @@
       src = inputs.none-ls-extras-nvim;
       dependencies = [none-ls-nvim];
     })
-
-    # oil
-    {
-      plugin = oil-nvim;
-      type = "lua";
-      config = read ../../after/plugins/oil-nvim.lua;
-    }
 
     # rainbow delimiters
     {

@@ -12,55 +12,6 @@ vim.keymap.set("n", "<C-k>", "wincmd k<CR>")
 vim.keymap.set("n", "<C-l>", "wincmd l<CR>")
 
 if not vim.g.vscode then
-	-- bufferline
-	local bufferline = require("bufferline")
-
-	vim.keymap.set("n", "<C-1>", function()
-		bufferline.go_to(1, true)
-	end)
-	vim.keymap.set("n", "<C-2>", function()
-		bufferline.go_to(2, true)
-	end)
-	vim.keymap.set("n", "<C-3>", function()
-		bufferline.go_to(3, true)
-	end)
-	vim.keymap.set("n", "<C-4>", function()
-		bufferline.go_to(4, true)
-	end)
-	vim.keymap.set("n", "<C-5>", function()
-		bufferline.go_to(5, true)
-	end)
-	vim.keymap.set("n", "<C-6>", function()
-		bufferline.go_to(6, true)
-	end)
-	vim.keymap.set("n", "<C-7>", function()
-		bufferline.go_to(7, true)
-	end)
-	vim.keymap.set("n", "<C-8>", function()
-		bufferline.go_to(8, true)
-	end)
-	vim.keymap.set("n", "<C-9>", function()
-		bufferline.go_to(9, true)
-	end)
-	vim.keymap.set("n", "<C-$>", function()
-		bufferline.go_to(-1, true)
-	end)
-
-	vim.keymap.set("n", "<leader>bp", "<CMD>BufferLineCycleNext<CR>")
-	vim.keymap.set("n", "<leader>bn", "<CMD>BufferLineCycleNext<CR>")
-	vim.keymap.set("n", "<leader>bmn", "<CMD>BufferLineMoveNext<CR>")
-	vim.keymap.set("n", "<leader>bmp", "<CMD>BufferLineMovePrev<CR>")
-	vim.keymap.set("n", "<leader>bse", "<CMD>BufferLineSortByExtension<CR>")
-	vim.keymap.set("n", "<leader>bsd", "<CMD>BufferLineSortByDirectory<CR>")
-	vim.keymap.set("n", "<C-w>", function()
-		vim.api.nvim_buf_delete(0, { force = false })
-	end, { desc = "Close current buffer" })
-	vim.keymap.set("n", "<leader>bsi", function()
-		bufferline.sort_by(function(buf_a, buf_b)
-			return buf_a.id < buf_b.id
-		end)
-	end)
-
 	-- lsp
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "LSP Hover" })
 	vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
@@ -72,8 +23,9 @@ if not vim.g.vscode then
 	-- markdown-preview
 	vim.keymap.set("n", "<C-m>", "<CMD>MarkdownPreview<CR>", { desc = "Open markdown in browser" })
 
-	-- oil
-	vim.keymap.set("n", "<leader>pp", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+	-- neo-tree
+	vim.keymap.set("n", "N", "<CMD>Neotree<CR>", { desc = "Toggle Neo-tree" })
+	vim.keymap.set("n", "<leader>pp", "<CMD>Neotree close<CR>", { desc = "Close Neo-tree" })
 
 	-- telescope
 	vim.keymap.set("n", "<leader>ff", require("telescope.builtin").find_files, { desc = "Telescope find files" })

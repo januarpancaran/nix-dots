@@ -35,6 +35,8 @@ vim.o.updatetime = 50
 vim.o.termguicolors = true
 vim.o.guicursor = ""
 vim.o.clipboard = "unnamedplus"
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 vim.diagnostic.config({
 	virtual_text = true,
