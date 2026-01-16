@@ -70,6 +70,7 @@
     glib
     htop
     insomnia
+    kiro
     libreoffice
     loupe
     mailhog
