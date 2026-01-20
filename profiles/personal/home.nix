@@ -92,6 +92,9 @@
 
     alejandra
     bun
+    dotnet-aspnetcore
+    dotnet-sdk
+    dotnet-runtime
     gcc
     go
     jdk
