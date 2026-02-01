@@ -15,81 +15,81 @@
   boot.supportedFilesystems = ["btrfs" "ntfs"];
   boot.initrd.availableKernelModules = ["xhci_pci" "thunderbolt" "vmd" "ahci" "nvme" "usb_storage" "sd_mod"];
   boot.initrd.kernelModules = ["dm-snapshot" "cryptd"];
-  boot.initrd.luks.devices.cryptlvm.device = "/dev/disk/by-label/NIXOS_LUKS";
+  boot.initrd.luks.devices.cryptlvm.device = "/dev/disk/by-label/NIXLUKS";
   boot.kernelModules = ["kvm-intel"];
   boot.extraModulePackages = [];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-label/NIXOS_ROOT";
+    device = "/dev/disk/by-label/NIXROOT";
     fsType = "btrfs";
     options = ["noatime" "space_cache=v2" "compress=zstd" "ssd" "discard=async" "subvol=root"];
   };
 
   fileSystems."/home" = {
-    device = "/dev/disk/by-label/NIXOS_ROOT";
+    device = "/dev/disk/by-label/NIXROOT";
     fsType = "btrfs";
     options = ["noatime" "space_cache=v2" "compress=zstd" "ssd" "discard=async" "subvol=home"];
   };
 
   fileSystems."/nix" = {
-    device = "/dev/disk/by-label/NIXOS_ROOT";
+    device = "/dev/disk/by-label/NIXROOT";
     fsType = "btrfs";
     options = ["noatime" "space_cache=v2" "compress=zstd" "ssd" "discard=async" "subvol=nix"];
   };
 
   fileSystems."/opt" = {
-    device = "/dev/disk/by-label/NIXOS_ROOT";
+    device = "/dev/disk/by-label/NIXROOT";
     fsType = "btrfs";
     options = ["noatime" "space_cache=v2" "compress=zstd" "ssd" "discard=async" "subvol=opt"];
   };
 
   fileSystems."/srv" = {
-    device = "/dev/disk/by-label/NIXOS_ROOT";
+    device = "/dev/disk/by-label/NIXROOT";
     fsType = "btrfs";
     options = ["noatime" "space_cache=v2" "compress=zstd" "ssd" "discard=async" "subvol=srv"];
   };
 
   fileSystems."/tmp" = {
-    device = "/dev/disk/by-label/NIXOS_ROOT";
+    device = "/dev/disk/by-label/NIXROOT";
     fsType = "btrfs";
     options = ["noatime" "space_cache=v2" "compress=zstd" "ssd" "discard=async" "subvol=tmp"];
   };
 
   fileSystems."/var/cache" = {
-    device = "/dev/disk/by-label/NIXOS_ROOT";
+    device = "/dev/disk/by-label/NIXROOT";
     fsType = "btrfs";
     options = ["noatime" "space_cache=v2" "compress=zstd" "ssd" "discard=async" "subvol=cache"];
   };
 
   fileSystems."/var/log" = {
-    device = "/dev/disk/by-label/NIXOS_ROOT";
+    device = "/dev/disk/by-label/NIXROOT";
     fsType = "btrfs";
     options = ["noatime" "space_cache=v2" "compress=zstd" "ssd" "discard=async" "subvol=log"];
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-label/NIXOS_BOOT";
+    device = "/dev/disk/by-label/NIXBOOT";
     fsType = "ext4";
   };
 
   fileSystems."/boot/efi" = {
-    device = "/dev/disk/by-label/NIXOS_EFI";
+    device = "/dev/disk/by-label/NIXEFI";
     fsType = "vfat";
     options = ["fmask=0077" "dmask=0077"];
   };
 
   swapDevices = [
     {
-      device = "/dev/disk/by-label/NIXOS_SWAP";
+      device = "/dev/disk/by-label/NIXSWAP";
     }
   ];
 
-  fileSystems."/home/daangsangu/Disks/ACER" = {
+  fileSystems."/home/daangsangu/Windows" = {
     device = "/dev/disk/by-label/ACER";
     fsType = "ntfs";
   };
 
-  fileSystems."/home/daangsangu/Disks/KINGSTON" = {
+  fileSystems."/home/daangsangu/Storage" = {
     device = "/dev/disk/by-label/KINGSTON";
     fsType = "ntfs";
   };
