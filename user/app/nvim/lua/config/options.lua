@@ -36,9 +36,9 @@ vim.o.termguicolors = true
 vim.o.guicursor = "a:block"
 vim.o.clipboard = "unnamedplus"
 vim.diagnostic.config({
-    virtual_text = true,
-    signs = true,
-    underline = true,
-    update_in_insert = true,
-    severity_sort = true,
+	virtual_text = true,
+	signs = true,
+	underline = true,
+	update_in_insert = true,
+	severity_sort = true,
 })

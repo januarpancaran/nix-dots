@@ -1,10 +1,10 @@
 if vim.g.vscode then
-    vim.api.nvim_create_autocmd("FileType", {
-        pattern = "markdown",
-        callback = function()
-            vim.g.mkdp_filetypes = { "markdown" }
-        end,
-    })
+	vim.api.nvim_create_autocmd("FileType", {
+		pattern = "markdown",
+		callback = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+	})
 
-    require("render-markdown").setup()
+	require("render-markdown").setup()
 end

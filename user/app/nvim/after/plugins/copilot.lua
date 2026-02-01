@@ -1,13 +1,13 @@
 if not vim.g.vscode then
-    require("copilot").setup({
-        suggestion = { enabled = false },
-        panel = { enabled = false },
-        server_opts_overrides = {
-            settings = {
-                telemetry = {
-                    telemetryLevel = "off",
-                },
-            },
-        },
-    })
+	require("copilot").setup({
+		suggestion = { enabled = false },
+		panel = { enabled = false },
+		server_opts_overrides = {
+			settings = {
+				telemetry = {
+					telemetryLevel = "off",
+				},
+			},
+		},
+	})
 end
