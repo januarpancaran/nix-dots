@@ -92,7 +92,6 @@
     zotero
     zoxide
 
-    alejandra
     antigravity-claude-proxy
     bun
     claude-code

@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   imports = [
     ./lua/plugins
   ];
@@ -12,7 +13,7 @@
     vimAlias = true;
     vimdiffAlias = true;
 
-    extraLuaConfig = ''
+    initLua = ''
       ${builtins.readFile ./lua/config/options.lua}
       ${builtins.readFile ./lua/config/mappings.lua}
     '';
