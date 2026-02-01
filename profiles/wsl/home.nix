@@ -47,6 +47,7 @@
 
     alejandra
     bun
+    claude-code
     dotnet-aspnetcore
     dotnet-sdk
     dotnet-runtime
@@ -57,6 +58,7 @@
     ngrok
     nixd
     nodejs
+    opencode
     php
     php84Packages.composer
     (python3.withPackages (ps:
