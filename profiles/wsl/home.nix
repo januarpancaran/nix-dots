@@ -7,6 +7,7 @@
     ../../theme
     ../../user/app/antigravity-claude-proxy
     ../../user/app/git
+    ../../user/app/opencode-antigravity-auth
     ../../user/shell/shell-utils/fastfetch.nix
     ../../user/shell/shell-utils/starship
     ../../user/shell/shell-utils/tmux.nix
