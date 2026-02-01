@@ -23,9 +23,9 @@ jobs:
       - name: Setup nix
         uses: cachix/install-nix-action@v25
 
-      - name: Run alejandra
+      - name: Run nixfmt
         run: |
-          nix run nixpkgs#alejandra -- .
+          nix run nixpkgs#nixfmt -- .
 
       - name: Run shfmt
         run: |
