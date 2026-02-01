@@ -84,6 +84,28 @@
 
       overlays = [
         inputs.niri.overlays.niri
+        (final: prev: {
+          antigravity-claude-proxy = prev.buildNpmPackage {
+            pname = "antigravity-claude-proxy";
+            version = "2.4.4";
+
+            src = prev.fetchFromGitHub {
+              owner = "badrisnarayanan";
+              repo = "antigravity-claude-proxy";
+              rev = "v2.4.4";
+              hash = "sha256-HN+1a/SK6QudAcF6AnxcPRZLAIazOatnCC5zEp1v65s=";
+            };
+
+            npmDepsHash = "sha256-HSvcf/xwRG4LXQjIDykVQVJNvabMvT7JGt8tL4k1OgM=";
+            dontNpmBuild = true;
+
+            meta = with prev.lib; {
+              description = "Antigravity Claude Proxy";
+              license = licenses.mit;
+              platforms = platforms.linux;
+            };
+          };
+        })
       ];
     };
   in {

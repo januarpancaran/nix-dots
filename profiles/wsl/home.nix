@@ -5,6 +5,7 @@
 }: {
   imports = [
     ../../theme
+    ../../user/app/antigravity-claude-proxy
     ../../user/app/git
     ../../user/shell/shell-utils/fastfetch.nix
     ../../user/shell/shell-utils/starship

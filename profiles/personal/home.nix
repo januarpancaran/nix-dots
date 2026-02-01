@@ -6,6 +6,7 @@
   imports =
     [
       ../../theme
+      ../../user/app/antigravity-claude-proxy
       ../../user/app/git
       ../../user/app/hyprlock
       ../../user/app/mpv
@@ -91,6 +92,7 @@
     zoxide
 
     alejandra
+    antigravity-claude-proxy
     bun
     claude-code
     dotnet-aspnetcore
