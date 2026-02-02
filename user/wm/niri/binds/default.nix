@@ -3,7 +3,8 @@
   pkgs,
   userSettings,
   ...
-}: let
+}:
+let
   volumeNotifier = pkgs.writeShellScriptBin "volume-notifier" ''
     #!/usr/bin/env bash
 
@@ -59,65 +60,100 @@
       ;;
     esac
   '';
-in {
-  programs.niri.settings.binds = let
-    inherit (lib.attrsets) setAttrByPath recursiveUpdate;
+in
+{
+  programs.niri.settings.binds =
+    let
+      inherit (lib.attrsets) setAttrByPath recursiveUpdate;
 
-    bind = key: cmd: setAttrByPath ["Mod+${key}" "action" cmd] {};
+      bind = key: cmd: setAttrByPath [ "Mod+${key}" "action" cmd ] { };
 
-    bindAttr = key: cmd: attr: attrVal: setAttrByPath ["Mod+${key}" "action" cmd attr] attrVal;
+      bindAttr =
+        key: cmd: attr: attrVal:
+        setAttrByPath [ "Mod+${key}" "action" cmd attr ] attrVal;
 
-    bindArgs = key: args: argsVal: cmd:
-      recursiveUpdate
-      (setAttrByPath ["Mod+${key}" args] argsVal)
-      (setAttrByPath ["Mod+${key}" "action" cmd] {});
+      bindArgs =
+        key: args: argsVal: cmd:
+        recursiveUpdate (setAttrByPath [ "Mod+${key}" args ] argsVal) (
+          setAttrByPath [ "Mod+${key}" "action" cmd ] { }
+        );
 
-    bindSpawn = key: cmd: setAttrByPath ["Mod+${key}" "action" "spawn"] cmd;
+      bindSpawn = key: cmd: setAttrByPath [ "Mod+${key}" "action" "spawn" ] cmd;
 
-    bindSpawnArgs = key: args: argsVal: cmd:
-      recursiveUpdate
-      (setAttrByPath [key args] argsVal)
-      (setAttrByPath [key "action" "spawn"] cmd);
+      bindSpawnArgs =
+        key: args: argsVal: cmd:
+        recursiveUpdate (setAttrByPath [ key args ] argsVal) (setAttrByPath [ key "action" "spawn" ] cmd);
 
-    bindSpawnShArgs = key: args: argsVal: cmd:
-      recursiveUpdate
-      (setAttrByPath ["Mod+${key}" args] argsVal)
-      (setAttrByPath ["Mod+${key}" "action" "spawn-sh"] cmd);
+      bindSpawnShArgs =
+        key: args: argsVal: cmd:
+        recursiveUpdate (setAttrByPath [ "Mod+${key}" args ] argsVal) (
+          setAttrByPath [ "Mod+${key}" "action" "spawn-sh" ] cmd
+        );
 
-    bindVal = key: cmd: cmdVal: setAttrByPath ["Mod+${key}" "action" cmd] cmdVal;
+      bindVal =
+        key: cmd: cmdVal:
+        setAttrByPath [ "Mod+${key}" "action" cmd ] cmdVal;
 
-    bindList =
-      [
+      bindList = [
         # Programs
         (bindSpawn "T" "ghostty")
-        (bindSpawn "B" (
-          if userSettings.defaultBrowser == "chrome"
-          then "google-chrome-stable"
-          else "zen"
-        ))
+        (bindSpawn "B" (if userSettings.defaultBrowser == "chrome" then "google-chrome-stable" else "zen"))
         (bindSpawn "I" (
-          if userSettings.defaultBrowser == "chrome"
-          then ["google-chrome-stable" "--incognito"]
-          else ["zen" "--private-window"]
+          if userSettings.defaultBrowser == "chrome" then
+            [
+              "google-chrome-stable"
+              "--incognito"
+            ]
+          else
+            [
+              "zen"
+              "--private-window"
+            ]
         ))
         (bindSpawn "E" "nautilus")
         (bindSpawn "R" "fuzzel")
         (bindSpawn "C" "code")
-        (bindSpawn "Shift+C" ["env" "XDG_CURRENT_DESKTOP=gnome" "gnome-control-center"])
+        (bindSpawn "Shift+C" [
+          "env"
+          "XDG_CURRENT_DESKTOP=gnome"
+          "gnome-control-center"
+        ])
         (bindSpawn "SemiColon" "spotify")
         (bindSpawn "D" "discord")
         (bindSpawn "M" "wlogout")
-        (bindSpawnShArgs "Shift+SemiColon" "repeat" false "wl-mirror $(niri msg --json focused-output | jq -r .name)")
+        (bindSpawnShArgs "Shift+SemiColon" "repeat" false
+          "wl-mirror $(niri msg --json focused-output | jq -r .name)"
+        )
 
         # Volumes
-        (bindSpawnArgs "XF86AudioRaiseVolume" "allow-when-locked" true ["${volumeNotifier}/bin/volume-notifier" "up"])
-        (bindSpawnArgs "XF86AudioLowerVolume" "allow-when-locked" true ["${volumeNotifier}/bin/volume-notifier" "down"])
-        (bindSpawnArgs "XF86AudioMute" "allow-when-locked" true ["${volumeNotifier}/bin/volume-notifier" "mute"])
-        (bindSpawnArgs "XF86AudioMicMute" "allow-when-locked" true ["wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toogle"])
+        (bindSpawnArgs "XF86AudioRaiseVolume" "allow-when-locked" true [
+          "${volumeNotifier}/bin/volume-notifier"
+          "up"
+        ])
+        (bindSpawnArgs "XF86AudioLowerVolume" "allow-when-locked" true [
+          "${volumeNotifier}/bin/volume-notifier"
+          "down"
+        ])
+        (bindSpawnArgs "XF86AudioMute" "allow-when-locked" true [
+          "${volumeNotifier}/bin/volume-notifier"
+          "mute"
+        ])
+        (bindSpawnArgs "XF86AudioMicMute" "allow-when-locked" true [
+          "wpctl"
+          "set-mute"
+          "@DEFAULT_AUDIO_SOURCE@"
+          "toogle"
+        ])
 
         # Brightness
-        (bindSpawnArgs "XF86MonBrightnessUp" "allow-when-locked" true ["${brightnessNotifier}/bin/brightness-notifier" "up"])
-        (bindSpawnArgs "XF86MonBrightnessDown" "allow-when-locked" true ["${brightnessNotifier}/bin/brightness-notifier" "down"])
+        (bindSpawnArgs "XF86MonBrightnessUp" "allow-when-locked" true [
+          "${brightnessNotifier}/bin/brightness-notifier"
+          "up"
+        ])
+        (bindSpawnArgs "XF86MonBrightnessDown" "allow-when-locked" true [
+          "${brightnessNotifier}/bin/brightness-notifier"
+          "down"
+        ])
 
         (bindArgs "O" "repeat" false "toggle-overview")
 
@@ -201,15 +237,18 @@ in {
 
         (bindAttr "Shift+M" "quit" "skip-confirmation" true)
       ]
-      ++ (
-        builtins.concatLists (builtins.genList (i: let
+      ++ (builtins.concatLists (
+        builtins.genList (
+          i:
+          let
             idx = i + 1;
-          in [
+          in
+          [
             (bindVal "${toString idx}" "focus-workspace" idx)
             (bindVal "Shift+${toString idx}" "move-column-to-workspace" idx)
-          ])
-          9)
-      );
-  in
-    lib.foldl' lib.recursiveUpdate {} bindList;
+          ]
+        ) 9
+      ));
+    in
+    lib.foldl' lib.recursiveUpdate { } bindList;
 }

@@ -2,7 +2,8 @@
   lib,
   systemSettings,
   ...
-}: {
+}:
+{
   boot = {
     loader = {
       efi = {

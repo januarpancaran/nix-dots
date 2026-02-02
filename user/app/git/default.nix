@@ -2,7 +2,8 @@
   pkgs,
   userSettings,
   ...
-}: {
+}:
+{
   programs.git = {
     package = pkgs.git;
     enable = true;

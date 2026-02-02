@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.nvf.settings = {
     vim.lazy.plugins."markdown-preview.nvim" = {
       package = pkgs.vimPlugins.markdown-preview-nvim;
@@ -10,7 +11,7 @@
         "MarkdownPreviewStop"
       ];
 
-      ft = ["markdown"];
+      ft = [ "markdown" ];
 
       keys = [
         {

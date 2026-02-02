@@ -1,6 +1,8 @@
-{lib, ...}: let
+{ lib, ... }:
+let
   inherit (lib.generators) mkLuaInline;
-in {
+in
+{
   programs.nvf.settings = {
     vim.lineNumberMode = "relNumber";
     vim.options = {

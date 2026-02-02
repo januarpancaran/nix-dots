@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.ghostty = {
     package = pkgs.ghostty;
     enable = true;

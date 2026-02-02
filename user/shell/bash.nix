@@ -2,7 +2,8 @@
   pkgs,
   userSettings,
   ...
-}: {
+}:
+{
   home.packages = with pkgs; [
     bat
     fzf
@@ -16,7 +17,10 @@
     enableCompletion = true;
     enableVteIntegration = true;
 
-    historyControl = ["ignoredups" "erasedups"];
+    historyControl = [
+      "ignoredups"
+      "erasedups"
+    ];
     historyFile = "/home/" + userSettings.username + "/.bash_history";
     historySize = 10000;
 

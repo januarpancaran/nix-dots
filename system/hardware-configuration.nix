@@ -7,64 +7,135 @@
   pkgs,
   modulesPath,
   ...
-}: {
+}:
+{
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  boot.supportedFilesystems = ["btrfs" "ntfs"];
-  boot.initrd.availableKernelModules = ["xhci_pci" "thunderbolt" "vmd" "ahci" "nvme" "usb_storage" "sd_mod"];
-  boot.initrd.kernelModules = ["dm-snapshot" "cryptd"];
+  boot.supportedFilesystems = [
+    "btrfs"
+    "ntfs"
+  ];
+  boot.initrd.availableKernelModules = [
+    "xhci_pci"
+    "thunderbolt"
+    "vmd"
+    "ahci"
+    "nvme"
+    "usb_storage"
+    "sd_mod"
+  ];
+  boot.initrd.kernelModules = [
+    "dm-snapshot"
+    "cryptd"
+  ];
   boot.initrd.luks.devices.cryptlvm.device = "/dev/disk/by-label/NIXLUKS";
-  boot.kernelModules = ["kvm-intel"];
-  boot.extraModulePackages = [];
+  boot.kernelModules = [ "kvm-intel" ];
+  boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
     device = "/dev/disk/by-label/NIXROOT";
     fsType = "btrfs";
-    options = ["noatime" "space_cache=v2" "compress=zstd" "ssd" "discard=async" "subvol=root"];
+    options = [
+      "noatime"
+      "space_cache=v2"
+      "compress=zstd"
+      "ssd"
+      "discard=async"
+      "subvol=root"
+    ];
   };
 
   fileSystems."/home" = {
     device = "/dev/disk/by-label/NIXROOT";
     fsType = "btrfs";
-    options = ["noatime" "space_cache=v2" "compress=zstd" "ssd" "discard=async" "subvol=home"];
+    options = [
+      "noatime"
+      "space_cache=v2"
+      "compress=zstd"
+      "ssd"
+      "discard=async"
+      "subvol=home"
+    ];
   };
 
   fileSystems."/nix" = {
     device = "/dev/disk/by-label/NIXROOT";
     fsType = "btrfs";
-    options = ["noatime" "space_cache=v2" "compress=zstd" "ssd" "discard=async" "subvol=nix"];
+    options = [
+      "noatime"
+      "space_cache=v2"
+      "compress=zstd"
+      "ssd"
+      "discard=async"
+      "subvol=nix"
+    ];
   };
 
   fileSystems."/opt" = {
     device = "/dev/disk/by-label/NIXROOT";
     fsType = "btrfs";
-    options = ["noatime" "space_cache=v2" "compress=zstd" "ssd" "discard=async" "subvol=opt"];
+    options = [
+      "noatime"
+      "space_cache=v2"
+      "compress=zstd"
+      "ssd"
+      "discard=async"
+      "subvol=opt"
+    ];
   };
 
   fileSystems."/srv" = {
     device = "/dev/disk/by-label/NIXROOT";
     fsType = "btrfs";
-    options = ["noatime" "space_cache=v2" "compress=zstd" "ssd" "discard=async" "subvol=srv"];
+    options = [
+      "noatime"
+      "space_cache=v2"
+      "compress=zstd"
+      "ssd"
+      "discard=async"
+      "subvol=srv"
+    ];
   };
 
   fileSystems."/tmp" = {
     device = "/dev/disk/by-label/NIXROOT";
     fsType = "btrfs";
-    options = ["noatime" "space_cache=v2" "compress=zstd" "ssd" "discard=async" "subvol=tmp"];
+    options = [
+      "noatime"
+      "space_cache=v2"
+      "compress=zstd"
+      "ssd"
+      "discard=async"
+      "subvol=tmp"
+    ];
   };
 
   fileSystems."/var/cache" = {
     device = "/dev/disk/by-label/NIXROOT";
     fsType = "btrfs";
-    options = ["noatime" "space_cache=v2" "compress=zstd" "ssd" "discard=async" "subvol=cache"];
+    options = [
+      "noatime"
+      "space_cache=v2"
+      "compress=zstd"
+      "ssd"
+      "discard=async"
+      "subvol=cache"
+    ];
   };
 
   fileSystems."/var/log" = {
     device = "/dev/disk/by-label/NIXROOT";
     fsType = "btrfs";
-    options = ["noatime" "space_cache=v2" "compress=zstd" "ssd" "discard=async" "subvol=log"];
+    options = [
+      "noatime"
+      "space_cache=v2"
+      "compress=zstd"
+      "ssd"
+      "discard=async"
+      "subvol=log"
+    ];
   };
 
   fileSystems."/boot" = {
@@ -75,7 +146,10 @@
   fileSystems."/boot/efi" = {
     device = "/dev/disk/by-label/NIXEFI";
     fsType = "vfat";
-    options = ["fmask=0077" "dmask=0077"];
+    options = [
+      "fmask=0077"
+      "dmask=0077"
+    ];
   };
 
   swapDevices = [

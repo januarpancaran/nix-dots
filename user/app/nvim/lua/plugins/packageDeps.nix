@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.neovim.extraPackages = with pkgs; [
     # Lsp
     bash-language-server

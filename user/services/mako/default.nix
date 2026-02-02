@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   services.mako = {
     package = pkgs.mako;
     enable = true;

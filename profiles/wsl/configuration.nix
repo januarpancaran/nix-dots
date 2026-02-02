@@ -5,7 +5,8 @@
   systemSettings,
   userSettings,
   ...
-}: {
+}:
+{
   imports = [
     ../../system/app/nh.nix
     ../../system/fonts
@@ -26,18 +27,21 @@
   networking.firewall.enable = true;
 
   nix.settings = {
-    experimental-features = ["nix-command" "flakes"];
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
     auto-optimise-store = true;
-    trusted-users = ["root" "@wheel"];
+    trusted-users = [
+      "root"
+      "@wheel"
+    ];
   };
 
   virtualisation.docker.enable = true;
   users.users.${userSettings.username} = {
-    extraGroups = ["docker"];
-    shell =
-      if userSettings.defaultShell == "bash"
-      then pkgs.bashInteractive
-      else pkgs.zsh;
+    extraGroups = [ "docker" ];
+    shell = if userSettings.defaultShell == "bash" then pkgs.bashInteractive else pkgs.zsh;
   };
 
   nixpkgs.config = {
@@ -53,12 +57,13 @@
     NH_FLAKE = systemSettings.flakeDir;
   };
 
-  environment.pathsToLink = ["/share/bash-completion" "/share/zsh"];
+  environment.pathsToLink = [
+    "/share/bash-completion"
+    "/share/zsh"
+  ];
 
   users.defaultUserShell =
-    if userSettings.defaultShell == "bash"
-    then pkgs.bashInteractive
-    else pkgs.zsh;
+    if userSettings.defaultShell == "bash" then pkgs.bashInteractive else pkgs.zsh;
 
   programs.nix-ld.enable = true;
   programs.bash.enable = true;

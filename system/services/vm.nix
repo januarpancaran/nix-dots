@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   environment.systemPackages = with pkgs; [
     qemu
   ];
@@ -9,7 +10,7 @@
 
       qemu = {
         swtpm.enable = true;
-        vhostUserPackages = [pkgs.virtiofsd];
+        vhostUserPackages = [ pkgs.virtiofsd ];
       };
     };
 

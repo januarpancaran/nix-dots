@@ -1,4 +1,5 @@
-{userSettings, ...}: {
+{ userSettings, ... }:
+{
   programs.zen-browser.profiles = {
     ${userSettings.username} = {
       id = 0;
@@ -8,7 +9,10 @@
       search = {
         force = true;
         default = "google";
-        order = ["google" "ddg"];
+        order = [
+          "google"
+          "ddg"
+        ];
       };
     };
   };

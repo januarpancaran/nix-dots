@@ -1,5 +1,6 @@
-{pkgs, ...}: {
-  imports = [./style.nix];
+{ pkgs, ... }:
+{
+  imports = [ ./style.nix ];
 
   programs.waybar = {
     package = pkgs.waybar;
@@ -15,7 +16,7 @@
           "hyprland/workspaces"
           "hyprland/window"
         ];
-        modules-center = ["clock"];
+        modules-center = [ "clock" ];
         modules-right = [
           "pulseaudio"
           "bluetooth"
@@ -85,7 +86,7 @@
             "phone" = "";
             "portable" = "";
             "car" = "";
-            "default" = [" "];
+            "default" = [ " " ];
           };
           on-click = "pavucontrol";
           min-length = 13;

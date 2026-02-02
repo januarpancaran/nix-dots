@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   home.file.".config/dunst/icons" = {
     source = ./icons;
     recursive = true;

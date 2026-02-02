@@ -2,56 +2,54 @@
   pkgs,
   userSettings,
   ...
-}: {
-  imports =
-    [
-      ../../theme
-      ../../user/app/antigravity-claude-proxy
-      ../../user/app/git
-      ../../user/app/hyprlock
-      ../../user/app/mpv
-      ../../user/app/opencode-antigravity-auth
-      ../../user/app/terminal/ghostty.nix
-      ../../user/app/wlogout
-      ../../user/inputs/fcitx5.nix
-      ../../user/services/hypridle.nix
-      ../../user/services/swww.nix
-      ../../user/services/systemd-services.nix
-      ../../user/services/systemd-timers.nix
-      ../../user/services/xdg-portal.nix
-      ../../user/shell/shell-utils/fastfetch.nix
-      ../../user/shell/shell-utils/starship
-      ../../user/shell/shell-utils/tmux.nix
-      ../../user/shell/bash.nix
-      ../../user/shell/zsh.nix
+}:
+{
+  imports = [
+    ../../theme
+    ../../user/app/antigravity-claude-proxy
+    ../../user/app/git
+    ../../user/app/hyprlock
+    ../../user/app/mpv
+    ../../user/app/opencode-antigravity-auth
+    ../../user/app/terminal/ghostty.nix
+    ../../user/app/wlogout
+    ../../user/inputs/fcitx5.nix
+    ../../user/services/hypridle.nix
+    ../../user/services/swww.nix
+    ../../user/services/systemd-services.nix
+    ../../user/services/systemd-timers.nix
+    ../../user/services/xdg-portal.nix
+    ../../user/shell/shell-utils/fastfetch.nix
+    ../../user/shell/shell-utils/starship
+    ../../user/shell/shell-utils/tmux.nix
+    ../../user/shell/bash.nix
+    ../../user/shell/zsh.nix
 
-      (
-        if userSettings.defaultBrowser == "chrome"
-        then ../../user/app/browser/google-chrome
-        else ../../user/app/browser/zen-browser
-      )
+    (
+      if userSettings.defaultBrowser == "chrome" then
+        ../../user/app/browser/google-chrome
+      else
+        ../../user/app/browser/zen-browser
+    )
 
-      (
-        if userSettings.nvimFlavour == "nvf"
-        then ../../user/app/nvf
-        else ../../user/app/nvim
-      )
-    ]
-    ++ (
-      if userSettings.wm == "niri"
-      then [
+    (if userSettings.nvimFlavour == "nvf" then ../../user/app/nvf else ../../user/app/nvim)
+  ]
+  ++ (
+    if userSettings.wm == "niri" then
+      [
         ../../user/app/eww
         ../../user/app/fuzzel
         ../../user/services/mako
         ../../user/wm/niri
       ]
-      else [
+    else
+      [
         ../../user/app/rofi
         ../../user/app/waybar
         ../../user/services/dunst
         ../../user/wm/hyprland
       ]
-    );
+  );
 
   home = {
     username = userSettings.username;
@@ -108,8 +106,8 @@
     opencode
     php
     php84Packages.composer
-    (python3.withPackages (ps:
-      with ps; [
+    (python3.withPackages (
+      ps: with ps; [
         numpy
         pandas
         matplotlib
@@ -123,7 +121,8 @@
         flask-cors
         django
         django-cors-headers
-      ]))
+      ]
+    ))
   ];
 
   programs.home-manager.enable = true;

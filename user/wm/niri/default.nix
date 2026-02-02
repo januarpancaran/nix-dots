@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   home.packages = with pkgs; [
     blueberry
     brightnessctl
@@ -35,9 +36,9 @@
         center-focused-column = "never";
 
         preset-column-widths = [
-          {proportion = 1. / 3.;}
-          {proportion = 1. / 2.;}
-          {proportion = 2. / 3.;}
+          { proportion = 1. / 3.; }
+          { proportion = 1. / 2.; }
+          { proportion = 2. / 3.; }
         ];
 
         default-column-width.proportion = 0.5;

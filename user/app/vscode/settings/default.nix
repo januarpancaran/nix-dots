@@ -2,7 +2,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   programs.vscode.profiles.default = {
     userSettings = {
       editor = {
@@ -48,7 +49,7 @@
         enableLanguageServer = true;
         serverPath = "nixd";
         serverSettings = {
-          nixd.formatting.command = ["alejandra"];
+          nixd.formatting.command = [ "alejandra" ];
         };
         formatterPath = "alejandra";
       };

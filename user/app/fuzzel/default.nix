@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.fuzzel = {
     package = pkgs.fuzzel;
     enable = true;

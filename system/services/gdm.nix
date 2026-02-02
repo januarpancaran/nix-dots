@@ -2,7 +2,8 @@
   lib,
   userSettings,
   ...
-}: {
+}:
+{
   services.displayManager = {
     autoLogin = {
       enable = true;

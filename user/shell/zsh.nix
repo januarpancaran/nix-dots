@@ -3,7 +3,8 @@
   userSettings,
   inputs,
   ...
-}: {
+}:
+{
   home.packages = with pkgs; [
     bat
     fzf

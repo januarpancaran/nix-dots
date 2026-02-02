@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   gtk = {
     enable = true;
 
@@ -29,36 +30,36 @@
   };
 
   # Catppuccin
-  catppuccin = let
-    default = {
-      enable = true;
-      flavor = "mocha";
-    };
+  catppuccin =
+    let
+      default = {
+        enable = true;
+        flavor = "mocha";
+      };
 
-    defaultAccent = {
-      enable = true;
-      flavor = "mocha";
-      accent = "mauve";
-    };
-  in {
-    bat = default;
+      defaultAccent = {
+        enable = true;
+        flavor = "mocha";
+        accent = "mauve";
+      };
+    in
+    {
+      bat = default;
 
-    fzf = defaultAccent;
+      fzf = defaultAccent;
 
-    ghostty = default;
+      ghostty = default;
 
-    mpv = defaultAccent;
+      mpv = defaultAccent;
 
-    obs = default;
+      obs = default;
 
-    tmux =
-      default
-      // {
+      tmux = default // {
         extraConfig = ''
           set -g @catppuccin_window_status_style "rounded"
           set -g status-right "#{E:@catppuccin_status_application}"
           set -ag status-right "#{E:@catppuccin_status_session}"
         '';
       };
-  };
+    };
 }

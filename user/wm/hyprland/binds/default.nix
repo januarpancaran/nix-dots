@@ -2,7 +2,8 @@
   pkgs,
   userSettings,
   ...
-}: let
+}:
+let
   volumeNotifier = pkgs.writeShellScriptBin "volume-notifier" ''
     #!/usr/bin/env bash
 
@@ -56,70 +57,70 @@
       ;;
     esac
   '';
-in {
+in
+{
   wayland.windowManager.hyprland.settings = {
     "$terminal" = "ghostty";
     "$fileManager" = "nautilus";
     "$menu" = "rofi";
-    "$browser" =
-      if userSettings.defaultBrowser == "chrome"
-      then "google-chrome-stable"
-      else "zen";
+    "$browser" = if userSettings.defaultBrowser == "chrome" then "google-chrome-stable" else "zen";
 
     "$mainMod" = "SUPER";
 
-    bind =
-      [
-        # Shortcuts
-        "$mainMod, T, exec, $terminal"
-        "$mainMod, Q, killactive"
-        "$mainMod SHIFT, M, exit"
-        "$mainMod, E, exec, $fileManager"
-        "$mainMod, V, togglefloating"
-        "$mainMod, R, exec, $menu -show drun"
-        "Alt, Tab, exec, $menu -show window"
-        "$mainMod, F, fullscreen"
-        "$mainMod, B, exec, $browser"
-        ("$mainMod, I, exec, $browser "
-          + (
-            if userSettings.defaultBrowser == "chrome"
-            then "--incognito"
-            else "--private-window"
-          ))
-        "$mainMod SHIFT, C, exec, env XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
-        "$mainMod, SemiColon, exec, spotify"
-        "$mainMod, C, exec, code"
-        "$mainMod, D, exec, discord"
-        "$mainMod, O, exec, obs"
-        "$mainMod, M, exec, wlogout"
-        "$mainMod SHIFT, S, exec, hyprshot -m region -o ~/Pictures/Screenshots/ -f Screenshot_$(date +'%Y%m%d_%H%M%S').png -t 2000"
-        "$mainMod, P, exec, hyprshot -m window -m active -o ~/Pictures/Screenshots/ -f Screenshot_$(date +'%Y%m%d_%H%M%S').png -t 2000"
-        ", Print, exec, hyprshot -m window -m active -t 2000 --clipboard-only"
-        "$mainMod SHIFT, P, exec, hyprshot -m output -m active -o ~/Pictures/Screenshots/ -f Screenshot_$(date +'%Y%m%d_%H%M%S').png -t 2000"
+    bind = [
+      # Shortcuts
+      "$mainMod, T, exec, $terminal"
+      "$mainMod, Q, killactive"
+      "$mainMod SHIFT, M, exit"
+      "$mainMod, E, exec, $fileManager"
+      "$mainMod, V, togglefloating"
+      "$mainMod, R, exec, $menu -show drun"
+      "Alt, Tab, exec, $menu -show window"
+      "$mainMod, F, fullscreen"
+      "$mainMod, B, exec, $browser"
+      (
+        "$mainMod, I, exec, $browser "
+        + (if userSettings.defaultBrowser == "chrome" then "--incognito" else "--private-window")
+      )
+      "$mainMod SHIFT, C, exec, env XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
+      "$mainMod, SemiColon, exec, spotify"
+      "$mainMod, C, exec, code"
+      "$mainMod, D, exec, discord"
+      "$mainMod, O, exec, obs"
+      "$mainMod, M, exec, wlogout"
+      "$mainMod SHIFT, S, exec, hyprshot -m region -o ~/Pictures/Screenshots/ -f Screenshot_$(date +'%Y%m%d_%H%M%S').png -t 2000"
+      "$mainMod, P, exec, hyprshot -m window -m active -o ~/Pictures/Screenshots/ -f Screenshot_$(date +'%Y%m%d_%H%M%S').png -t 2000"
+      ", Print, exec, hyprshot -m window -m active -t 2000 --clipboard-only"
+      "$mainMod SHIFT, P, exec, hyprshot -m output -m active -o ~/Pictures/Screenshots/ -f Screenshot_$(date +'%Y%m%d_%H%M%S').png -t 2000"
 
-        # Move Focus
-        "$mainMod, H, movefocus, l"
-        "$mainMod, L, movefocus, r"
-        "$mainMod, K, movefocus, u"
-        "$mainMod, J, movefocus, d"
+      # Move Focus
+      "$mainMod, H, movefocus, l"
+      "$mainMod, L, movefocus, r"
+      "$mainMod, K, movefocus, u"
+      "$mainMod, J, movefocus, d"
 
-        # Special Workspaces
-        "$mainMod, S, togglespecialworkspace, magic"
+      # Special Workspaces
+      "$mainMod, S, togglespecialworkspace, magic"
 
-        # Scroll Workspaces
-        "$mainMod, mouse_down, workspace, e+1"
-        "$mainMod, mouse_up, workspace, e-1"
-      ]
-      ++ (
-        # Workspaces
-        builtins.concatLists (builtins.genList (i: let
+      # Scroll Workspaces
+      "$mainMod, mouse_down, workspace, e+1"
+      "$mainMod, mouse_up, workspace, e-1"
+    ]
+    ++ (
+      # Workspaces
+      builtins.concatLists (
+        builtins.genList (
+          i:
+          let
             ws = i + 1;
-          in [
+          in
+          [
             "$mainMod, code:1${toString i}, workspace, ${toString ws}"
             "$mainMod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
-          ])
-          10)
-      );
+          ]
+        ) 10
+      )
+    );
 
     bindm = [
       "$mainMod, mouse:272, movewindow"

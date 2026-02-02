@@ -2,7 +2,8 @@
   systemSettings,
   userSettings,
   ...
-}: {
+}:
+{
   environment.sessionVariables = {
     EDITOR = "nvim";
     XCURSOR_THEME = "Bibata-Modern-Classic";
@@ -20,5 +21,8 @@
     NH_FLAKE = systemSettings.flakeDir;
   };
 
-  environment.pathsToLink = ["/share/bash-completion" "/share/zsh"];
+  environment.pathsToLink = [
+    "/share/bash-completion"
+    "/share/zsh"
+  ];
 }

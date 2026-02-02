@@ -2,7 +2,8 @@
   pkgs,
   userSettings,
   ...
-}: {
+}:
+{
   imports = [
     ../../theme
     ../../user/app/antigravity-claude-proxy
@@ -14,18 +15,16 @@
     ../../user/shell/bash.nix
     ../../user/shell/zsh.nix
 
-    (
-      if userSettings.nvimFlavour == "nvf"
-      then ../../user/app/nvf
-      else ../../user/app/nvim
-    )
+    (if userSettings.nvimFlavour == "nvf" then ../../user/app/nvf else ../../user/app/nvim)
   ];
 
   home = {
     username = userSettings.username;
     homeDirectory = "/home/" + userSettings.username;
     stateVersion = "25.05";
-    sessionVariables = {EDITOR = "nvim";};
+    sessionVariables = {
+      EDITOR = "nvim";
+    };
   };
 
   home.packages = with pkgs; [
@@ -63,8 +62,8 @@
     opencode
     php
     php84Packages.composer
-    (python3.withPackages (ps:
-      with ps; [
+    (python3.withPackages (
+      ps: with ps; [
         numpy
         pandas
         matplotlib
@@ -78,7 +77,8 @@
         flask-cors
         django
         django-cors-headers
-      ]))
+      ]
+    ))
   ];
 
   programs.home-manager.enable = true;

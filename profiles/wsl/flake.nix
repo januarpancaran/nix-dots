@@ -37,60 +37,63 @@
     };
   };
 
-  outputs = {self, ...} @ inputs: let
-    systemSettings = {
-      system = "x86_64-linux";
-      hostname = "nixos";
-      profile = "wsl";
-      flakeDir = "/home/" + userSettings.username + "/.dotfiles/profiles/" + systemSettings.profile;
-    };
-
-    userSettings = {
-      username = "daangsangu";
-      defaultShell = "zsh"; # or bash
-      nvimFlavour = "nvim"; # or nvf
-      githubUsername = "januarpancaran";
-      githubEmail = "januar352@gmail.com";
-    };
-
-    pkgs = import inputs.nixpkgs {
-      inherit (systemSettings) system;
-
-      config = {
-        allowUnfree = true;
-        allowBroken = false;
-      };
-    };
-  in {
-    nixosConfigurations.${systemSettings.hostname} = inputs.nixpkgs.lib.nixosSystem {
-      inherit (systemSettings) system;
-
-      specialArgs = {
-        inherit inputs;
-        inherit systemSettings;
-        inherit userSettings;
+  outputs =
+    { self, ... }@inputs:
+    let
+      systemSettings = {
+        system = "x86_64-linux";
+        hostname = "nixos";
+        profile = "wsl";
+        flakeDir = "/home/" + userSettings.username + "/.dotfiles/profiles/" + systemSettings.profile;
       };
 
-      modules = [
-        inputs.nixos-wsl.nixosModules.default
-        ./configuration.nix
-      ];
-    };
-
-    homeConfigurations.${userSettings.username} = inputs.home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
-
-      extraSpecialArgs = {
-        inherit inputs;
-        inherit systemSettings;
-        inherit userSettings;
+      userSettings = {
+        username = "daangsangu";
+        defaultShell = "zsh"; # or bash
+        nvimFlavour = "nvim"; # or nvf
+        githubUsername = "januarpancaran";
+        githubEmail = "januar352@gmail.com";
       };
 
-      modules = [
-        inputs.catppuccin.homeModules.catppuccin
-        inputs.nvf.homeManagerModules.default
-        ./home.nix
-      ];
+      pkgs = import inputs.nixpkgs {
+        inherit (systemSettings) system;
+
+        config = {
+          allowUnfree = true;
+          allowBroken = false;
+        };
+      };
+    in
+    {
+      nixosConfigurations.${systemSettings.hostname} = inputs.nixpkgs.lib.nixosSystem {
+        inherit (systemSettings) system;
+
+        specialArgs = {
+          inherit inputs;
+          inherit systemSettings;
+          inherit userSettings;
+        };
+
+        modules = [
+          inputs.nixos-wsl.nixosModules.default
+          ./configuration.nix
+        ];
+      };
+
+      homeConfigurations.${userSettings.username} = inputs.home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+
+        extraSpecialArgs = {
+          inherit inputs;
+          inherit systemSettings;
+          inherit userSettings;
+        };
+
+        modules = [
+          inputs.catppuccin.homeModules.catppuccin
+          inputs.nvf.homeManagerModules.default
+          ./home.nix
+        ];
+      };
     };
-  };
 }

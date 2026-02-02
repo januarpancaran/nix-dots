@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   xdg.portal = {
     enable = true;
 
@@ -8,7 +9,10 @@
     ];
 
     config.niri = {
-      default = ["gnome" "gtk"];
+      default = [
+        "gnome"
+        "gtk"
+      ];
       "org.freedesktop.impl.portal.Access" = "gtk";
       "org.freedesktop.impl.portal.Notification" = "gtk";
       "org.freedesktop.impl.portal.Secret" = "gnome-keyring";

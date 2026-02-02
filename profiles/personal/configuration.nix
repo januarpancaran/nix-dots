@@ -5,7 +5,8 @@
   systemSettings,
   userSettings,
   ...
-}: {
+}:
+{
   imports = [
     ../../system/app/nh.nix
     ../../system/app/steam.nix
@@ -59,9 +60,15 @@
   };
 
   nix.settings = {
-    experimental-features = ["nix-command" "flakes"];
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
     auto-optimise-store = true;
-    trusted-users = ["root" "@wheel"];
+    trusted-users = [
+      "root"
+      "@wheel"
+    ];
   };
 
   nixpkgs.config = {
@@ -72,17 +79,17 @@
   users = {
     users.${userSettings.username} = {
       isNormalUser = true;
-      extraGroups = ["wheel" "video" "audio" "networkmanager" "libvirtd"];
-      shell =
-        if userSettings.defaultShell == "bash"
-        then pkgs.bashInteractive
-        else pkgs.zsh;
+      extraGroups = [
+        "wheel"
+        "video"
+        "audio"
+        "networkmanager"
+        "libvirtd"
+      ];
+      shell = if userSettings.defaultShell == "bash" then pkgs.bashInteractive else pkgs.zsh;
     };
 
-    defaultUserShell =
-      if userSettings.defaultShell == "bash"
-      then pkgs.bashInteractive
-      else pkgs.zsh;
+    defaultUserShell = if userSettings.defaultShell == "bash" then pkgs.bashInteractive else pkgs.zsh;
   };
 
   programs.niri.enable = userSettings.wm == "niri";

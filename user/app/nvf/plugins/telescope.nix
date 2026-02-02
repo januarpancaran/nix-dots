@@ -2,9 +2,11 @@
   pkgs,
   lib,
   ...
-}: let
+}:
+let
   inherit (lib.generators) mkLuaInline;
-in {
+in
+{
   programs.nvf.settings = {
     vim.lazy.plugins = {
       "telescope.nvim" = {
