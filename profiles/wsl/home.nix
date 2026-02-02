@@ -46,7 +46,7 @@
     zip
     zoxide
 
-    alejandra
+    antigravity-claude-proxy
     bun
     claude-code
     dotnet-aspnetcore
