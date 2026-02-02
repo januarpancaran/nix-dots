@@ -52,93 +52,97 @@
     };
   };
 
-  outputs = {self, ...} @ inputs: let
-    systemSettings = {
-      system = "x86_64-linux";
-      hostname = "hayudaang";
-      profile = "personal";
-      bootloader = "grub";
-      bootloaderDevice = ["nodev"];
-      bootloaderEfiMountPoint = "/boot/efi";
-      timeZone = "Asia/Jakarta";
-      flakeDir = "/home/" + userSettings.username + "/.dotfiles";
-    };
-
-    userSettings = {
-      username = "daangsangu";
-      wm = "niri"; # or Hyprland
-      defaultShell = "zsh"; # or bash
-      defaultBrowser = "zen"; # or chrome
-      nvimFlavour = "nvim"; # or nvf
-      githubUsername = "januarpancaran";
-      githubEmail = "januar352@gmail.com";
-    };
-
-    pkgs = import inputs.nixpkgs {
-      inherit (systemSettings) system;
-
-      config = {
-        allowUnfree = true;
-        allowBroken = false;
+  outputs =
+    { self, ... }@inputs:
+    let
+      systemSettings = {
+        system = "x86_64-linux";
+        hostname = "hayudaang";
+        profile = "personal";
+        bootloader = "grub";
+        bootloaderDevice = [ "nodev" ];
+        bootloaderEfiMountPoint = "/boot/efi";
+        timeZone = "Asia/Jakarta";
+        flakeDir = "/home/" + userSettings.username + "/.dotfiles";
       };
 
-      overlays = [
-        inputs.niri.overlays.niri
-        (final: prev: {
-          antigravity-claude-proxy = prev.buildNpmPackage {
-            pname = "antigravity-claude-proxy";
-            version = "2.4.4";
+      userSettings = {
+        username = "daangsangu";
+        wm = "niri"; # or Hyprland
+        defaultShell = "zsh"; # or bash
+        defaultBrowser = "zen"; # or chrome
+        nvimFlavour = "nvim"; # or nvf
+        claudeCodeModel = "claude"; # or gemini
+        githubUsername = "januarpancaran";
+        githubEmail = "januar352@gmail.com";
+      };
 
-            src = prev.fetchFromGitHub {
-              owner = "badrisnarayanan";
-              repo = "antigravity-claude-proxy";
-              rev = "v2.4.4";
-              hash = "sha256-HN+1a/SK6QudAcF6AnxcPRZLAIazOatnCC5zEp1v65s=";
+      pkgs = import inputs.nixpkgs {
+        inherit (systemSettings) system;
+
+        config = {
+          allowUnfree = true;
+          allowBroken = false;
+        };
+
+        overlays = [
+          inputs.niri.overlays.niri
+          (final: prev: {
+            antigravity-claude-proxy = prev.buildNpmPackage {
+              pname = "antigravity-claude-proxy";
+              version = "2.4.4";
+
+              src = prev.fetchFromGitHub {
+                owner = "badrisnarayanan";
+                repo = "antigravity-claude-proxy";
+                rev = "v2.4.4";
+                hash = "sha256-HN+1a/SK6QudAcF6AnxcPRZLAIazOatnCC5zEp1v65s=";
+              };
+
+              npmDepsHash = "sha256-HSvcf/xwRG4LXQjIDykVQVJNvabMvT7JGt8tL4k1OgM=";
+              dontNpmBuild = true;
+
+              meta = with prev.lib; {
+                description = "Antigravity Claude Proxy";
+                license = licenses.mit;
+                platforms = platforms.linux;
+              };
             };
+          })
+        ];
+      };
+    in
+    {
+      nixosConfigurations.${systemSettings.hostname} = inputs.nixpkgs.lib.nixosSystem {
+        inherit (systemSettings) system;
 
-            npmDepsHash = "sha256-HSvcf/xwRG4LXQjIDykVQVJNvabMvT7JGt8tL4k1OgM=";
-            dontNpmBuild = true;
+        specialArgs = {
+          inherit inputs;
+          inherit systemSettings;
+          inherit userSettings;
+        };
 
-            meta = with prev.lib; {
-              description = "Antigravity Claude Proxy";
-              license = licenses.mit;
-              platforms = platforms.linux;
-            };
-          };
-        })
-      ];
-    };
-  in {
-    nixosConfigurations.${systemSettings.hostname} = inputs.nixpkgs.lib.nixosSystem {
-      inherit (systemSettings) system;
-
-      specialArgs = {
-        inherit inputs;
-        inherit systemSettings;
-        inherit userSettings;
+        modules = [
+          (./. + "/profiles" + ("/" + systemSettings.profile) + "/configuration.nix")
+        ];
       };
 
-      modules = [
-        (./. + "/profiles" + ("/" + systemSettings.profile) + "/configuration.nix")
-      ];
-    };
+      homeConfigurations.${userSettings.username} = inputs.home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
 
-    homeConfigurations.${userSettings.username} = inputs.home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
+        extraSpecialArgs = {
+          inherit inputs;
+          inherit systemSettings;
+          inherit userSettings;
+        };
 
-      extraSpecialArgs = {
-        inherit inputs;
-        inherit systemSettings;
-        inherit userSettings;
+        modules = [
+          inputs.niri.homeModules.niri
+          inputs.catppuccin.homeModules.catppuccin
+          inputs.nvf.homeManagerModules.default
+          inputs.zen-browser.homeModules.beta
+          (./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix")
+        ];
       };
-
-      modules = [
-        inputs.niri.homeModules.niri
-        inputs.catppuccin.homeModules.catppuccin
-        inputs.nvf.homeManagerModules.default
-        inputs.zen-browser.homeModules.beta
-        (./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix")
-      ];
     };
-  };
 }
