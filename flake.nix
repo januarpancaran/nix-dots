@@ -27,12 +27,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Nvf
-    nvf = {
-      url = "github:NotAShelf/nvf";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Zen Browser
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
@@ -71,7 +65,6 @@
         wm = "niri"; # or Hyprland
         defaultShell = "zsh"; # or bash
         defaultBrowser = "zen"; # or chrome
-        nvimFlavour = "nvim"; # or nvf
         claudeCodeModel = "claude"; # or gemini
         githubUsername = "januarpancaran";
         githubEmail = "januar352@gmail.com";

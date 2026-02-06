@@ -50,7 +50,6 @@
       userSettings = {
         username = "daangsangu";
         defaultShell = "zsh"; # or bash
-        nvimFlavour = "nvim"; # or nvf
         claudeCodeModel = "claude"; # or gemini
         githubUsername = "januarpancaran";
         githubEmail = "januar352@gmail.com";

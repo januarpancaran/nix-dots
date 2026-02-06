@@ -10,6 +10,7 @@
     ../../user/app/git
     ../../user/app/hyprlock
     ../../user/app/mpv
+    ../../user/app/nvim
     ../../user/app/opencode-antigravity-auth
     ../../user/app/terminal/ghostty.nix
     ../../user/app/wlogout
@@ -19,10 +20,10 @@
     ../../user/services/systemd-services.nix
     ../../user/services/systemd-timers.nix
     ../../user/services/xdg-portal.nix
+    ../../user/shell/bash.nix
     ../../user/shell/shell-utils/fastfetch.nix
     ../../user/shell/shell-utils/starship
     ../../user/shell/shell-utils/tmux.nix
-    ../../user/shell/bash.nix
     ../../user/shell/zsh.nix
 
     (
@@ -31,8 +32,6 @@
       else
         ../../user/app/browser/zen-browser
     )
-
-    (if userSettings.nvimFlavour == "nvf" then ../../user/app/nvf else ../../user/app/nvim)
   ]
   ++ (
     if userSettings.wm == "niri" then
