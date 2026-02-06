@@ -53,6 +53,7 @@
     dotnet-sdk
     dotnet-runtime
     gcc
+    github-copilot-cli
     go
     jdk
     lua
