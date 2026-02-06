@@ -1,7 +1,7 @@
 { userSettings, ... }:
 {
   home.file.".claude/settings.json".text =
-    if userSettings.claudeCodeModel == "claude" then
+    if userSettings.enableClaudeModel then
       ''
         {
           "env": {

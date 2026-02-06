@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs,
   userSettings,
   ...
@@ -26,60 +27,64 @@
     };
   };
 
-  home.packages = with pkgs; [
-    bat
-    curl
-    devbox
-    fzf
-    glib
-    htop
-    mailhog
-    meilisearch
-    ripgrep
-    tree
-    unrar
-    unzip
-    wget
-    wl-clipboard
-    yazi
-    zip
-    zoxide
-
-    antigravity-claude-proxy
-    bun
-    claude-code
-    dotnet-aspnetcore
-    dotnet-sdk
-    dotnet-runtime
-    gcc
-    github-copilot-cli
-    go
-    jdk
-    lua
-    ngrok
-    nixd
-    nodejs
-    opencode
-    php
-    php84Packages.composer
-    (python3.withPackages (
-      ps: with ps; [
-        numpy
-        pandas
-        matplotlib
-        seaborn
-        scikit-learn
-        streamlit
-        fastapi
-        pydantic
-        uvicorn
-        flask
-        flask-cors
-        django
-        django-cors-headers
+  home.packages =
+    with pkgs;
+    [
+      bat
+      curl
+      devbox
+      fzf
+      glib
+      htop
+      ripgrep
+      tree
+      unrar
+      unzip
+      wget
+      wl-clipboard
+      yazi
+      zip
+      zoxide
+    ]
+    ++ lib.optionals userSettings.enableProgrammingPkgs (
+      with pkgs;
+      [
+        antigravity-claude-proxy
+        bun
+        claude-code
+        dotnet-aspnetcore
+        dotnet-sdk
+        dotnet-runtime
+        gcc
+        github-copilot-cli
+        go
+        jdk
+        lua
+        ngrok
+        nixd
+        nodejs
+        opencode
+        php
+        php84Packages.composer
+        (python3.withPackages (
+          ps: with ps; [
+            numpy
+            pandas
+            matplotlib
+            seaborn
+            scikit-learn
+            streamlit
+            fastapi
+            pydantic
+            uvicorn
+            flask
+            flask-cors
+            django
+            django-cors-headers
+          ]
+        ))
       ]
-    ))
-  ];
+    );
 
   programs.home-manager.enable = true;
 }

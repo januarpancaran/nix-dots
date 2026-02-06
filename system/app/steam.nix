@@ -1,5 +1,10 @@
-{ pkgs, ... }:
 {
+  lib,
+  pkgs,
+  systemSettings,
+  ...
+}:
+lib.mkIf systemSettings.enableSteam {
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;

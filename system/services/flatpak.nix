@@ -1,5 +1,10 @@
-{ pkgs, ... }:
 {
+  lib,
+  pkgs,
+  systemSettings,
+  ...
+}:
+lib.mkIf systemSettings.enableFlatpak {
   services.flatpak = {
     package = pkgs.flatpak;
     enable = true;

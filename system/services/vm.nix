@@ -1,5 +1,10 @@
-{ pkgs, ... }:
 {
+  lib,
+  pkgs,
+  systemSettings,
+  ...
+}:
+lib.mkIf systemSettings.enableVM {
   environment.systemPackages = with pkgs; [
     qemu
   ];

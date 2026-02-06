@@ -58,6 +58,23 @@
         bootloaderEfiMountPoint = "/boot/efi";
         timeZone = "Asia/Jakarta";
         flakeDir = "/home/" + userSettings.username + "/.dotfiles";
+
+        /*
+          * Optional Features
+          *
+          * enableSteam: Install steam
+          * enableDocker: Install docker
+          * enableFlatpak: Install and Setup flatpak
+          * enableMySQL: Install MySQL service
+          * enablePostgreSQL: Install PostgreSQL service
+          * enableVM: Install Virtual Machine via qemu and virt-manager
+        */
+        enableSteam = false;
+        enableDocker = true;
+        enableFlatpak = true;
+        enableMySQL = true;
+        enablePostgreSQL = true;
+        enableVM = false;
       };
 
       userSettings = {
@@ -65,9 +82,19 @@
         wm = "niri"; # or Hyprland
         defaultShell = "zsh"; # or bash
         defaultBrowser = "zen"; # or chrome
-        claudeCodeModel = "claude"; # or gemini
         githubUsername = "januarpancaran";
         githubEmail = "januar352@gmail.com";
+
+        /*
+          * Optional Features
+          *
+          * enableProgrammingPkgs: Install all programming packages stated in profiles/home
+          * enableClaudeModel: Enables claude model for Claude Code
+          * enableGeminiModel: Enables gemini model for Claude Code
+        */
+        enableProgrammingPkgs = true;
+        enableClaudeModel = true;
+        enableGeminiModel = false;
       };
 
       pkgs = import inputs.nixpkgs {
@@ -132,7 +159,6 @@
         modules = [
           inputs.niri.homeModules.niri
           inputs.catppuccin.homeModules.catppuccin
-          inputs.nvf.homeManagerModules.default
           inputs.zen-browser.homeModules.beta
           (./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix")
         ];

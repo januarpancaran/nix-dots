@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs,
   userSettings,
   ...
@@ -59,71 +60,75 @@
     };
   };
 
-  home.packages = with pkgs; [
-    antigravity
-    bat
-    curl
-    devbox
-    foliate
-    fzf
-    glib
-    htop
-    insomnia
-    kiro
-    libreoffice
-    loupe
-    mailhog
-    meilisearch
-    papers
-    ripgrep
-    sqlitebrowser
-    telegram-desktop
-    tree
-    unityhub
-    unrar
-    unzip
-    vscode
-    wget
-    yazi
-    zip
-    zotero
-    zoxide
+  home.packages =
+    with pkgs;
+    [
+      bat
+      curl
+      devbox
+      foliate
+      fzf
+      glib
+      htop
+      insomnia
+      libreoffice
+      loupe
+      papers
+      ripgrep
+      telegram-desktop
+      tree
+      unrar
+      unzip
+      vscode
+      wget
+      yazi
+      zip
+      zotero
+      zoxide
+    ]
+    ++ lib.optionals userSettings.enableProgrammingPkgs (
+      with pkgs;
+      [
+        antigravity
+        kiro
+        sqlitebrowser
 
-    antigravity-claude-proxy
-    bun
-    claude-code
-    dotnet-aspnetcore
-    dotnet-sdk
-    dotnet-runtime
-    gcc
-    github-copilot-cli
-    go
-    jdk
-    lua
-    ngrok
-    nixd
-    nodejs
-    opencode
-    php
-    php84Packages.composer
-    (python3.withPackages (
-      ps: with ps; [
-        numpy
-        pandas
-        matplotlib
-        seaborn
-        scikit-learn
-        streamlit
-        fastapi
-        pydantic
-        uvicorn
-        flask
-        flask-cors
-        django
-        django-cors-headers
+        antigravity-claude-proxy
+        bun
+        claude-code
+        dotnet-aspnetcore
+        dotnet-sdk
+        dotnet-runtime
+        gcc
+        github-copilot-cli
+        go
+        jdk
+        lua
+        ngrok
+        nixd
+        nodejs
+        opencode
+        php
+        php84Packages.composer
+        (python3.withPackages (
+          ps: with ps; [
+            numpy
+            pandas
+            matplotlib
+            seaborn
+            scikit-learn
+            streamlit
+            fastapi
+            pydantic
+            uvicorn
+            flask
+            flask-cors
+            django
+            django-cors-headers
+          ]
+        ))
       ]
-    ))
-  ];
+    );
 
   programs.home-manager.enable = true;
 }
