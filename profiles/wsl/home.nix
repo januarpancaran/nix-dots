@@ -52,9 +52,7 @@
         antigravity-claude-proxy
         bun
         claude-code
-        dotnet-aspnetcore
         dotnet-sdk
-        dotnet-runtime
         gcc
         github-copilot-cli
         go
