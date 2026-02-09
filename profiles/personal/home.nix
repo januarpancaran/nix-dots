@@ -28,10 +28,10 @@
     ../../user/shell/zsh.nix
 
     (
-      if userSettings.defaultBrowser == "chrome" then
-        ../../user/app/browser/google-chrome
-      else
+      if userSettings.enableZenBrowser then
         ../../user/app/browser/zen-browser
+      else
+        ../../user/app/browser/brave
     )
   ]
   ++ (

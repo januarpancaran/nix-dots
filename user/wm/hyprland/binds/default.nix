@@ -63,7 +63,7 @@ in
     "$terminal" = "ghostty";
     "$fileManager" = "nautilus";
     "$menu" = "rofi";
-    "$browser" = if userSettings.defaultBrowser == "chrome" then "google-chrome-stable" else "zen";
+    "$browser" = if userSettings.enableZenBrowser then "zen" else "brave";
 
     "$mainMod" = "SUPER";
 
@@ -80,7 +80,7 @@ in
       "$mainMod, B, exec, $browser"
       (
         "$mainMod, I, exec, $browser "
-        + (if userSettings.defaultBrowser == "chrome" then "--incognito" else "--private-window")
+        + (if userSettings.enableZenBrowser then "--private-window" else "--incognito")
       )
       "$mainMod SHIFT, C, exec, env XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
       "$mainMod, SemiColon, exec, spotify"

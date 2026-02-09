@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   programs.chromium = {
-    package = pkgs.google-chrome;
+    package = pkgs.brave;
     enable = true;
 
     commandLineArgs = [

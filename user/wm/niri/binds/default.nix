@@ -97,17 +97,17 @@ in
       bindList = [
         # Programs
         (bindSpawn "T" "ghostty")
-        (bindSpawn "B" (if userSettings.defaultBrowser == "chrome" then "google-chrome-stable" else "zen"))
+        (bindSpawn "B" (if userSettings.enableZenBrowser then "zen" else "brave"))
         (bindSpawn "I" (
-          if userSettings.defaultBrowser == "chrome" then
-            [
-              "google-chrome-stable"
-              "--incognito"
-            ]
-          else
+          if userSettings.enableZenBrowser then
             [
               "zen"
               "--private-window"
+            ]
+          else
+            [
+              "brave"
+              "--incognito"
             ]
         ))
         (bindSpawn "E" "nautilus")

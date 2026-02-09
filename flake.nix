@@ -59,7 +59,7 @@
         timeZone = "Asia/Jakarta";
         flakeDir = "/home/" + userSettings.username + "/.dotfiles";
 
-        /*
+        /**
           * Optional Features
           *
           * enableSteam: Install steam
@@ -81,17 +81,18 @@
         username = "daangsangu";
         wm = "niri"; # or Hyprland
         defaultShell = "zsh"; # or bash
-        defaultBrowser = "zen"; # or chrome
         githubUsername = "januarpancaran";
         githubEmail = "januar352@gmail.com";
 
-        /*
+        /**
           * Optional Features
           *
+          * enableZenBrowser: Install Zen Browser. If false, defaulting browser to brave
           * enableProgrammingPkgs: Install all programming packages stated in profiles/home
           * enableClaudeModel: Enables claude model for Claude Code
           * enableGeminiModel: Enables gemini model for Claude Code
         */
+        enableZenBrowser = false;
         enableProgrammingPkgs = true;
         enableClaudeModel = true;
         enableGeminiModel = false;
