@@ -69,7 +69,7 @@
           * enablePostgreSQL: Install PostgreSQL service
           * enableVM: Install Virtual Machine via qemu and virt-manager
         */
-        enableSteam = false;
+        enableSteam = true;
         enableDocker = true;
         enableFlatpak = true;
         enableMySQL = true;
@@ -110,16 +110,16 @@
           (final: prev: {
             antigravity-claude-proxy = prev.buildNpmPackage {
               pname = "antigravity-claude-proxy";
-              version = "2.6.0";
+              version = "2.6.2";
 
               src = prev.fetchFromGitHub {
                 owner = "badrisnarayanan";
                 repo = "antigravity-claude-proxy";
-                rev = "v2.6.0";
-                hash = "sha256-HN+1a/SK6QudAcF6AnxcPRZLAIazOatnCC5zEp1v65s=";
+                rev = "v2.6.2";
+                hash = "sha256-WZCQCiNqtQJi0y5XbugyIpqkGRyumbMYTlsQcmUM9Z8=";
               };
 
-              npmDepsHash = "sha256-HSvcf/xwRG4LXQjIDykVQVJNvabMvT7JGt8tL4k1OgM=";
+              npmDepsHash = "sha256-8WS6NLBMJFgyhC1jPqDX3XTOrc3li+8QybSwIxTtSEM=";
               dontNpmBuild = true;
 
               meta = with prev.lib; {
