@@ -54,6 +54,7 @@
         claude-code
         dotnet-sdk
         gcc
+        github-cli
         github-copilot-cli
         go
         jdk
