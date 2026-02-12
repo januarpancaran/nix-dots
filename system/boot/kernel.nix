@@ -5,7 +5,7 @@
 }:
 {
   boot = {
-    kernelPackages = pkgs.linuxPackages;
+    kernelPackages = pkgs.linuxPackages_zen;
     kernelParams = [
       "quiet"
       "acpi_backlight=native"
