@@ -18,12 +18,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Nvf
-    nvf = {
-      url = "github:NotAShelf/nvf";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Neovim Plugins
     none-ls-extras-nvim = {
       url = "github:nvimtools/none-ls-extras.nvim";
@@ -45,14 +39,40 @@
         hostname = "nixos";
         profile = "wsl";
         flakeDir = "/home/" + userSettings.username + "/.dotfiles/profiles/" + systemSettings.profile;
+
+        /**
+          * Optional Features
+          *
+          * enableSteam: Install steam
+          * enableDocker: Install docker
+          * enableFlatpak: Install and Setup flatpak
+          * enableMySQL: Install MySQL service
+          * enablePostgreSQL: Install PostgreSQL service
+          * enableVM: Install Virtual Machine via qemu and virt-manager
+        */
+        enableDocker = true;
+        enableFlatpak = true;
+        enableMySQL = true;
+        enablePostgreSQL = true;
+        enableVM = false;
       };
 
       userSettings = {
         username = "daangsangu";
         defaultShell = "zsh"; # or bash
-        claudeCodeModel = "claude"; # or gemini
         githubUsername = "januarpancaran";
         githubEmail = "januar352@gmail.com";
+
+        /**
+          * Optional Features
+          *
+          * enableProgrammingPkgs: Install all programming packages stated in profiles/home
+          * enableClaudeModel: Enables claude model for Claude Code
+          * enableGeminiModel: Enables gemini model for Claude Code
+        */
+        enableProgrammingPkgs = true;
+        enableClaudeModel = true;
+        enableGeminiModel = false;
       };
 
       pkgs = import inputs.nixpkgs {
@@ -67,16 +87,16 @@
           (final: prev: {
             antigravity-claude-proxy = prev.buildNpmPackage {
               pname = "antigravity-claude-proxy";
-              version = "2.6.0";
+              version = "2.7.3";
 
               src = prev.fetchFromGitHub {
                 owner = "badrisnarayanan";
                 repo = "antigravity-claude-proxy";
-                rev = "v2.6.0";
-                hash = "sha256-HN+1a/SK6QudAcF6AnxcPRZLAIazOatnCC5zEp1v65s=";
+                rev = "v2.7.3";
+                hash = "sha256-Mg7fJJC/5S4lywPbYJxy+Dn8T8O9jDYge1fsh989Hqw=";
               };
 
-              npmDepsHash = "sha256-HSvcf/xwRG4LXQjIDykVQVJNvabMvT7JGt8tL4k1OgM=";
+              npmDepsHash = "sha256-8WS6NLBMJFgyhC1jPqDX3XTOrc3li+8QybSwIxTtSEM=";
               dontNpmBuild = true;
 
               meta = with prev.lib; {
