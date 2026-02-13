@@ -136,7 +136,6 @@
 
         modules = [
           inputs.catppuccin.homeModules.catppuccin
-          inputs.nvf.homeManagerModules.default
           ./home.nix
         ];
       };
