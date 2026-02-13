@@ -118,13 +118,13 @@
           (final: prev: {
             antigravity-claude-proxy = prev.buildNpmPackage {
               pname = "antigravity-claude-proxy";
-              version = "2.6.4";
+              version = "2.7.3";
 
               src = prev.fetchFromGitHub {
                 owner = "badrisnarayanan";
                 repo = "antigravity-claude-proxy";
-                rev = "v2.6.4";
-                hash = "sha256-otvnGLj9PVTwT3ApqBYnpCC9m6nOlhCxwM3ZAlMYOBk=";
+                rev = "v2.7.3";
+                hash = "sha256-Mg7fJJC/5S4lywPbYJxy+Dn8T8O9jDYge1fsh989Hqw=";
               };
 
               npmDepsHash = "sha256-8WS6NLBMJFgyhC1jPqDX3XTOrc3li+8QybSwIxTtSEM=";
