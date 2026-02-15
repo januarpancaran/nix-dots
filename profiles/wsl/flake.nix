@@ -43,18 +43,15 @@
         /**
           * Optional Features
           *
-          * enableSteam: Install steam
           * enableDocker: Install docker
           * enableFlatpak: Install and Setup flatpak
           * enableMySQL: Install MySQL service
           * enablePostgreSQL: Install PostgreSQL service
-          * enableVM: Install Virtual Machine via qemu and virt-manager
         */
         enableDocker = true;
         enableFlatpak = true;
         enableMySQL = true;
         enablePostgreSQL = true;
-        enableVM = false;
       };
 
       userSettings = {
