@@ -117,13 +117,6 @@
         config = read ../../after/plugins/markdown.lua;
       }
 
-      # Opencode
-      {
-        plugin = opencode-nvim;
-        type = "lua";
-        config = read ../../after/plugins/opencode.lua;
-      }
-
       # Treesitter
       {
         plugin = nvim-treesitter.withAllGrammars;
