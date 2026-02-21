@@ -9,6 +9,7 @@
     gopls
     intelephense
     jdt-language-server
+    lemminx
     lua-language-server
     marksman
     nixd
@@ -27,6 +28,7 @@
     csharpier
     gofumpt
     google-java-format
+    libxml2
     nixfmt
     isort
     php84Packages.php-cs-fixer
