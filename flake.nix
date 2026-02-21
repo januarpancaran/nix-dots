@@ -75,7 +75,7 @@
           * enablePostgreSQL: Install PostgreSQL service
           * enableVM: Install Virtual Machine via qemu and virt-manager
         */
-        enableSteam = false;
+        enableSteam = true;
         enableDocker = true;
         enableFlatpak = true;
         enableMySQL = true;
