@@ -1,4 +1,9 @@
 {
+  pkgs,
+  inputs,
+  ...
+}:
+{
   programs.vscode.profiles.default = {
     userSettings = {
       editor = {
@@ -16,7 +21,7 @@
       workbench = {
         sideBar.location = "right";
         secondarySideBar.defaultVisibility = "hidden";
-        colorTheme = "Tokyo Night";
+        colorTheme = "Catppuccin Mocha";
         iconTheme = "catppuccin-mocha";
       };
 
@@ -36,13 +41,17 @@
         "editor.defaultFormatter" = "esbenp.prettier-vscode";
       };
 
+      "[lua]" = {
+        "editor.defaultFormatter" = "JohnnyMorganz.stylua";
+      };
+
       nix = {
         enableLanguageServer = true;
         serverPath = "nixd";
         serverSettings = {
-          nixd.formatting.command = [ "nixfmt" ];
+          nixd.formatting.command = [ "alejandra" ];
         };
-        formatterPath = "nixfmt";
+        formatterPath = "alejandra";
       };
 
       "redhat.telemetry.enabled" = false;

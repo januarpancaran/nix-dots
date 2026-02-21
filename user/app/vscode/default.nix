@@ -1,9 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
-    ./extensions
     ./settings
-    ./mkMutable.nix
   ];
 
   programs.vscode = {

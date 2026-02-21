@@ -14,7 +14,6 @@
     ../../user/app/opencode-antigravity-auth
     ../../user/app/terminal/ghostty.nix
     ../../user/app/wlogout
-    ../../user/app/vscode
     ../../user/inputs/fcitx5.nix
     ../../user/services/hypridle.nix
     ../../user/services/swww.nix
@@ -79,6 +78,7 @@
       tree
       unrar
       unzip
+      vscode
       wget
       yazi
       zip

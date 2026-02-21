@@ -9,12 +9,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Nix4VsCode
-    nix4vscode = {
-      url = "github:nix-community/nix4vscode";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Niri
     niri = {
       url = "github:sodiboo/niri-flake";
