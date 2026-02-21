@@ -78,7 +78,6 @@
       tree
       unrar
       unzip
-      vscode
       wget
       yazi
       zip
@@ -90,7 +89,9 @@
       [
         antigravity
         kiro
+        opencode-desktop
         sqlitebrowser
+        vscode
 
         bun
         dotnet-sdk
