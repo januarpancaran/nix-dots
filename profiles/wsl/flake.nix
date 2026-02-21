@@ -64,8 +64,6 @@
           * Optional Features
           *
           * enableProgrammingPkgs: Install all programming packages stated in profiles/home
-          * enableClaudeModel: Enables claude model for Claude Code
-          * enableGeminiModel: Enables gemini model for Claude Code
         */
         enableProgrammingPkgs = true;
       };

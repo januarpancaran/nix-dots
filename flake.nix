@@ -89,8 +89,6 @@
           *
           * enableZenBrowser: Install Zen Browser. If false, defaulting browser to brave
           * enableProgrammingPkgs: Install all programming packages stated in profiles/home
-          * enableClaudeModel: Enables claude model for Claude Code
-          * enableGeminiModel: Enables gemini model for Claude Code
         */
         enableZenBrowser = false;
         enableProgrammingPkgs = true;
