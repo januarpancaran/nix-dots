@@ -6,7 +6,7 @@
 
     settings = {
       font-family = "JetBrainsMono Nerd Font";
-      font-size = 14;
+      font-size = 12;
       theme = "TokyoNight";
 
       window-decoration = false;
