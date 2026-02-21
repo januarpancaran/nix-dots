@@ -68,8 +68,6 @@
           * enableGeminiModel: Enables gemini model for Claude Code
         */
         enableProgrammingPkgs = true;
-        enableClaudeModel = true;
-        enableGeminiModel = false;
       };
 
       pkgs = import inputs.nixpkgs {
