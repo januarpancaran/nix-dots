@@ -94,8 +94,6 @@
         */
         enableZenBrowser = false;
         enableProgrammingPkgs = true;
-        enableClaudeModel = true;
-        enableGeminiModel = false;
       };
 
       pkgs = import inputs.nixpkgs {
