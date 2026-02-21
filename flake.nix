@@ -108,7 +108,6 @@
 
         overlays = [
           inputs.niri.overlays.niri
-          inputs.nix4vscode.overlays.default
         ];
       };
     in
