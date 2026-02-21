@@ -7,7 +7,6 @@
 {
   imports = [
     ../../theme
-    ../../user/app/antigravity-claude-proxy
     ../../user/app/git
     ../../user/app/hyprlock
     ../../user/app/mpv
@@ -93,9 +92,7 @@
         kiro
         sqlitebrowser
 
-        antigravity-claude-proxy
         bun
-        claude-code
         dotnet-sdk
         gcc
         github-cli

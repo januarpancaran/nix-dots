@@ -7,7 +7,6 @@
 {
   imports = [
     ../../theme
-    ../../user/app/antigravity-claude-proxy
     ../../user/app/git
     ../../user/app/nvim
     ../../user/app/opencode-antigravity-auth
@@ -49,9 +48,7 @@
     ++ lib.optionals userSettings.enableProgrammingPkgs (
       with pkgs;
       [
-        antigravity-claude-proxy
         bun
-        claude-code
         dotnet-sdk
         gcc
         github-cli
