@@ -4,8 +4,8 @@
 {
   config,
   lib,
-  pkgs,
   modulesPath,
+  userSettings,
   ...
 }:
 {
@@ -158,14 +158,22 @@
     }
   ];
 
-  fileSystems."/home/daangsangu/Windows" = {
+  fileSystems."/home/${userSettings.username}/Windows" = {
     device = "/dev/disk/by-label/ACER";
     fsType = "ntfs";
+    options = [
+      "uid=1000"
+      "gid=100"
+    ];
   };
 
-  fileSystems."/home/daangsangu/Storage" = {
+  fileSystems."/home/${userSettings.username}/Storage" = {
     device = "/dev/disk/by-label/KINGSTON";
     fsType = "ntfs";
+    options = [
+      "uid=1000"
+      "gid=100"
+    ];
   };
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
