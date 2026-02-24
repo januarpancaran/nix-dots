@@ -112,7 +112,7 @@ in
         ))
         (bindSpawn "E" "nautilus")
         (bindSpawn "R" "fuzzel")
-        (bindSpawn "C" "code")
+        (bindSpawn "C" "codium")
         (bindSpawn "Shift+C" [
           "env"
           "XDG_CURRENT_DESKTOP=gnome"

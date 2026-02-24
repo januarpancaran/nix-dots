@@ -84,7 +84,7 @@ in
       )
       "$mainMod SHIFT, C, exec, env XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
       "$mainMod, SemiColon, exec, spotify"
-      "$mainMod, C, exec, code"
+      "$mainMod, C, exec, codium"
       "$mainMod, D, exec, discord"
       "$mainMod, O, exec, obs"
       "$mainMod, M, exec, wlogout"
