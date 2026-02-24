@@ -91,7 +91,7 @@
         kiro
         opencode-desktop
         sqlitebrowser
-        vscode
+        vscodium
 
         bun
         dotnet-sdk
