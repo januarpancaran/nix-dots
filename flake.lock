@@ -559,6 +559,26 @@
         "type": "github"
       }
     },
+    "opencode": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1772004439,
+        "narHash": "sha256-Svup7XCVQuIb5Ye7fb90L7dy3VcDy1gBBrqZ5ikOOC4=",
+        "owner": "anomalyco",
+        "repo": "opencode",
+        "rev": "d848c9b6a32f408e8b9bf6448b83af05629454d0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "anomalyco",
+        "repo": "opencode",
+        "type": "github"
+      }
+    },
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -590,6 +610,7 @@
         "niri": "niri",
         "nixpkgs": "nixpkgs",
         "none-ls-extras-nvim": "none-ls-extras-nvim",
+        "opencode": "opencode",
         "zen-browser": "zen-browser",
         "zsh-fzf-tab": "zsh-fzf-tab"
       }
