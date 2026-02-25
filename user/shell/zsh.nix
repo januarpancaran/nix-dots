@@ -78,9 +78,6 @@
       source <(fzf --zsh)
       eval "$(zoxide init zsh)
       eval "$(starship init zsh)
-
-      export ANTHROPIC_BASE_URL="http://localhost:8080"
-      export ANTHROPIC_AUTH_TOKEN="test"
     '';
   };
 }

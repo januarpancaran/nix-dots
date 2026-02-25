@@ -57,9 +57,6 @@
       eval "$(fzf --bash)"
       eval "$(starship init bash)"
       eval "$(zoxide init bash)"
-
-      export ANTHROPIC_BASE_URL="http://localhost:8080"
-      export ANTHROPIC_AUTH_TOKEN="test"
     '';
   };
 }
