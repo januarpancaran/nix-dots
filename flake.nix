@@ -27,12 +27,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Zen Browser
-    zen-browser = {
-      url = "github:0xc000022070/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Opencode
     opencode = {
       url = "github:anomalyco/opencode?ref=v1.2.14";
@@ -93,10 +87,10 @@
         /**
           * Optional Features
           *
-          * enableZenBrowser: Install Zen Browser. If false, defaulting browser to brave
+          * enableChrome: Enables Google Chrome, enables Firefox if false
           * enableProgrammingPkgs: Install all programming packages stated in profiles/home
         */
-        enableZenBrowser = false;
+        enableChrome = true;
         enableProgrammingPkgs = true;
       };
 
@@ -141,7 +135,6 @@
         modules = [
           inputs.niri.homeModules.niri
           inputs.catppuccin.homeModules.catppuccin
-          inputs.zen-browser.homeModules.beta
           (./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix")
         ];
       };

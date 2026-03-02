@@ -1,6 +1,6 @@
 { userSettings, ... }:
 {
-  programs.zen-browser.profiles = {
+  programs.firefox.profiles = {
     ${userSettings.username} = {
       id = 0;
       name = userSettings.username;

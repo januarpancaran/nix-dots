@@ -1,6 +1,6 @@
 { userSettings, ... }:
 {
-  programs.zen-browser.policies = {
+  programs.firefox.policies = {
     DisableTelemetry = true;
     DisableFirefoxStudies = true;
     DontCheckDefaultBrowser = true;
