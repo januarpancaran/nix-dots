@@ -90,7 +90,7 @@
         kiro
         opencode
         sqlitebrowser
-        vscodium
+        vscode
 
         bun
         dotnet-sdk
