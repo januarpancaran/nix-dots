@@ -31,7 +31,6 @@
     [
       bat
       curl
-      devbox
       fzf
       glib
       htop

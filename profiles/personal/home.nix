@@ -64,7 +64,6 @@
     [
       bat
       curl
-      devbox
       foliate
       fzf
       glib
