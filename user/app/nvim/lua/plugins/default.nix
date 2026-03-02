@@ -89,6 +89,13 @@
         config = read ../../after/plugins/git.lua;
       }
 
+      # Harpoon
+      {
+        plugin = harpoon2;
+        type = "lua";
+        config = read ../../after/plugins/harpoon.lua;
+      }
+
       # Indent
       {
         plugin = indent-blankline-nvim;
