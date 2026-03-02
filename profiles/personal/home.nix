@@ -68,10 +68,10 @@
       fzf
       glib
       htop
-      insomnia
       libreoffice
       loupe
       papers
+      postman
       ripgrep
       telegram-desktop
       tree
