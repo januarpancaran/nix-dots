@@ -100,6 +100,7 @@
         go
         jdk
         lua
+        maven
         ngrok
         nixd
         nodejs
@@ -122,6 +123,7 @@
             django-cors-headers
           ]
         ))
+        spring-boot-cli
       ]
     );
 
