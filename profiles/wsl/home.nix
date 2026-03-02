@@ -49,6 +49,7 @@
       [
         bun
         dotnet-sdk
+        dotnetPackages.Nuget
         gcc
         github-cli
         go
