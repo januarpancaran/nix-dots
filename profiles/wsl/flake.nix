@@ -18,12 +18,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Opencode
-    opencode = {
-      url = "github:anomalyco/opencode?ref=v1.2.14";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Neovim Plugins
     none-ls-extras-nvim = {
       url = "github:nvimtools/none-ls-extras.nvim";
@@ -81,10 +75,6 @@
           allowUnfree = true;
           allowBroken = false;
         };
-
-        overlays = [
-          inputs.opencode.overlays.default
-        ];
       };
     in
     {
