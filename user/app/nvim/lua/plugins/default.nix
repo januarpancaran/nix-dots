@@ -27,6 +27,7 @@
       luasnip
       none-ls-extras
       nvim-treesitter-context
+      mini-icons
       plenary-nvim
       rainbow-delimiters-nvim
       render-markdown-nvim
@@ -122,6 +123,13 @@
         plugin = markdown-preview-nvim;
         type = "lua";
         config = read ../../after/plugins/markdown.lua;
+      }
+
+      # Oil
+      {
+        plugin = oil-nvim;
+        type = "lua";
+        config = read ../../after/plugins/oil.lua;
       }
 
       # Treesitter
