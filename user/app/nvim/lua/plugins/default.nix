@@ -25,9 +25,9 @@
       copilot-cmp
       friendly-snippets
       luasnip
-      mini-icons
       nui-nvim
       nvim-notify
+      nvim-web-devicons
       none-ls-extras
       nvim-treesitter-context
       plenary-nvim
