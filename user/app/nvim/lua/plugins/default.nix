@@ -35,6 +35,7 @@
       render-markdown-nvim
       snacks-nvim
       telescope-ui-select-nvim
+      telescope-fzf-native-nvim
 
       # Cmp
       {
