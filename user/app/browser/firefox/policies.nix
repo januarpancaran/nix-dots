@@ -23,8 +23,8 @@
         };
       in
       builtins.listToAttrs [
+        (extension "tokyo-night-milav" "{4520dc08-80f4-4b2e-982a-c17af42e5e4d}")
         (extension "ublock-origin" "uBlock0@raymondhill.net")
-        (extension "always-visible" "{4b7825da-0dd1-44f9-9717-bee5b2408af6}")
       ];
 
     Preferences =
