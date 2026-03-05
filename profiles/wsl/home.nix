@@ -54,7 +54,7 @@
         github-cli
         github-copilot-cli
         go
-        jdk
+        jdk25
         lua
         maven
         ngrok
