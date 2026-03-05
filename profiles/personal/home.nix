@@ -86,8 +86,6 @@
     ++ lib.optionals userSettings.enableProgrammingPkgs (
       with pkgs;
       [
-        antigravity
-        kiro
         opencode
         sqlitebrowser
         vscode
