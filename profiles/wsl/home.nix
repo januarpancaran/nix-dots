@@ -48,7 +48,7 @@
       with pkgs;
       [
         bun
-        dotnet-sdk
+        dotnet-sdk_10
         dotnetPackages.Nuget
         gcc
         github-cli
