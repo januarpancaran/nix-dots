@@ -81,10 +81,10 @@
         /**
           * Optional Features
           *
-          * enableChrome: Enables Google Chrome, enables Firefox if false
+          * enableFirefox: Enables Firefox, enables Google Chrome if false
           * enableProgrammingPkgs: Install all programming packages stated in profiles/home
         */
-        enableChrome = true;
+        enableFirefox = true;
         enableProgrammingPkgs = true;
       };
 
