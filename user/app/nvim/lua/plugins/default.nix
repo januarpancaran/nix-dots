@@ -25,11 +25,10 @@
       copilot-cmp
       friendly-snippets
       luasnip
-      nui-nvim
-      nvim-notify
       nvim-web-devicons
       none-ls-extras
       nvim-treesitter-context
+      mini-icons
       plenary-nvim
       rainbow-delimiters-nvim
       render-markdown-nvim
@@ -126,13 +125,6 @@
         plugin = markdown-preview-nvim;
         type = "lua";
         config = read ../../after/plugins/markdown.lua;
-      }
-
-      # Noice
-      {
-        plugin = noice-nvim;
-        type = "lua";
-        config = read ../../after/plugins/noice.lua;
       }
 
       # Oil
