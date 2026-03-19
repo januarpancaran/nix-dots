@@ -54,6 +54,7 @@
         github-copilot-cli
         go
         jdk25
+        kotlin
         lua
         ngrok
         nixd

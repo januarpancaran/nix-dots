@@ -9,6 +9,7 @@
     gopls
     intelephense
     jdt-language-server
+    kotlin-language-server
     lemminx
     lua-language-server
     marksman
