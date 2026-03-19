@@ -92,14 +92,12 @@
 
         bun
         dotnet-sdk_10
-        dotnetPackages.Nuget
         gcc
         github-cli
         github-copilot-cli
         go
         jdk25
         lua
-        maven
         ngrok
         nixd
         nodejs
