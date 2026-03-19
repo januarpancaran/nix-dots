@@ -121,6 +121,7 @@
             django-cors-headers
           ]
         ))
+        ruby
         spring-boot-cli
       ]
     );

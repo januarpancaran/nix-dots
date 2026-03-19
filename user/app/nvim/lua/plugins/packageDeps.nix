@@ -16,6 +16,7 @@
     nixd
     omnisharp-roslyn
     pyright
+    ruby-lsp
     rust-analyzer
     svelte-language-server
     tailwindcss-language-server
@@ -29,11 +30,13 @@
     csharpier
     gofumpt
     google-java-format
+    ktlint
     libxml2
     nixfmt
     isort
     php84Packages.php-cs-fixer
     prettierd
+    rubocop
     rustfmt
     shfmt
     stylua
