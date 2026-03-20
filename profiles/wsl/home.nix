@@ -48,20 +48,31 @@
       with pkgs;
       [
         bun
+        cargo
         dotnet-sdk_10
         gcc
         github-cli
         github-copilot-cli
+        gmp
+        gnumake
         go
         jdk25
         kotlin
+        libyaml
         lua
         ngrok
         nixd
         nodejs
         opencode
+        openssl
         php
         php84Packages.composer
+        pkg-config
+        ruby
+        rustc
+        spring-boot-cli
+        zlib
+
         (python3.withPackages (
           ps: with ps; [
             numpy
@@ -79,8 +90,6 @@
             django-cors-headers
           ]
         ))
-        ruby
-        spring-boot-cli
       ]
     );
 

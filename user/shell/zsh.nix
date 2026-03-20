@@ -74,6 +74,7 @@
       fi
 
       export PATH="$PATH:$HOME/go/bin"
+      export PATH="$PATH:$HOME/.local/share/gem/ruby/3.4.0/bin"
 
       source <(fzf --zsh)
       eval "$(zoxide init zsh)
