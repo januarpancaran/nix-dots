@@ -104,7 +104,7 @@
           tooltip-format-connected-battery = "{device_alias}: {device_battery_percentage}%";
           tooltip-format-enumerate-connected = "{device_alias}";
           tooltip-format-enumerate-connected-battery = "{device_alias}: {device_battery_percentage}%";
-          on-click = "blueberry";
+          on-click = "blueman";
           min-length = 2;
         };
 

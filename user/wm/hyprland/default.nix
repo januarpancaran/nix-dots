@@ -5,7 +5,7 @@
 }:
 {
   home.packages = with pkgs; [
-    blueberry
+    blueman
     brightnessctl
     discord
     gnome-control-center
