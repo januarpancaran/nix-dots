@@ -8,6 +8,7 @@
   imports = [
     ../../theme
     ../../user/app/git
+    ../../user/app/npm
     ../../user/app/nvim
     ../../user/app/opencode-antigravity-auth
     ../../user/shell/bash.nix

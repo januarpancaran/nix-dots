@@ -56,6 +56,7 @@
       export PATH="$PATH:$HOME/go/bin"
       export GEM_HOME="$HOME/.gem"
       export PATH="$PATH:$HOME/.gem/bin"
+      export PATH="$PATH:$HOME/.npm-global/bin"
 
       eval "$(fzf --bash)"
       eval "$(starship init bash)"

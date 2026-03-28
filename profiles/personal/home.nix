@@ -10,6 +10,7 @@
     ../../user/app/git
     ../../user/app/hyprlock
     ../../user/app/mpv
+    ../../user/app/npm
     ../../user/app/nvim
     ../../user/app/opencode-antigravity-auth
     ../../user/app/terminal/ghostty.nix
