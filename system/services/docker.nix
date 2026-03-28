@@ -4,7 +4,7 @@
   systemSettings,
   ...
 }:
-lib.mkIf systemSettings.enableVM {
+lib.mkIf systemSettings.enableDocker {
   environment.systemPackages = with pkgs; [
     docker-buildx
     docker-compose
@@ -17,9 +17,6 @@ lib.mkIf systemSettings.enableVM {
       package = pkgs.docker;
       enable = true;
       setSocketVariable = true;
-      daemon.settings = {
-        storage-driver = "btrfs";
-      };
     };
   };
 }
