@@ -53,7 +53,8 @@
       fi
 
       export PATH="$PATH:$HOME/go/bin"
-      export PATH="$PATH:$HOME/.local/share/gem/ruby/3.4.0/bin"
+      export GEM_HOME="$HOME/.gem"
+      export PATH="$PATH:$HOME/.gem/bin"
 
       eval "$(fzf --bash)"
       eval "$(starship init bash)"
