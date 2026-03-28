@@ -87,7 +87,6 @@
       with pkgs;
       [
         opencode
-        sqlitebrowser
         vscode
 
         bun
