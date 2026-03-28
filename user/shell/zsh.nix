@@ -73,6 +73,7 @@
         fastfetch
       fi
 
+      export PATH="$PATH:$HOME/.dotnet/tools"
       export PATH="$PATH:$HOME/go/bin"
       export GEM_HOME="$HOME/.gem"
       export PATH="$PATH:$HOME/.gem/bin"
