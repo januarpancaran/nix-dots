@@ -109,7 +109,7 @@
         php
         php84Packages.composer
         pkg-config
-        ruby
+        ruby_4_0
         rustc
         spring-boot-cli
         zlib
