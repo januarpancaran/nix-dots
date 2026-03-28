@@ -4,7 +4,6 @@
     "modesetting"
     "nvidia"
   ];
-  hardware.nvidia-container-toolkit.enable = true;
 
   hardware.nvidia = {
     package = config.boot.kernelPackages.nvidiaPackages.stable;
