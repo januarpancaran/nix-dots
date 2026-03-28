@@ -19,7 +19,6 @@
     ../../system/hardware/intel.nix
     ../../system/hardware/nvidia.nix
     ../../system/security
-    ../../system/services/btrfs-autoscrub.nix
     ../../system/services/dbus.nix
     ../../system/services/docker.nix
     ../../system/services/flatpak.nix
