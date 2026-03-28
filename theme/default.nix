@@ -8,6 +8,11 @@
       name = "Dracula";
     };
 
+    gtk4.theme = {
+      package = pkgs.dracula-theme;
+      name = "Dracula";
+    };
+
     iconTheme = {
       package = pkgs.tela-icon-theme;
       name = "Tela-nord-dark";
