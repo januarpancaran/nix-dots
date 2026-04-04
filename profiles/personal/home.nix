@@ -33,22 +33,12 @@
         ../../user/app/browser/google-chrome
     )
   ]
-  ++ (
-    if userSettings.wm == "niri" then
-      [
-        ../../user/app/eww
-        ../../user/app/fuzzel
-        ../../user/services/mako
-        ../../user/wm/niri
-      ]
-    else
-      [
-        ../../user/app/rofi
-        ../../user/app/waybar
-        ../../user/services/dunst
-        ../../user/wm/hyprland
-      ]
-  );
+  ++ [
+    ../../user/app/eww
+    ../../user/app/fuzzel
+    ../../user/services/mako
+    ../../user/wm/niri
+  ];
 
   home = {
     username = userSettings.username;

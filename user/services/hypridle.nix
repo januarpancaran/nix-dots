@@ -16,8 +16,7 @@
         general = {
           lock_cmd = "pidof hyprlock || hyprlock";
           before_sleep_cmd = "loginctl lock-session";
-          after_sleep_cmd =
-            if userSettings.wm == "niri" then "niri msg output ${monitor} on" else "hyprctl dispatch dpms on";
+          after_sleep_cmd = "niri msg output ${monitor} on";
         };
 
         listener = [
@@ -37,10 +36,8 @@
           }
           {
             timeout = 330;
-            on-timeout =
-              if userSettings.wm == "niri" then "niri msg output ${monitor} off" else "hyprctl dispatch dpms off";
-            on-resume =
-              if userSettings.wm == "niri" then "niri msg output ${monitor} on" else "hyprctl dispatch dpms on";
+            on-timeout = "niri msg output ${monitor} off";
+            on-resume = "niri msg output ${monitor} on";
           }
           {
             timeout = 600;

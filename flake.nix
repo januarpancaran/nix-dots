@@ -15,12 +15,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Hyprland
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Catppuccin
     catppuccin = {
       url = "github:catppuccin/nix";
@@ -73,7 +67,6 @@
 
       userSettings = {
         username = "daangsangu";
-        wm = "niri"; # or Hyprland
         defaultShell = "zsh"; # or bash
         githubUsername = "januarpancaran";
         githubEmail = "januar352@gmail.com";

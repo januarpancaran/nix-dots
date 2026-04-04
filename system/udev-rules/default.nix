@@ -10,7 +10,7 @@
 
   services.udev.extraRules =
     let
-      notifier = if userSettings.wm == "niri" then "mako" else "dunst";
+      notifier = "mako";
       waylandDisplay = "wayland-0";
       dbus = "unix:path=/run/user/1000/bus";
 

@@ -93,8 +93,7 @@
 
   hardware.enableAllFirmware = true;
 
-  programs.niri.enable = userSettings.wm == "niri";
-  programs.hyprland.enable = userSettings.wm == "Hyprland";
+  programs.niri.enable = true;
   programs.bash.enable = true;
   programs.zsh.enable = true;
   programs.nix-ld.enable = true;
