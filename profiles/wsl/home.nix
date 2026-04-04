@@ -34,6 +34,7 @@
       fzf
       glib
       htop
+      jq
       ripgrep
       tree
       unrar
