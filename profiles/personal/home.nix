@@ -57,7 +57,6 @@
       nautilus
       obs-studio
       papers
-      postman
       ripgrep
       spotify
       telegram-desktop
