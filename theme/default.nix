@@ -53,12 +53,6 @@
 
       fzf = defaultAccent;
 
-      ghostty = default;
-
-      mpv = defaultAccent;
-
-      obs = default;
-
       tmux = default // {
         extraConfig = ''
           set -g @catppuccin_window_status_style "rounded"
