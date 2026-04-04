@@ -12,7 +12,6 @@
     ../../user/app/mpv
     ../../user/app/npm
     ../../user/app/nvim
-    ../../user/app/opencode-antigravity-auth
     ../../user/app/terminal/ghostty.nix
     ../../user/app/wlogout
     ../../user/inputs/fcitx5.nix

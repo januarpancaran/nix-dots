@@ -10,7 +10,6 @@
     ../../user/app/git
     ../../user/app/npm
     ../../user/app/nvim
-    ../../user/app/opencode-antigravity-auth
     ../../user/shell/bash.nix
     ../../user/shell/shell-utils/fastfetch.nix
     ../../user/shell/shell-utils/starship
