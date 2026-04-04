@@ -1,16 +1,8 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    blueman
-    brightnessctl
-    discord
-    gnome-control-center
-    nautilus
-    obs-studio
     pavucontrol
     polkit_gnome
-    spotify
-    wl-clipboard
     wl-mirror
     xdg-desktop-portal
     xdg-desktop-portal-gnome
@@ -32,7 +24,7 @@
 
     settings = {
       layout = {
-        gaps = 8;
+        gaps = 15;
         center-focused-column = "never";
 
         preset-column-widths = [
@@ -49,10 +41,10 @@
 
         border = {
           enable = true;
-          width = 4;
-          active.color = "#cba6f7";
-          inactive.color = "#595959";
-          urgent.color = "#9b0000";
+          width = 3;
+          active.color = "#c4a7e7";
+          inactive.color = "#403d52";
+          urgent.color = "#eb6f92";
         };
       };
 

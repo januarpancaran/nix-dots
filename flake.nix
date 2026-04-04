@@ -15,6 +15,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Noctalia
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Catppuccin
     catppuccin = {
       url = "github:catppuccin/nix";
@@ -120,6 +126,7 @@
 
         modules = [
           inputs.niri.homeModules.niri
+          inputs.noctalia.homeModules.default
           inputs.catppuccin.homeModules.catppuccin
           (./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix")
         ];

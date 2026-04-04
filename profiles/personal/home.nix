@@ -8,23 +8,19 @@
   imports = [
     ../../theme
     ../../user/app/git
-    ../../user/app/hyprlock
     ../../user/app/mpv
+    ../../user/app/noctalia
     ../../user/app/npm
     ../../user/app/nvim
     ../../user/app/terminal/ghostty.nix
-    ../../user/app/wlogout
     ../../user/inputs/fcitx5.nix
-    ../../user/services/hypridle.nix
-    ../../user/services/swww.nix
-    ../../user/services/systemd-services.nix
-    ../../user/services/systemd-timers.nix
     ../../user/services/xdg-portal.nix
     ../../user/shell/bash.nix
     ../../user/shell/shell-utils/fastfetch.nix
     ../../user/shell/shell-utils/starship
     ../../user/shell/shell-utils/tmux.nix
     ../../user/shell/zsh.nix
+    ../../user/wm/niri
 
     (
       if userSettings.enableFirefox then
@@ -32,12 +28,6 @@
       else
         ../../user/app/browser/google-chrome
     )
-  ]
-  ++ [
-    ../../user/app/eww
-    ../../user/app/fuzzel
-    ../../user/services/mako
-    ../../user/wm/niri
   ];
 
   home = {
@@ -53,21 +43,28 @@
     with pkgs;
     [
       bat
+      brightnessctl
       curl
+      discord
       foliate
       fzf
       glib
+      gnome-control-center
       htop
       libreoffice
       loupe
+      nautilus
+      obs-studio
       papers
       postman
       ripgrep
+      spotify
       telegram-desktop
       tree
       unrar
       unzip
       wget
+      wl-clipboard
       yazi
       zip
       zotero
