@@ -7,7 +7,7 @@
     settings = {
       font-family = "JetBrainsMono Nerd Font";
       font-size = 12;
-      theme = "TokyoNight";
+      theme = "Rose Pine Moon";
 
       window-decoration = false;
       confirm-close-surface = false;
