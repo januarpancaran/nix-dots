@@ -51,6 +51,7 @@
       glib
       gnome-control-center
       htop
+      jq
       libreoffice
       loupe
       nautilus
