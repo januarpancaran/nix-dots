@@ -91,6 +91,8 @@
     defaultUserShell = if userSettings.defaultShell == "bash" then pkgs.bashInteractive else pkgs.zsh;
   };
 
+  hardware.enableAllFirmware = true;
+
   programs.niri.enable = userSettings.wm == "niri";
   programs.hyprland.enable = userSettings.wm == "Hyprland";
   programs.bash.enable = true;
