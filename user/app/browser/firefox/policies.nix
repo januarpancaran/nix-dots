@@ -23,7 +23,7 @@
         };
       in
       builtins.listToAttrs [
-        (extension "tokyo-night-milav" "{4520dc08-80f4-4b2e-982a-c17af42e5e4d}")
+        (extension "rose-pine" "{6bbdb3f9-6bd5-4385-9087-e293ec8d21a4}")
         (extension "ublock-origin" "uBlock0@raymondhill.net")
       ];
 
