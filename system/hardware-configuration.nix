@@ -30,31 +30,31 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-label/NIX_ROOT";
+    device = "/dev/disk/by-label/NIXOS_ROOT";
     fsType = "ext4";
   };
 
-  fileSystems."/boot/efi" = {
-    device = "/dev/disk/by-label/EFI";
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-label/NIXOS_BOOT";
     fsType = "vfat";
     options = [
-      "fmask=0022"
-      "dmask=0022"
+      "fmask=0077"
+      "dmask=0077"
     ];
   };
 
   swapDevices = [
-    { device = "/dev/disk/by-label/NIX_SWAP"; }
+    { device = "/dev/disk/by-label/NIXOS_SWAP"; }
   ];
 
   fileSystems."/home/${userSettings.username}/Windows" = {
     device = "/dev/disk/by-label/ACER";
-    fsType = "ntfs";
+    fstype = "ntfs";
   };
 
   fileSystems."/home/${userSettings.username}/Storage" = {
     device = "/dev/disk/by-label/KINGSTON";
-    fsType = "ntfs";
+    fstype = "ntfs";
   };
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
