@@ -13,7 +13,6 @@
     ../../user/app/npm
     ../../user/app/nvim
     ../../user/app/terminal/ghostty.nix
-    ../../user/app/zed
     ../../user/inputs/fcitx5.nix
     ../../user/services/xdg-portal.nix
     ../../user/shell/bash.nix
@@ -37,10 +36,6 @@
     stateVersion = "25.05";
     sessionVariables = {
       EDITOR = "nvim";
-    }
-    // lib.optionalAttrs userSettings.enableProgrammingPkgs {
-      DOTNET_ROOT = "${pkgs.dotnet-sdk_10}/share/dotnet";
-      DOTNET_ROOT_X64 = "${pkgs.dotnet-sdk_10}/share/dotnet";
     };
   };
 
@@ -78,6 +73,9 @@
     ++ lib.optionals userSettings.enableProgrammingPkgs (
       with pkgs;
       [
+        opencode
+        vscode
+
         bun
         cargo
         dotnet-sdk_10
@@ -95,7 +93,6 @@
         nixd
         nodejs
         openssl
-        opencode
         php
         php84Packages.composer
         pkg-config
