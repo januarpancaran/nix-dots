@@ -49,12 +49,12 @@
 
   fileSystems."/home/${userSettings.username}/Windows" = {
     device = "/dev/disk/by-label/ACER";
-    fstype = "ntfs";
+    fsType = "ntfs";
   };
 
   fileSystems."/home/${userSettings.username}/Storage" = {
     device = "/dev/disk/by-label/KINGSTON";
-    fstype = "ntfs";
+    fsType = "ntfs";
   };
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
