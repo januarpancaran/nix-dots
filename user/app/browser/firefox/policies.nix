@@ -24,8 +24,14 @@
       in
       builtins.listToAttrs [
         (extension "rose-pine" "{6bbdb3f9-6bd5-4385-9087-e293ec8d21a4}")
-        (extension "ublock-origin" "uBlock0@raymondhill.net")
-      ];
+      ]
+      // {
+        "uBlock0@raymondhill.net" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+          installation_mode = "force_installed";
+          private_browsing = true;
+        };
+      };
 
     Preferences =
       let
@@ -53,6 +59,8 @@
         "gfx.content.skia-font-cache-size" = 20;
 
         # Disk Cache
+        # NOTE: user.js (Betterfox) sets this to false for privacy/disk avoidance,
+        # but kept true here intentionally for performance.
         "browser.cache.disk.enable" = lock-true;
 
         # Media Cache
@@ -72,11 +80,14 @@
         "network.ssl_tokens_cache_capacity" = 10240;
 
         # Speculative Loading
+        "network.http.speculative-parallel-limit" = 0;
         "network.dns.disablePrefetch" = lock-true;
         "network.dns.disablePrefetchFromHTTPS" = lock-true;
         "network.prefetch-next" = lock-false;
         "network.predictor.enabled" = lock-false;
         "network.predictor.enable-prefetch" = lock-false;
+        "browser.urlbar.speculativeConnect.enabled" = lock-false;
+        "browser.places.speculativeConnect.enabled" = lock-false;
 
         # Experimental
         "layout.css.grid-template-masonry-value.enabled" = lock-true;
@@ -94,11 +105,13 @@
         "browser.helperApps.deleteTempFileOnExit" = lock-true;
         "browser.uitour.enabled" = lock-false;
         "privacy.globalprivacycontrol.enabled" = lock-true;
+        "privacy.antitracking.isolateContentScriptResources" = lock-true;
 
-        # OSCP & CERTS / HPKP
+        # OCSP & CERTS / HPKP
         "security.OCSP.enabled" = 0;
         "security.remote_settings.crlite_filters.enabled" = lock-true;
         "security.pki.crlite_mode" = 2;
+        "security.csp.reporting.enabled" = lock-false;
 
         # SSL / TLS
         "security.ssl.treat_unsafe_negotiation_as_broken" = lock-true;
@@ -128,6 +141,8 @@
 
         # HTTPS First Security
         "dom.security.https_first" = lock-true;
+        "dom.security.https_only_mode" = lock-true;
+        "dom.security.https_only_mode_error_page_user_suggestions" = lock-true;
 
         # Passwords
         "signon.formlessCapture.enabled" = lock-false;
@@ -141,6 +156,7 @@
 
         # Extensions
         "extensions.enabledScopes" = 5;
+        "extensions.getAddons.cache.enabled" = lock-false;
 
         # Headers / Referers
         "network.http.referer.XOriginTrimmingPolicy" = 2;
@@ -154,12 +170,17 @@
         # Mozilla
         "permissions.default.desktop-notification" = 2;
         "permissions.default.geo" = 2;
+        "geo.provider.network.url" = {
+          Value = "https://beacondb.net/v1/geolocate";
+          Status = "locked";
+        };
         "browser.search.update" = lock-false;
         "permissions.manager.defaultsUrl" = lock-empty-string;
 
         # Telemetry
         "datareporting.policy.dataSubmissionEnabled" = lock-false;
         "datareporting.healthreport.uploadEnabled" = lock-false;
+        "datareporting.usage.uploadEnabled" = lock-false;
         "toolkit.telemetry.unified" = lock-false;
         "toolkit.telemetry.enabled" = lock-false;
         "toolkit.telemetry.server" = "data:,";
@@ -207,6 +228,17 @@
         "browser.compactmode.show" = lock-true;
         "browser.privateWindowSeparation.enabled" = lock-false;
 
+        # AI / ML (Firefox built-in features)
+        "browser.ai.control.default" = {
+          Value = "blocked";
+          Status = "locked";
+        };
+        "browser.ml.enable" = lock-false;
+        "browser.ml.chat.enabled" = lock-false;
+        "browser.ml.chat.menu" = lock-false;
+        "browser.tabs.groups.smart.enabled" = lock-false;
+        "browser.ml.linkPreview.enabled" = lock-false;
+
         # Cookie Banner Handling
         "cookiebanners.service.mode" = 1;
         "cookiebanners.service.mode.privateBrowsing" = 1;
@@ -225,6 +257,10 @@
         "browser.newtabpage.activity-stream.feeds.topsites" = lock-false;
         "browser.newtabpage.activity-stream.showWeather" = lock-false;
         "browser.newtabpage.activity-stream.feeds.section.topstories" = lock-false;
+        "browser.newtabpage.activity-stream.default.sites" = lock-empty-string;
+        "browser.newtabpage.activity-stream.showSponsoredTopSites" = lock-false;
+        "browser.newtabpage.activity-stream.showSponsored" = lock-false;
+        "browser.newtabpage.activity-stream.showSponsoredCheckboxes" = lock-false;
 
         # Pocket
         "extensions.pocket.enabled" = lock-false;
@@ -232,7 +268,7 @@
         # Downloads
         "browser.download.manager.addToRecentDocs" = lock-false;
 
-        # Pdf
+        # PDF
         "browser.download.open_pdf_attachments_inline" = lock-true;
 
         # Tab Behavior
@@ -240,6 +276,28 @@
         "browser.menu.showViewImageInfo" = lock-true;
         "findbar.highlightAll" = lock-true;
         "layout.word_select.eat_space_to_next_word" = lock-false;
+
+        # Startup — restore previous windows and tabs
+        "browser.startup.page" = 3;
+
+        # Language & Locale
+        "intl.accept_languages" = {
+          Value = "en-GB, en";
+          Status = "locked";
+        };
+        "intl.locale.requested" = {
+          Value = "en-GB";
+          Status = "locked";
+        };
+        "javascript.use_us_english_locale" = lock-false;
+
+        # DRM
+        "media.eme.enabled" = lock-true;
+        "media.gmp-widevinecdm.enabled" = lock-true;
+
+        # Picture-in-Picture
+        "media.videocontrols.picture-in-picture.enabled" = lock-false;
+        "media.videocontrols.picture-in-picture.video-toggle.enabled" = lock-false;
       };
   };
 }
