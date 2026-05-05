@@ -1,17 +1,19 @@
 { pkgs, ... }:
 {
   imports = [
-    ./lua/plugins
+    # ./lua/plugins
   ];
 
   programs.neovim = {
-    package = pkgs.neovim-unwrapped;
     enable = true;
 
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
+
+    withPython3 = true;
+    withRuby = true;
 
     initLua = ''
       ${builtins.readFile ./lua/config/options.lua}
