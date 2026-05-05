@@ -58,6 +58,8 @@
       export PATH="$PATH:$HOME/.gem/bin"
       export PATH="$PATH:$HOME/.npm-global/bin"
 
+      export SSL_CERT_DIR="$HOME/.aspnet/dev-certs/trust:${pkgs.openssl}/etc/ssl/certs"
+
       eval "$(fzf --bash)"
       eval "$(starship init bash)"
       eval "$(zoxide init bash)"
