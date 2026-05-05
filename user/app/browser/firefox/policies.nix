@@ -9,6 +9,9 @@
     DisableAccounts = true;
     DisplayBookmarksToolbar = "always";
     SearchBar = "unified";
+    Certificates = {
+        ImportEnterpriseRoots = true;
+    };
 
     DefaultDownloadDirectory = "/home/" + userSettings.username + "/Downloads";
 
