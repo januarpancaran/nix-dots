@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   imports = [
     ./policies.nix
@@ -6,7 +6,7 @@
   ];
 
   programs.firefox = {
-    package = pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true; }) { };
     enable = true;
+    configPath = "${config.xdg.configHome}/mozilla/firefox";
   };
 }
