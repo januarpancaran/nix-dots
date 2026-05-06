@@ -82,8 +82,8 @@
       export SSL_CERT_DIR="$HOME/.aspnet/dev-certs/trust:${pkgs.openssl}/etc/ssl/certs"
 
       source <(fzf --zsh)
-      eval "$(zoxide init zsh)
-      eval "$(starship init zsh)
+      eval "$(zoxide init zsh)"
+      eval "$(starship init zsh)"
     '';
   };
 }
