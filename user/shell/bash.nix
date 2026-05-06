@@ -59,6 +59,7 @@
       export PATH="$PATH:$HOME/.npm-global/bin"
 
       export SSL_CERT_DIR="$HOME/.aspnet/dev-certs/trust:${pkgs.openssl}/etc/ssl/certs"
+      export SSL_CERT_FILE="${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt"
 
       eval "$(fzf --bash)"
       eval "$(starship init bash)"

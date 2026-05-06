@@ -51,6 +51,7 @@
       glib
       gnome-control-center
       htop
+      icu
       jq
       libreoffice
       loupe
