@@ -53,11 +53,6 @@
     ];
   };
 
-  console = {
-    font = "Lat2-Terminus16";
-    keyMap = "us";
-  };
-
   nix.settings = {
     experimental-features = [
       "nix-command"
