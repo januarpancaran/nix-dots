@@ -36,6 +36,11 @@
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-label/NIXOS_BOOT";
+    fsType = "ext4";
+  };
+
+  fileSystems."/boot/efi" = {
+    device = "/dev/disk/by-label/NIXOS_EFI";
     fsType = "vfat";
     options = [
       "fmask=0077"
