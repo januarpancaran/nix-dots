@@ -1,3 +1,4 @@
+{ userSettings, ... }:
 {
   programs.noctalia-shell = {
     settings = {
@@ -90,13 +91,14 @@
           ];
           left = [
             {
-              colorizeSystemIcon = "none";
+              colorizeSystemIcon = "primary";
+              colorizeSystemText = "none";
               customIconPath = "";
-              enableColorization = false;
+              enableColorization = true;
               icon = "rocket";
               iconColor = "none";
               id = "Launcher";
-              useDistroLogo = false;
+              useDistroLogo = true;
             }
             {
               characterCount = 2;
@@ -191,6 +193,7 @@
             {
               colorizeDistroLogo = false;
               colorizeSystemIcon = "none";
+              colorizeSystemText = "none";
               customIconPath = "";
               enableColorization = false;
               icon = "noctalia";
@@ -333,7 +336,7 @@
         animationDisabled = false;
         animationSpeed = 1;
         autoStartAuth = false;
-        avatarImage = "/home/daangsangu/.face";
+        avatarImage = "/home/${userSettings.username}/.face/profile";
         boxRadiusRatio = 1;
         clockFormat = "hh\\nmm";
         clockStyle = "custom";
@@ -618,7 +621,7 @@
 
       wallpaper = {
         automationEnabled = false;
-        directory = "/home/daangsangu/Pictures/Wallpapers";
+        directory = "/home/${userSettings.username}/Pictures/Wallpapers";
         enableMultiMonitorDirectories = false;
         enabled = true;
         favorites = [ ];
@@ -628,7 +631,7 @@
         linkLightAndDarkWallpapers = true;
         monitorDirectories = [
           {
-            directory = "/home/daangsangu/Pictures/Wallpapers";
+            directory = "/home/${userSettings.username}/Pictures/Wallpapers";
             name = "eDP-1";
             wallpaper = "";
           }
