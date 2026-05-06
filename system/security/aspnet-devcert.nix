@@ -1,10 +1,12 @@
 { lib, userSettings, ... }:
 {
-  security.pki.certificates = let
-    certPath = /etc/ssl/certs/aspnet-localhost.pem;
-  in lib.optionals (builtins.pathExists certPath) [
-    (builtins.readFile certPath)
-  ];
+  security.pki.certificates =
+    let
+      certPath = /etc/ssl/certs/aspnet-localhost.pem;
+    in
+    lib.optionals (builtins.pathExists certPath) [
+      (builtins.readFile certPath)
+    ];
 
   system.activationScripts.aspnetCert = {
     text = ''
