@@ -1,4 +1,9 @@
-{ lib, pkgs, userSettings, ... }:
+{
+  lib,
+  pkgs,
+  userSettings,
+  ...
+}:
 {
   security.pki.certificates =
     let
@@ -8,7 +13,7 @@
       (builtins.readFile certPath)
     ];
 
-    system.activationScripts.aspnetCert = {
+  system.activationScripts.aspnetCert = {
     text = ''
       USER_HOME=$(getent passwd ${userSettings.username} | cut -d: -f6)
       CERT_STABLE=$(ls "$USER_HOME"/.aspnet/dev-certs/trust/*.0 2>/dev/null | head -n1)
