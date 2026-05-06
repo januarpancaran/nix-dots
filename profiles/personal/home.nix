@@ -92,6 +92,7 @@
         lua
         ngrok
         nixd
+        nssTools
         nodejs
         openssl
         php
