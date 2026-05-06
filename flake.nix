@@ -49,7 +49,7 @@
         profile = "personal";
         bootloader = "grub";
         bootloaderDevice = [ "nodev" ];
-        bootloaderEfiMountPoint = "/boot";
+        bootloaderEfiMountPoint = "/boot/efi";
         timeZone = "Asia/Jakarta";
         flakeDir = "/home/" + userSettings.username + "/.dotfiles";
 
