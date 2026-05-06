@@ -28,8 +28,8 @@
     ../../system/services/pipewire.nix
     ../../system/services/postgresql.nix
     ../../system/services/power.nix
+    ../../system/services/systemd-resolved.nix
     ../../system/services/vm.nix
-    ../../system/services/vpn.nix
     ../../system/udev-rules
   ];
 
