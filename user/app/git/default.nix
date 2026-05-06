@@ -10,8 +10,8 @@
 
     settings = {
       user = {
-        name = userSettings.githubUsername;
-        email = userSettings.githubEmail;
+        name = userSettings.gitUsername;
+        email = userSettings.gitEmail;
       };
 
       init.defaultBranch = "main";

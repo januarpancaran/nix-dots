@@ -74,8 +74,8 @@
       userSettings = {
         username = "daangsangu";
         defaultShell = "zsh"; # or bash
-        githubUsername = "januarpancaran";
-        githubEmail = "januar352@gmail.com";
+        gitUsername = "Januar Pancaran";
+        gitEmail = "januar352@gmail.com";
 
         /**
           * Optional Features
