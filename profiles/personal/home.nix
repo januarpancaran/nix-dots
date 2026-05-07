@@ -84,7 +84,8 @@
         gmp
         gnumake
         go
-        jdk25
+        jetbrains.idea
+        jetbrains.jdk
         kiro-cli
         kotlin
         libyaml
