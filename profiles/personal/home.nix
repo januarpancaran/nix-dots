@@ -75,8 +75,6 @@
     ++ lib.optionals userSettings.enableProgrammingPkgs (
       with pkgs;
       [
-        opencode
-
         bun
         cargo
         dotnet-sdk_10
@@ -94,32 +92,17 @@
         nixd
         nssTools
         nodejs
+        opencode
         openssl
         php
         php84Packages.composer
         pkg-config
+        python3
         ruby_4_0
         rustc
         spring-boot-cli
+        uv
         zlib
-
-        (python3.withPackages (
-          ps: with ps; [
-            numpy
-            pandas
-            matplotlib
-            seaborn
-            scikit-learn
-            streamlit
-            fastapi
-            pydantic
-            uvicorn
-            flask
-            flask-cors
-            django
-            django-cors-headers
-          ]
-        ))
       ]
     );
 
