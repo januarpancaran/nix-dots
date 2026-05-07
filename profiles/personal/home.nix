@@ -85,6 +85,7 @@
         gnumake
         go
         jdk25
+        kiro-cli
         kotlin
         libyaml
         lua
