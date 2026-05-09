@@ -6,7 +6,7 @@
     configPath = "${config.xdg.configHome}/mozilla/firefox";
     policies = {
       Certificates = {
-        Install = [ "/etc/ssl/certs/aspnet-localhost.pem" ];
+        Install = [ "/etc/ssl/certs/aspnet-dev-${config.home.username}-ca.pem" ];
       };
     };
   };
