@@ -78,6 +78,7 @@
       export GEM_HOME="$HOME/.gem"
       export PATH="$PATH:$HOME/.gem/bin"
       export PATH="$PATH:$HOME/.npm-global/bin"
+      export PATH="$PATH:$HOME/.cargo/bin"
 
       export SSL_CERT_DIR="$HOME/.aspnet/dev-certs/trust:${pkgs.cacert}/etc/ssl/certs"
       export SSL_CERT_FILE="${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt"
