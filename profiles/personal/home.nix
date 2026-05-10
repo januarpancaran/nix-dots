@@ -100,6 +100,7 @@
         php84Packages.composer
         pkg-config
         python3
+        powershell
         ruby_4_0
         rustc
         spring-boot-cli
