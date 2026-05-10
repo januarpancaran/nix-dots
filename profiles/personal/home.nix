@@ -13,6 +13,7 @@
     ../../user/app/npm
     ../../user/app/nvim
     ../../user/app/terminal/ghostty.nix
+    ../../user/app/vim
     ../../user/app/vscode
     ../../user/inputs/fcitx5.nix
     ../../user/services/xdg-portal.nix
