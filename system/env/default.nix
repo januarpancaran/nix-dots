@@ -27,7 +27,7 @@
         with pkgs;
         [
           stdenv.cc.cc.lib # libstdc++ - for anything with C++ extensions
-          libz # libz - compression, used by numpy, pillow, etc
+          zlib # libz - compression, used by numpy, pillow, etc
           pipewire # audio
 
           # Common for data science / ML
