@@ -38,6 +38,8 @@
     stateVersion = "25.05";
     sessionVariables = {
       EDITOR = "nvim";
+      DOTNET_ROOT = "${pkgs.dotnet-sdk_10}/share/dotnet";
+      DOTNET_ROOT_X64 = "${pkgs.dotnet-sdk_10}/share/dotnet";
     };
   };
 
