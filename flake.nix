@@ -63,14 +63,14 @@
           * Optional Features
           *
           * enableSteam: Install steam
-          * enableDocker: Install docker
-          * enableFlatpak: Install and Setup flatpak
+          * enableContainers: Install containers using podman
+          * enableFlatpak: Install and setup flatpak
           * enableMySQL: Install MySQL service
           * enablePostgreSQL: Install PostgreSQL service
           * enableVM: Install Virtual Machine via qemu and virt-manager
         */
         enableSteam = false;
-        enableDocker = true;
+        enableContainers = true;
         enableFlatpak = true;
         enableMySQL = true;
         enablePostgreSQL = true;

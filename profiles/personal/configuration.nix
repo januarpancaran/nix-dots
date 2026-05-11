@@ -20,12 +20,12 @@
     ../../system/hardware/nvidia.nix
     ../../system/security
     ../../system/services/dbus.nix
-    ../../system/services/docker.nix
     ../../system/services/flatpak.nix
     ../../system/services/gdm.nix
     ../../system/services/mysql.nix
     ../../system/services/others.nix
     ../../system/services/pipewire.nix
+    ../../system/services/podman.nix
     ../../system/services/postgresql.nix
     ../../system/services/power.nix
     ../../system/services/systemd-resolved.nix
