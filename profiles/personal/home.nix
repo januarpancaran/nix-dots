@@ -57,10 +57,10 @@
       htop
       icu
       jq
-      libreoffice
       loupe
       nautilus
       obs-studio
+      onlyoffice-desktopeditors
       papers
       ripgrep
       spotify
