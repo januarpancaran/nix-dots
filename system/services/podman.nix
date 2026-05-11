@@ -6,19 +6,19 @@
 }:
 lib.mkIf systemSettings.enableContainers {
   environment.systemPackages = with pkgs; [
-  dive
+    dive
     podman-tui
     podman-compose
     podman-desktop
   ];
 
   virtualisation = {
-      containers.enable = true;
+    containers.enable = true;
 
-      podman = {
-          enable = true;
-          dockerCompat = true;
-          defaultNetwork.settings.dns_enabled = true;
-          };
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
+    };
   };
 }
