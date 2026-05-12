@@ -11,7 +11,6 @@
     ../../user/app/mpv
     ../../user/app/noctalia
     ../../user/app/npm
-    ../../user/app/nvim
     ../../user/app/terminal/ghostty.nix
     ../../user/app/vim
     ../../user/app/vscode
@@ -59,6 +58,7 @@
       jq
       loupe
       nautilus
+      neovim
       obs-studio
       onlyoffice-desktopeditors
       papers
