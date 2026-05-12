@@ -81,6 +81,7 @@
         bun
         cargo
         dotnet-sdk_10
+        dbeaver-bin
         gcc
         github-cli
         github-copilot-cli
