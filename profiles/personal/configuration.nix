@@ -79,6 +79,7 @@
         "audio"
         "networkmanager"
         "libvirtd"
+        "podman"
       ];
       shell = if userSettings.defaultShell == "bash" then pkgs.bashInteractive else pkgs.zsh;
     };
