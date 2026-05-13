@@ -54,12 +54,26 @@
 
   fileSystems."/home/${userSettings.username}/Windows" = {
     device = "/dev/disk/by-label/ACER";
-    fsType = "ntfs";
+    fsType = "ntfs3";
+    options = [
+      "uid=1000"
+      "gid=100"
+      "umask=022"
+      "exec"
+      "nofail"
+    ];
   };
 
   fileSystems."/home/${userSettings.username}/Storage" = {
     device = "/dev/disk/by-label/KINGSTON";
-    fsType = "ntfs";
+    fsType = "ntfs3";
+    options = [
+      "uid=1000"
+      "gid=100"
+      "umask=022"
+      "exec"
+      "nofail"
+    ];
   };
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
