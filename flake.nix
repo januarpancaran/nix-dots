@@ -21,12 +21,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Nix4vscode
-    nix4vscode = {
-      url = "github:nix-community/nix4vscode";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Catppuccin
     catppuccin = {
       url = "github:catppuccin/nix";
@@ -103,7 +97,6 @@
 
         overlays = [
           inputs.niri.overlays.niri
-          inputs.nix4vscode.overlays.default
         ];
       };
     in
