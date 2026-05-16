@@ -63,7 +63,7 @@
           * enablePostgreSQL: Install PostgreSQL service
           * enableVM: Install Virtual Machine via qemu and virt-manager
           * enableAndroidDev: Install Android Studio + emulator runtime support
-          */
+        */
         enableSteam = true;
         enableContainers = true;
         enableFlatpak = true;
