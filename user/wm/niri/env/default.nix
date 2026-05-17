@@ -4,7 +4,7 @@
     "XDG_CURRENT_DESKTOP" = "niri";
     "XDG_SESSION_DESKTOP" = "niri";
     "QT_QPA_PLATFORMTHEME" = "qt6ct";
-    "QT_QPA_PLATFORM" = "wayland";
+    "QT_QPA_PLATFORM" = "wayland;xcb";
     "QT_WAYLAND_DISABLE_WINDOWDECORATION" = "1";
     "GDK_BACKEND" = "wayland";
     "ELECTRON_OZONE_PLATFORM_HINT" = "wayland";

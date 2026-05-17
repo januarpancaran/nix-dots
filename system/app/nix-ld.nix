@@ -131,9 +131,14 @@
       freetype
       dbus
       alsa-lib
+      libpulseaudio
       expat
+      gperftools
+      libbsd
+      mesa
       # for blender
       libxkbcommon
+      libxkbfile
 
       libxcrypt-legacy # For natron
       libGLU # For natron
