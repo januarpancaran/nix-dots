@@ -54,8 +54,8 @@
 
       export PATH="$PATH:$HOME/.dotnet/tools"
       export PATH="$PATH:$HOME/go/bin"
-      export GEM_HOME="$HOME/.gem"
-      export PATH="$PATH:$HOME/.gem/bin"
+      export GEM_HOME="$(gem env home)"
+      export PATH="$PATH:$GEM_HOME/bin"
       export PATH="$PATH:$HOME/.npm-global/bin"
       export PATH="$PATH:$HOME/.cargo/bin"
 
