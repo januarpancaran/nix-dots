@@ -148,13 +148,13 @@
   # get the same runtime libraries provided by nix-ld.
   programs.bash.interactiveShellInit = lib.mkAfter ''
     if [ -n "$NIX_LD_LIBRARY_PATH" ]; then
-      export LD_LIBRARY_PATH="$NIX_LD_LIBRARY_PATH${LD_LIBRARY_PATH: "+:$LD_LIBRARY_PATH"}"
+      export LD_LIBRARY_PATH="$NIX_LD_LIBRARY_PATH''${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
     fi
   '';
 
   programs.zsh.interactiveShellInit = lib.mkAfter ''
     if [ -n "$NIX_LD_LIBRARY_PATH" ]; then
-      export LD_LIBRARY_PATH="$NIX_LD_LIBRARY_PATH${LD_LIBRARY_PATH: "+:$LD_LIBRARY_PATH"}"
+      export LD_LIBRARY_PATH="$NIX_LD_LIBRARY_PATH''${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
     fi
   '';
 }
