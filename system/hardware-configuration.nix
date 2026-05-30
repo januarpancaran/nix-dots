@@ -58,9 +58,11 @@
     options = [
       "uid=1000"
       "gid=100"
-      "umask=022"
-      "exec"
+      "fmask=133"
+      "dmask=022"
+      "noatime"
       "nofail"
+      "windows_names"
     ];
   };
 
@@ -70,9 +72,11 @@
     options = [
       "uid=1000"
       "gid=100"
-      "umask=022"
-      "exec"
+      "fmask=133"
+      "dmask=022"
+      "noatime"
       "nofail"
+      "windows_names"
     ];
   };
 
