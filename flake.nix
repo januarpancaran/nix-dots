@@ -21,6 +21,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Antigravity
+    antigravity-nix = {
+      url = "github:jacopone/antigravity-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Catppuccin
     catppuccin = {
       url = "github:catppuccin/nix";
@@ -99,6 +105,7 @@
 
         overlays = [
           inputs.niri.overlays.niri
+          inputs.antigravity-nix.overlays.default
         ];
       };
     in

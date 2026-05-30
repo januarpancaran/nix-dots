@@ -90,6 +90,7 @@
         gmp
         gnumake
         go
+        google-antigravity
         jetbrains.idea
         jetbrains.jdk
         kiro-cli
