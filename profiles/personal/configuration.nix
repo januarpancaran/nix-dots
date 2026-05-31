@@ -33,6 +33,7 @@
     ../../system/services/power.nix
     ../../system/services/systemd-resolved.nix
     ../../system/services/vm.nix
+    ../../system/services/xdg-portal.nix
     ../../system/udev-rules
   ];
 
