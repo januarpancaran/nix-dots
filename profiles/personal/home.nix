@@ -14,7 +14,6 @@
     ../../user/app/terminal/ghostty.nix
     ../../user/app/vim
     ../../user/app/vscode
-    ../../user/inputs/fcitx5.nix
     ../../user/services/gnome-keyring.nix
     ../../user/services/gpg-agent.nix
     ../../user/shell/bash.nix

@@ -11,16 +11,17 @@
     ../../system/app/android.nix
     ../../system/app/appimage.nix
     ../../system/app/nh.nix
+    ../../system/app/nix-ld.nix
     ../../system/app/steam.nix
     ../../system/boot/bootloader.nix
     ../../system/boot/kernel.nix
     ../../system/env
-    ../../system/app/nix-ld.nix
     ../../system/fonts
     ../../system/hardware-configuration.nix
     ../../system/hardware/bluetooth.nix
     ../../system/hardware/intel.nix
     ../../system/hardware/nvidia.nix
+    ../../system/inputs/fcitx5.nix
     ../../system/security
     ../../system/services/dbus.nix
     ../../system/services/flatpak.nix
