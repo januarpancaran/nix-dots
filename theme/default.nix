@@ -49,6 +49,10 @@
       };
     in
     {
+      enable = true;
+      # Disable all supported programs by default and only apply to specified packages
+      autoEnable = false;
+
       bat = default;
 
       fzf = defaultAccent;
