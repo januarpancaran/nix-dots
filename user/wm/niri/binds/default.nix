@@ -53,7 +53,7 @@
             ]
         ))
         (bindSpawn "E" "nautilus")
-        (bindSpawn "C" "code")
+        (bindSpawn "C" "zeditor")
         (bindSpawn "Shift+C" [
           "env"
           "XDG_CURRENT_DESKTOP=gnome"
