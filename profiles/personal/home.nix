@@ -99,6 +99,7 @@
         libyaml
         lua
         ngrok
+        nil
         nixd
         nssTools
         nodejs
