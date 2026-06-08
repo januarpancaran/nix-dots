@@ -70,7 +70,7 @@
           * enableVM: Install Virtual Machine via qemu and virt-manager
           * enableAndroidDev: Install Android Studio + emulator runtime support
         */
-        enableSteam = true;
+        enableSteam = false;
         enableContainers = true;
         enableFlatpak = true;
         enableMySQL = true;
