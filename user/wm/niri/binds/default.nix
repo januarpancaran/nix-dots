@@ -59,7 +59,13 @@
           "XDG_CURRENT_DESKTOP=gnome"
           "gnome-control-center"
         ])
-        (bindSpawn "SemiColon" [ "env" "-u" "DISPLAY" "spotify" "--enable-wayland-ime" ])
+        (bindSpawn "SemiColon" [
+          "env"
+          "-u"
+          "DISPLAY"
+          "spotify"
+          "--enable-wayland-ime"
+        ])
         (bindSpawn "D" "discord")
         (bindSpawnShArgs "Shift+SemiColon" "repeat" false
           "wl-mirror $(niri msg --json focused-output | jq -r .name)"
