@@ -26,6 +26,7 @@
     ../../system/services/dbus.nix
     ../../system/services/flatpak.nix
     ../../system/services/gdm.nix
+    ../../system/services/gnome-keyring.nix
     ../../system/services/mysql.nix
     ../../system/services/others.nix
     ../../system/services/pipewire.nix
