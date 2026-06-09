@@ -15,7 +15,6 @@
     ../../user/app/vim
     ../../user/app/vscode
     ../../user/app/zed-editor
-    ../../user/services/gpg-agent.nix
     ../../user/shell/bash.nix
     ../../user/shell/shell-utils/fastfetch.nix
     ../../user/shell/shell-utils/starship
