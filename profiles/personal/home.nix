@@ -50,6 +50,7 @@
       brightnessctl
       curl
       discord
+      ffmpegthumbnailer
       foliate
       fzf
       glib
@@ -67,6 +68,7 @@
       spotify
       telegram-desktop
       tree
+      tumbler
       unrar
       unzip
       wget
