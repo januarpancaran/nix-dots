@@ -55,6 +55,7 @@
       fzf
       glib
       gnome-control-center
+      gnome-solanum
       htop
       icu
       jq
