@@ -238,8 +238,7 @@
         "niri": "niri",
         "nixpkgs": "nixpkgs",
         "noctalia": "noctalia",
-        "none-ls-extras-nvim": "none-ls-extras-nvim",
-        "zsh-fzf-tab": "zsh-fzf-tab"
+        "none-ls-extras-nvim": "none-ls-extras-nvim"
       }
     },
     "systems": {
@@ -324,22 +323,6 @@
       "original": {
         "owner": "Supreeeme",
         "repo": "xwayland-satellite",
-        "type": "github"
-      }
-    },
-    "zsh-fzf-tab": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1780551775,
-        "narHash": "sha256-YhTSu0P7mFlVx1zBvbT0jNstkamcZHhPYJHKMAHgyuM=",
-        "owner": "Aloxaf",
-        "repo": "fzf-tab",
-        "rev": "24105b15714bfec37989ed5c5b6e60f572253019",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Aloxaf",
-        "repo": "fzf-tab",
         "type": "github"
       }
     }

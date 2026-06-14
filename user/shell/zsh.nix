@@ -1,7 +1,6 @@
 {
   pkgs,
   userSettings,
-  inputs,
   ...
 }:
 {
@@ -38,7 +37,8 @@
     plugins = [
       {
         name = "fzf-tab";
-        src = inputs.zsh-fzf-tab;
+        src = pkgs.zsh-fzf-tab;
+        file = "share/fzf-tab/fzf-tab.plugin.zsh";
       }
     ];
 
