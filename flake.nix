@@ -32,12 +32,6 @@
       url = "github:catppuccin/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # Neovim plugins
-    none-ls-extras-nvim = {
-      url = "github:nvimtools/none-ls-extras.nvim";
-      flake = false;
-    };
   };
 
   outputs =

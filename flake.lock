@@ -214,22 +214,6 @@
         "type": "github"
       }
     },
-    "none-ls-extras-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1780734428,
-        "narHash": "sha256-GZLT8X1eLeSkiV5EN1nOkCQg5nwNATURi/KMj90i40I=",
-        "owner": "nvimtools",
-        "repo": "none-ls-extras.nvim",
-        "rev": "27681d797a26f1b4d6119296df42f5204c88a2dc",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nvimtools",
-        "repo": "none-ls-extras.nvim",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "antigravity-nix": "antigravity-nix",
@@ -237,8 +221,7 @@
         "home-manager": "home-manager",
         "niri": "niri",
         "nixpkgs": "nixpkgs",
-        "noctalia": "noctalia",
-        "none-ls-extras-nvim": "none-ls-extras-nvim"
+        "noctalia": "noctalia"
       }
     },
     "systems": {
