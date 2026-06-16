@@ -24,7 +24,7 @@
 
     settings = {
       layout = {
-        gaps = 15;
+        gaps = 8;
         center-focused-column = "never";
 
         preset-column-widths = [
