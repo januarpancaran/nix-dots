@@ -1,5 +1,11 @@
-{ config, pkgs, ... }:
 {
+  lib,
+  config,
+  pkgs,
+  userSettings,
+  ...
+}:
+lib.mkIf userSettings.enableFirefox {
   programs.firefox = {
     package = pkgs.firefox;
     enable = true;

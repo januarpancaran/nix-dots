@@ -1,5 +1,10 @@
-{ pkgs, ... }:
 {
+  lib,
+  pkgs,
+  userSettings,
+  ...
+}:
+lib.mkIf (!userSettings.enableFirefox) {
   programs.chromium = {
     package = pkgs.google-chrome;
     enable = true;

@@ -7,6 +7,8 @@
 {
   imports = [
     ../../theme
+    ../../user/app/browser/firefox
+    ../../user/app/browser/google-chrome
     ../../user/app/git
     ../../user/app/mpv
     ../../user/app/noctalia
@@ -21,13 +23,6 @@
     ../../user/shell/shell-utils/tmux.nix
     ../../user/shell/zsh.nix
     ../../user/wm/niri
-
-    (
-      if userSettings.enableFirefox then
-        ../../user/app/browser/firefox
-      else
-        ../../user/app/browser/google-chrome
-    )
   ];
 
   home = {
