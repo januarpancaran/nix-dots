@@ -47,6 +47,7 @@
     with pkgs;
     [
       bat
+      blanket
       brightnessctl
       curl
       discord
