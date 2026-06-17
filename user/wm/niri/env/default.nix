@@ -10,6 +10,5 @@
     "ELECTRON_OZONE_PLATFORM_HINT" = "wayland";
     "MOZ_ENABLE_WAYLAND" = "1";
     "NIXOS_OZONE_WL" = "1";
-    "VK_ADD_DRIVER_FILES" = "/run/opengl-driver/share/vulkan/icd.d";
   };
 }
