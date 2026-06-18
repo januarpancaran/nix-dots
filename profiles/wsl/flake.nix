@@ -17,18 +17,6 @@
       url = "github:catppuccin/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # Neovim Plugins
-    none-ls-extras-nvim = {
-      url = "github:nvimtools/none-ls-extras.nvim";
-      flake = false;
-    };
-
-    # Zsh Plugins
-    zsh-fzf-tab = {
-      url = "github:Aloxaf/fzf-tab";
-      flake = false;
-    };
   };
 
   outputs =
@@ -57,8 +45,8 @@
       userSettings = {
         username = "daangsangu";
         defaultShell = "zsh"; # or bash
-        githubUsername = "januarpancaran";
-        githubEmail = "januar352@gmail.com";
+        gitUsername = "Januar Pancaran";
+        gitEmail = "januar352@gmail.com";
 
         /**
           * Optional Features

@@ -9,17 +9,18 @@
 {
   imports = [
     ../../system/app/nh.nix
+    ../../system/app/nix-ld.nix
     ../../system/fonts
     ../../system/services/dbus.nix
     ../../system/services/mysql.nix
     ../../system/services/others.nix
+    ../../system/services/podman.nix
     ../../system/services/postgresql.nix
   ];
 
   wsl = {
     enable = true;
     defaultUser = userSettings.username;
-    docker-desktop.enable = true;
     startMenuLaunchers = true;
     useWindowsDriver = true;
   };
@@ -38,9 +39,10 @@
     ];
   };
 
-  virtualisation.docker.enable = true;
   users.users.${userSettings.username} = {
-    extraGroups = [ "docker" ];
+    extraGroups = [
+      "podman"
+    ];
     shell = if userSettings.defaultShell == "bash" then pkgs.bashInteractive else pkgs.zsh;
   };
 
@@ -66,7 +68,6 @@
   users.defaultUserShell =
     if userSettings.defaultShell == "bash" then pkgs.bashInteractive else pkgs.zsh;
 
-  programs.nix-ld.enable = true;
   programs.bash.enable = true;
   programs.zsh.enable = true;
 
