@@ -39,6 +39,7 @@
       glib
       htop
       jq
+      neovim
       ripgrep
       tree
       unrar
