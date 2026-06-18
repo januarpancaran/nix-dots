@@ -11,6 +11,7 @@
     ../../system/app/nh.nix
     ../../system/app/nix-ld.nix
     ../../system/fonts
+    ../../system/security/aspnet-devcert.nix
     ../../system/services/dbus.nix
     ../../system/services/mysql.nix
     ../../system/services/others.nix
