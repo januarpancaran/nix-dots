@@ -31,12 +31,12 @@
         /**
           * Optional Features
           *
-          * enableDocker: Install docker
-          * enableFlatpak: Install and Setup flatpak
+          * enableContainers: Install containers using podman
+          * enableFlatpak: Install and setup flatpak
           * enableMySQL: Install MySQL service
           * enablePostgreSQL: Install PostgreSQL service
         */
-        enableDocker = true;
+        enableContainers = true;
         enableFlatpak = true;
         enableMySQL = true;
         enablePostgreSQL = true;
