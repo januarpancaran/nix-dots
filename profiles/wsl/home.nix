@@ -62,6 +62,7 @@
         gmp
         gnumake
         go
+        google-antigravity-cli
         jdk25
         kiro-cli
         kotlin

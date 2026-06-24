@@ -89,6 +89,7 @@
         gnumake
         go
         google-antigravity
+        google-antigravity-cli
         jetbrains.idea
         jetbrains.jdk
         kiro-cli
