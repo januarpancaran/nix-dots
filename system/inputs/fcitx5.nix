@@ -18,7 +18,7 @@
 
         settings = {
           globalOptions = {
-            "Hotkey/TriggerKeys"."0" = "Control+backslash";
+            "Hotkey/TriggerKeys"."0" = "Super+space";
           };
 
           inputMethod = {
