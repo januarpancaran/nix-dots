@@ -5,7 +5,7 @@
   userSettings,
   ...
 }:
-lib.mkIf userSettings.enableFirefox {
+lib.mkIf (builtins.elem "firefox" userSettings.enableBrowsers) {
   programs.firefox = {
     package = pkgs.firefox;
     enable = true;

@@ -9,6 +9,7 @@
     ../../theme
     ../../user/app/browser/firefox
     ../../user/app/browser/google-chrome
+    ../../user/app/browser/vivaldi
     ../../user/app/git
     ../../user/app/mpv
     ../../user/app/noctalia

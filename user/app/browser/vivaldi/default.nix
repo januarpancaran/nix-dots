@@ -4,9 +4,9 @@
   userSettings,
   ...
 }:
-lib.mkIf (builtins.elem "google-chrome" userSettings.enableBrowsers) {
+lib.mkIf (builtins.elem "vivaldi" userSettings.enableBrowsers) {
   programs.chromium = {
-    package = pkgs.google-chrome;
+    package = pkgs.vivaldi;
     enable = true;
     commandLineArgs = [
       "--enable-features=UseOzonePlatform,TouchpadOverscrollHistoryNavigation,AcceleratedVideoEncoder,VaapiOnNvidiaGPUs,VaapiIgnoreDriverChecks,VaapiVideoDecoder,PlatformHEVCDecoderSupport,UseMultiPlaneFormatForHardwareVideo"
@@ -16,4 +16,8 @@ lib.mkIf (builtins.elem "google-chrome" userSettings.enableBrowsers) {
       "--enable-hardware-overlays"
     ];
   };
+
+  home.packages = with pkgs; [
+    vivaldi-ffmpeg-codecs
+  ];
 }

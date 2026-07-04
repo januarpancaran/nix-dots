@@ -39,16 +39,26 @@
       bindList = [
         # Programs
         (bindSpawn "T" "ghostty")
-        (bindSpawn "B" (if userSettings.enableFirefox then "firefox" else "google-chrome-stable"))
+        (bindSpawn "B" (
+          if userSettings.defaultBrowser == "google-chrome" then
+            "google-chrome-stable"
+          else
+            userSettings.defaultBrowser
+        ))
         (bindSpawn "I" (
-          if userSettings.enableFirefox then
+          if userSettings.defaultBrowser == "google-chrome" then
+            [
+              "google-chrome-stable"
+              "--incognito"
+            ]
+          else if userSettings.defaultBrowser == "firefox" then
             [
               "firefox"
               "--private-window"
             ]
           else
             [
-              "google-chrome-stable"
+              userSettings.defaultBrowser
               "--incognito"
             ]
         ))

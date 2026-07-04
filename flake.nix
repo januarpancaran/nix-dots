@@ -76,10 +76,15 @@
         /**
           * Optional Features
           *
-          * enableFirefox: Enables Firefox, enables Google Chrome if false
+          * enableBrowsers: List browsers to install, currently only "firefox", "google-chrome", and "vivaldi" are supported
+          * defaultBrowser: Choose a default browser from the former list
           * enableProgrammingPkgs: Install all programming packages stated in profiles/home
         */
-        enableFirefox = true;
+        enableBrowsers = [
+          "firefox"
+          "vivaldi"
+        ];
+        defaultBrowser = "vivaldi";
         enableProgrammingPkgs = true;
       };
 
