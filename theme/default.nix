@@ -41,12 +41,6 @@
         enable = true;
         flavor = "mocha";
       };
-
-      defaultAccent = {
-        enable = true;
-        flavor = "mocha";
-        accent = "mauve";
-      };
     in
     {
       enable = true;
@@ -55,7 +49,7 @@
 
       bat = default;
 
-      fzf = defaultAccent;
+      fzf = default;
 
       tmux = default // {
         extraConfig = ''
