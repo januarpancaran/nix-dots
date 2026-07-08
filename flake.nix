@@ -82,9 +82,8 @@
         */
         enableBrowsers = [
           "firefox"
-          "vivaldi"
         ];
-        defaultBrowser = "vivaldi";
+        defaultBrowser = "firefox";
         enableProgrammingPkgs = true;
       };
 
