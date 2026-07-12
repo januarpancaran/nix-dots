@@ -14,6 +14,7 @@
     ../../user/app/mpv
     ../../user/app/noctalia
     ../../user/app/npm
+    ../../user/app/onlyoffice
     ../../user/app/terminal/ghostty.nix
     ../../user/app/vim
     ../../user/app/vscode
@@ -60,7 +61,6 @@
       nautilus
       neovim
       obs-studio
-      onlyoffice-desktopeditors
       papers
       ripgrep
       spotify
