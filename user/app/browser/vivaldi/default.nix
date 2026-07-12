@@ -6,7 +6,10 @@
 }:
 lib.mkIf (builtins.elem "vivaldi" userSettings.enableBrowsers) {
   programs.chromium = {
-    package = pkgs.vivaldi;
+    package = pkgs.vivaldi.override {
+      proprietaryCodecs = true;
+      enableWidevine = true;
+    };
     enable = true;
     commandLineArgs = [
       "--enable-features=UseOzonePlatform,TouchpadOverscrollHistoryNavigation,AcceleratedVideoEncoder,VaapiOnNvidiaGPUs,VaapiIgnoreDriverChecks,VaapiVideoDecoder,PlatformHEVCDecoderSupport,UseMultiPlaneFormatForHardwareVideo"
@@ -16,8 +19,4 @@ lib.mkIf (builtins.elem "vivaldi" userSettings.enableBrowsers) {
       "--enable-hardware-overlays"
     ];
   };
-
-  home.packages = with pkgs; [
-    vivaldi-ffmpeg-codecs
-  ];
 }
