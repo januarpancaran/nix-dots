@@ -113,6 +113,7 @@
         rustc
         spring-boot-cli
         uv
+        zig
         zlib
       ]
     );
