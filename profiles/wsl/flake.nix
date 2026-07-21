@@ -12,6 +12,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Antigravity
+    antigravity-nix = {
+      url = "github:jacopone/antigravity-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Catppuccin
     catppuccin = {
       url = "github:catppuccin/nix";
@@ -24,7 +30,7 @@
     let
       systemSettings = {
         system = "x86_64-linux";
-        hostname = "nixos";
+        hostname = "hayudaang";
         profile = "wsl";
         flakeDir = "/home/" + userSettings.username + "/.dotfiles/profiles/" + systemSettings.profile;
 
@@ -63,6 +69,10 @@
           allowUnfree = true;
           allowBroken = false;
         };
+
+        overlays = [
+          inputs.antigravity-nix.overlays.default
+        ];
       };
     in
     {
