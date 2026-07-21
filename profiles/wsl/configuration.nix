@@ -21,6 +21,7 @@
 
   wsl = {
     enable = true;
+    wslConf.network.hostname = systemSettings.hostname;
     defaultUser = userSettings.username;
     startMenuLaunchers = true;
     useWindowsDriver = true;
