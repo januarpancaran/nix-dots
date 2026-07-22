@@ -45,9 +45,9 @@ cd ~/.dotfiles
 If `nh` is installed, you can conveniently build and apply using:
 
 ```bash
-nh os switch .#personal
+nh os switch -H personal
 # or for WSL:
-nh os switch .#wsl
+nh os switch -H wsl
 ```
 
 ---
@@ -69,9 +69,9 @@ nh os switch .#wsl
 #### Using `nh`
 
 ```bash
-nh home switch .#personal
+nh home switch -c personal
 # or for WSL:
-nh home switch .#wsl
+nh home switch -c wsl
 ```
 
 ---
