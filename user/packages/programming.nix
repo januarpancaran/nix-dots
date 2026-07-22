@@ -1,4 +1,9 @@
-{ lib, pkgs, userSettings, ... }:
+{
+  lib,
+  pkgs,
+  userSettings,
+  ...
+}:
 {
   home.packages = lib.optionals userSettings.enableProgrammingPkgs (
     with pkgs;

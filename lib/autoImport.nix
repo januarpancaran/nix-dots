@@ -14,10 +14,14 @@
   * Each entry in the registry is { path, profiles }.
   * `path` is an absolute path (use `./relative/path` inside the registry).
   * `profiles` is a list of strings matching systemSettings.profile values.
-  */
-{ lib, registry, profile }:
+*/
+{
+  lib,
+  registry,
+  profile,
+}:
 let
   entries = import registry;
   matching = builtins.filter (e: builtins.elem profile e.profiles) entries;
 in
-  map (e: e.path) matching
+map (e: e.path) matching
