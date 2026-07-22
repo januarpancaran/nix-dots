@@ -1,0 +1,41 @@
+{ lib, pkgs, userSettings, ... }:
+{
+  home.packages = lib.optionals userSettings.enableProgrammingPkgs (
+    with pkgs;
+    [
+      bun
+      cargo
+      dotnet-sdk_10
+      gcc
+      github-cli
+      github-copilot-cli
+      gmp
+      gnumake
+      go
+      google-antigravity-cli
+      jdk25
+      kiro-cli
+      kotlin
+      libyaml
+      lua
+      ngrok
+      nil
+      nixd
+      nssTools
+      nodejs
+      opencode
+      openssl
+      php
+      php84Packages.composer
+      pkg-config
+      python3
+      powershell
+      ruby_4_0
+      rustc
+      spring-boot-cli
+      uv
+      zig
+      zlib
+    ]
+  );
+}

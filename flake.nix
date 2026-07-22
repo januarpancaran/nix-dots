@@ -3,6 +3,12 @@
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    # NixOS-WSL
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Home Manager
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -37,7 +43,29 @@
   outputs =
     { self, ... }@inputs:
     let
-      systemSettings = {
+      # ── Shared user settings ────────────────────────────────────────────────
+      userSettings = {
+        username = "daangsangu";
+        defaultShell = "zsh"; # or bash
+        gitUsername = "Januar Pancaran";
+        gitEmail = "januar352@gmail.com";
+
+        /**
+          * Optional Features
+          *
+          * enableBrowsers: List browsers to install, currently only "firefox", "google-chrome", and "vivaldi" are supported
+          * defaultBrowser: Choose a default browser from the former list
+          * enableProgrammingPkgs: Install all programming packages stated in user/packages/programming.nix
+        */
+        enableBrowsers = [
+          "firefox"
+        ];
+        defaultBrowser = "firefox";
+        enableProgrammingPkgs = true;
+      };
+
+      # ── Personal (desktop) settings ─────────────────────────────────────────
+      personalSettings = {
         system = "x86_64-linux";
         hostname = "hayudaang";
         profile = "personal";
@@ -67,69 +95,96 @@
         enableAndroidDev = true;
       };
 
-      userSettings = {
-        username = "daangsangu";
-        defaultShell = "zsh"; # or bash
-        gitUsername = "Januar Pancaran";
-        gitEmail = "januar352@gmail.com";
+      # ── WSL settings ────────────────────────────────────────────────────────
+      wslSettings = {
+        system = "x86_64-linux";
+        hostname = "hayudaang";
+        profile = "wsl";
+        timeZone = "Asia/Jakarta";
+        flakeDir = "/home/" + userSettings.username + "/.dotfiles";
 
         /**
           * Optional Features
           *
-          * enableBrowsers: List browsers to install, currently only "firefox", "google-chrome", and "vivaldi" are supported
-          * defaultBrowser: Choose a default browser from the former list
-          * enableProgrammingPkgs: Install all programming packages stated in profiles/home
+          * enableContainers: Install containers using podman
+          * enableMySQL: Install MySQL service
+          * enablePostgreSQL: Install PostgreSQL service
         */
-        enableBrowsers = [
-          "firefox"
-        ];
-        defaultBrowser = "firefox";
-        enableProgrammingPkgs = true;
+        enableContainers = true;
+        enableMySQL = true;
+        enablePostgreSQL = true;
       };
 
-      pkgs = import inputs.nixpkgs {
-        inherit (systemSettings) system;
-
-        config = {
-          allowUnfree = true;
-          allowBroken = false;
+      # ── Package sets ────────────────────────────────────────────────────────
+      mkPkgs =
+        system: extraOverlays:
+        import inputs.nixpkgs {
+          inherit system;
+          config = {
+            allowUnfree = true;
+            allowBroken = false;
+          };
+          overlays = [ inputs.antigravity-nix.overlays.default ] ++ extraOverlays;
         };
 
-        overlays = [
-          inputs.niri.overlays.niri
-          inputs.antigravity-nix.overlays.default
-        ];
-      };
+      personalPkgs = mkPkgs personalSettings.system [ inputs.niri.overlays.niri ];
+      wslPkgs = mkPkgs wslSettings.system [ ];
     in
     {
-      nixosConfigurations.${systemSettings.hostname} = inputs.nixpkgs.lib.nixosSystem {
-        inherit (systemSettings) system;
+      # ── NixOS configurations ────────────────────────────────────────────────
 
+      nixosConfigurations.personal = inputs.nixpkgs.lib.nixosSystem {
+        inherit (personalSettings) system;
         specialArgs = {
           inherit inputs;
-          inherit systemSettings;
+          systemSettings = personalSettings;
           inherit userSettings;
         };
-
         modules = [
-          (./. + "/profiles" + ("/" + systemSettings.profile) + "/configuration.nix")
+          ./profiles/personal/configuration.nix
         ];
       };
 
-      homeConfigurations.${userSettings.username} = inputs.home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-
-        extraSpecialArgs = {
+      nixosConfigurations.wsl = inputs.nixpkgs.lib.nixosSystem {
+        inherit (wslSettings) system;
+        specialArgs = {
           inherit inputs;
-          inherit systemSettings;
+          systemSettings = wslSettings;
           inherit userSettings;
         };
+        modules = [
+          inputs.nixos-wsl.nixosModules.default
+          ./profiles/wsl/configuration.nix
+        ];
+      };
 
+      # ── Home Manager configurations ─────────────────────────────────────────
+
+      homeConfigurations.personal = inputs.home-manager.lib.homeManagerConfiguration {
+        pkgs = personalPkgs;
+        extraSpecialArgs = {
+          inherit inputs;
+          systemSettings = personalSettings;
+          inherit userSettings;
+        };
         modules = [
           inputs.niri.homeModules.niri
           inputs.noctalia.homeModules.default
           inputs.catppuccin.homeModules.catppuccin
-          (./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix")
+          ./profiles/personal/home.nix
+        ];
+      };
+
+      homeConfigurations.wsl = inputs.home-manager.lib.homeManagerConfiguration {
+        pkgs = wslPkgs;
+        extraSpecialArgs = {
+          inherit inputs;
+          systemSettings = wslSettings;
+          inherit userSettings;
+        };
+        modules = [
+          inputs.catppuccin.homeModules.catppuccin
+          ./profiles/wsl/home.nix
         ];
       };
     };

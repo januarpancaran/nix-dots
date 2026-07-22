@@ -1,5 +1,4 @@
 {
-  lib,
   pkgs,
   userSettings,
   ...
@@ -25,6 +24,9 @@
     ../../user/shell/shell-utils/tmux.nix
     ../../user/shell/zsh.nix
     ../../user/wm/niri
+    ../../user/packages/cli.nix
+    ../../user/packages/programming.nix
+    ../../user/packages/ui.nix
   ];
 
   home = {
@@ -39,84 +41,6 @@
       POWERSHELL_TELEMETRY_OPTOUT = "1";
     };
   };
-
-  home.packages =
-    with pkgs;
-    [
-      bat
-      blanket
-      brightnessctl
-      curl
-      discord
-      ffmpegthumbnailer
-      foliate
-      fzf
-      glib
-      gnome-control-center
-      gnome-solanum
-      htop
-      icu
-      jq
-      loupe
-      nautilus
-      neovim
-      obs-studio
-      papers
-      ripgrep
-      spotify
-      telegram-desktop
-      tree
-      tumbler
-      unrar
-      unzip
-      wget
-      wl-clipboard
-      yazi
-      zip
-      zotero
-      zoxide
-    ]
-    ++ lib.optionals userSettings.enableProgrammingPkgs (
-      with pkgs;
-      [
-        bun
-        cargo
-        dotnet-sdk_10
-        dbeaver-bin
-        gcc
-        github-cli
-        github-copilot-cli
-        gmp
-        gnumake
-        go
-        google-antigravity
-        google-antigravity-cli
-        jetbrains.idea
-        jetbrains.jdk
-        kiro-cli
-        kotlin
-        libyaml
-        lua
-        ngrok
-        nil
-        nixd
-        nssTools
-        nodejs
-        opencode
-        openssl
-        php
-        php84Packages.composer
-        pkg-config
-        python3
-        powershell
-        ruby_4_0
-        rustc
-        spring-boot-cli
-        uv
-        zig
-        zlib
-      ]
-    );
 
   programs.home-manager.enable = true;
 }
