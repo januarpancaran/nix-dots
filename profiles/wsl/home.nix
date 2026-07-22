@@ -1,22 +1,16 @@
 {
+  lib,
   pkgs,
+  systemSettings,
   userSettings,
   ...
 }:
 {
-  imports = [
-    ../../theme
-    ../../user/app/git
-    ../../user/app/npm
-    ../../user/app/vim
-    ../../user/shell/bash.nix
-    ../../user/shell/shell-utils/fastfetch.nix
-    ../../user/shell/shell-utils/starship
-    ../../user/shell/shell-utils/tmux.nix
-    ../../user/shell/zsh.nix
-    ../../user/packages/cli.nix
-    ../../user/packages/programming.nix
-  ];
+  imports = import ../../lib/autoImport.nix {
+    inherit lib;
+    registry = ../../modules/home.nix;
+    profile = systemSettings.profile;
+  };
 
   home = {
     username = userSettings.username;

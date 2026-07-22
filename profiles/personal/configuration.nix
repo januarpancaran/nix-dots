@@ -7,36 +7,11 @@
   ...
 }:
 {
-  imports = [
-    ../../system/app/android.nix
-    ../../system/app/appimage.nix
-    ../../system/app/nh.nix
-    ../../system/app/nix-ld.nix
-    ../../system/app/steam.nix
-    ../../system/boot/bootloader.nix
-    ../../system/boot/kernel.nix
-    ../../system/env
-    ../../system/fonts
-    ../../system/hardware-configuration.nix
-    ../../system/hardware/bluetooth.nix
-    ../../system/hardware/intel.nix
-    ../../system/hardware/nvidia.nix
-    ../../system/inputs/fcitx5.nix
-    ../../system/security
-    ../../system/services/dbus.nix
-    ../../system/services/flatpak.nix
-    ../../system/services/gdm.nix
-    ../../system/services/gnome-keyring.nix
-    ../../system/services/mysql.nix
-    ../../system/services/others.nix
-    ../../system/services/pipewire.nix
-    ../../system/services/podman.nix
-    ../../system/services/postgresql.nix
-    ../../system/services/power.nix
-    ../../system/services/systemd-resolved.nix
-    ../../system/services/vm.nix
-    ../../system/services/xdg-portal.nix
-  ];
+  imports = import ../../lib/autoImport.nix {
+    inherit lib;
+    registry = ../../modules/system.nix;
+    profile = systemSettings.profile;
+  };
 
   networking.hostName = systemSettings.hostname;
 

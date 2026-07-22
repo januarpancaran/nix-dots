@@ -7,17 +7,11 @@
   ...
 }:
 {
-  imports = [
-    ../../system/app/nh.nix
-    ../../system/app/nix-ld.nix
-    ../../system/fonts
-    ../../system/security/aspnet-devcert.nix
-    ../../system/services/dbus.nix
-    ../../system/services/mysql.nix
-    ../../system/services/others.nix
-    ../../system/services/podman.nix
-    ../../system/services/postgresql.nix
-  ];
+  imports = import ../../lib/autoImport.nix {
+    inherit lib;
+    registry = ../../modules/system.nix;
+    profile = systemSettings.profile;
+  };
 
   wsl = {
     enable = true;
