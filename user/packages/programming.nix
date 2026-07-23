@@ -18,7 +18,7 @@
       gnumake
       go
       google-antigravity-cli
-      jdk25
+      jetbrains.jdk
       kiro-cli
       kotlin
       libyaml

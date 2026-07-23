@@ -26,6 +26,5 @@
       dbeaver-bin
       google-antigravity
       jetbrains.idea
-      jetbrains.jdk
     ];
 }
