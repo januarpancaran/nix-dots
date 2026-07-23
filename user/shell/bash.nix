@@ -39,6 +39,7 @@
       cat = "bat";
       grep = "grep --color=auto";
       rm = "trash";
+      rebuild = "nh os switch -H $FLAKE_PROFILE && nh home switch -c $FLAKE_PROFILE";
       ".." = "cd ..";
       "..." = "cd ../..";
       "...." = "cd ../../..";

@@ -53,6 +53,7 @@
       grep = "grep --color=yes";
       rm = "trash-put";
       develop = "nix develop --command zsh";
+      rebuild = "nh os switch -H $FLAKE_PROFILE && nh home switch -c $FLAKE_PROFILE";
       ".." = "cd ..";
       "..." = "cd ../..";
       "...." = "cd ../../..";
