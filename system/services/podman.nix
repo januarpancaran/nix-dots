@@ -9,7 +9,6 @@ lib.mkIf systemSettings.enableContainers {
     dive
     podman-tui
     podman-compose
-    podman-desktop
   ];
 
   virtualisation = {
