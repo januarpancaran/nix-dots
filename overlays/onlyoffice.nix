@@ -1,24 +1,120 @@
 final: prev: {
   onlyoffice-desktopeditors = prev.callPackage (
-    { stdenv, lib, fetchurl, buildFHSEnv, alsa-lib, at-spi2-atk, atk, autoPatchelfHook, cairo, curl, dbus, dconf, dpkg, fontconfig, gcc-unwrapped, gdk-pixbuf, glib, glibc, gsettings-desktop-schemas, gst_all_1, gtk2, gtk3, libnotify, libpulseaudio, libudev0-shim, libdrm, makeWrapper, libgbm, noto-fonts-cjk-sans, nspr, nss, pulseaudio, qt5, wrapGAppsHook3, xkeyboard_config, libxtst, libxscrnsaver, libxrender, libxrandr, libxi, libxfixes, libxext, libxdamage, libxcursor, libxcomposite, libx11, libxcb }:
+    {
+      stdenv,
+      lib,
+      fetchurl,
+      buildFHSEnv,
+      alsa-lib,
+      at-spi2-atk,
+      atk,
+      autoPatchelfHook,
+      cairo,
+      curl,
+      dbus,
+      dconf,
+      dpkg,
+      fontconfig,
+      gcc-unwrapped,
+      gdk-pixbuf,
+      glib,
+      glibc,
+      gsettings-desktop-schemas,
+      gst_all_1,
+      gtk2,
+      gtk3,
+      libnotify,
+      libpulseaudio,
+      libudev0-shim,
+      libdrm,
+      makeWrapper,
+      libgbm,
+      noto-fonts-cjk-sans,
+      nspr,
+      nss,
+      pulseaudio,
+      qt5,
+      wrapGAppsHook3,
+      xkeyboard_config,
+      libxtst,
+      libxscrnsaver,
+      libxrender,
+      libxrandr,
+      libxi,
+      libxfixes,
+      libxext,
+      libxdamage,
+      libxcursor,
+      libxcomposite,
+      libx11,
+      libxcb,
+    }:
     let
-      runtimeLibs = lib.makeLibraryPath [ curl glibc gcc-unwrapped.lib libudev0-shim pulseaudio ];
-      
+      runtimeLibs = lib.makeLibraryPath [
+        curl
+        glibc
+        gcc-unwrapped.lib
+        libudev0-shim
+        pulseaudio
+      ];
+
       derivation = stdenv.mkDerivation rec {
         pname = "onlyoffice-desktopeditors";
         version = "9.4.0";
-        
+
         src = fetchurl {
           url = "https://github.com/ONLYOFFICE/DesktopEditors/releases/download/v${version}/onlyoffice-desktopeditors_amd64.deb";
           sha256 = "sha256-QnFDToG+QrFVn9mJ0kv21BNILyeNxqXjKCAqT8Ghhkk=";
         };
-        
-        nativeBuildInputs = [ autoPatchelfHook dpkg makeWrapper wrapGAppsHook3 ];
-        
-        buildInputs = [ alsa-lib at-spi2-atk atk cairo dbus dconf fontconfig gdk-pixbuf glib gsettings-desktop-schemas gst_all_1.gst-plugins-base gst_all_1.gstreamer gtk2 gtk3 libnotify libpulseaudio libdrm nspr nss libgbm qt5.qtbase qt5.qtdeclarative qt5.qtsvg qt5.qtwayland libx11 libxcb libxcomposite libxcursor libxdamage libxext libxfixes libxi libxrandr libxrender libxscrnsaver libxtst ];
-        
+
+        nativeBuildInputs = [
+          autoPatchelfHook
+          dpkg
+          makeWrapper
+          wrapGAppsHook3
+        ];
+
+        buildInputs = [
+          alsa-lib
+          at-spi2-atk
+          atk
+          cairo
+          dbus
+          dconf
+          fontconfig
+          gdk-pixbuf
+          glib
+          gsettings-desktop-schemas
+          gst_all_1.gst-plugins-base
+          gst_all_1.gstreamer
+          gtk2
+          gtk3
+          libnotify
+          libpulseaudio
+          libdrm
+          nspr
+          nss
+          libgbm
+          qt5.qtbase
+          qt5.qtdeclarative
+          qt5.qtsvg
+          qt5.qtwayland
+          libx11
+          libxcb
+          libxcomposite
+          libxcursor
+          libxdamage
+          libxext
+          libxfixes
+          libxi
+          libxrandr
+          libxrender
+          libxscrnsaver
+          libxtst
+        ];
+
         dontWrapQtApps = true;
-        
+
         installPhase = ''
           runHook preInstall
           mkdir -p $out/{bin,lib,share}
@@ -36,7 +132,7 @@ final: prev: {
           ln -s $out/share/desktopeditors/DesktopEditors $out/bin/DesktopEditors
           runHook postInstall
         '';
-        
+
         preFixup = ''
           gappsWrapperArgs+=(
             --prefix LD_LIBRARY_PATH : "${runtimeLibs}" \
@@ -49,7 +145,11 @@ final: prev: {
     in
     buildFHSEnv {
       inherit (derivation) pname version;
-      targetPkgs = pkgs': [ curl derivation noto-fonts-cjk-sans ];
+      targetPkgs = pkgs': [
+        curl
+        derivation
+        noto-fonts-cjk-sans
+      ];
       runScript = "/bin/onlyoffice-desktopeditors";
       extraInstallCommands = ''
         mkdir -p $out/share
@@ -65,5 +165,5 @@ final: prev: {
         license = licenses.agpl3Plus;
       };
     }
-  ) {};
+  ) { };
 }
