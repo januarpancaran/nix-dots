@@ -127,10 +127,7 @@
           overlays = [ inputs.antigravity-nix.overlays.default ] ++ extraOverlays;
         };
 
-      personalPkgs = mkPkgs personalSettings.system [
-        inputs.niri.overlays.niri
-        (import ./overlays/onlyoffice.nix)
-      ];
+      personalPkgs = mkPkgs personalSettings.system [ inputs.niri.overlays.niri ];
       wslPkgs = mkPkgs wslSettings.system [ ];
     in
     {
