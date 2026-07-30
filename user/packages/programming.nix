@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  systemSettings,
   userSettings,
   ...
 }:
@@ -11,7 +12,6 @@
       bun
       cargo
       dotnet-sdk_10
-      flutter
       gcc
       github-cli
       github-copilot-cli
@@ -42,6 +42,9 @@
       uv
       zig
       zlib
+    ] ++ lib.optionals systemSettings.enableAndroidDev [
+      android-studio
+      flutter
     ]
   );
 }

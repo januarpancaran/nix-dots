@@ -1,6 +1,5 @@
 {
   lib,
-  pkgs,
   systemSettings,
   userSettings,
   ...
@@ -18,8 +17,4 @@ lib.mkIf systemSettings.enableAndroidDev {
     ANDROID_AVD_HOME = "/home/${userSettings.username}/.android/avd";
     ANDROID_EMULATOR_HOME = "/home/${userSettings.username}/.android";
   };
-
-  environment.systemPackages = with pkgs; [
-    android-studio
-  ];
 }
