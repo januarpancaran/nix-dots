@@ -42,7 +42,8 @@
       uv
       zig
       zlib
-    ] ++ lib.optionals systemSettings.enableAndroidDev [
+    ]
+    ++ lib.optionals systemSettings.enableAndroidDev [
       android-studio
       flutter
     ]
