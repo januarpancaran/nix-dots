@@ -76,6 +76,7 @@
   environment.systemPackages = with pkgs; [
     home-manager
     libnotify
+    mesa-demos
     trash-cli
   ];
 
