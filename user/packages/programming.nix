@@ -11,6 +11,7 @@
       bun
       cargo
       dotnet-sdk_10
+      flutter
       gcc
       github-cli
       github-copilot-cli
