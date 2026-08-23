@@ -13,6 +13,7 @@ lib.mkIf systemSettings.enableSteam {
 
     extraCompatPackages = with pkgs; [
       proton-ge-bin
+      dwproton-bin
     ];
   };
 
