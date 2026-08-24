@@ -30,6 +30,10 @@
     profiles = [ "personal" ];
   }
   {
+    path = ../user/app/mangohud;
+    profiles = [ "personal" ];
+  }
+  {
     path = ../user/app/noctalia;
     profiles = [ "personal" ];
   }
