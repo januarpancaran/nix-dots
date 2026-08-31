@@ -52,21 +52,21 @@
     { device = "/dev/disk/by-label/NIXOS_SWAP"; }
   ];
 
-  fileSystems."/home/${userSettings.username}/Windows" = {
-    device = "/dev/disk/by-label/ACER";
-    fsType = "ntfs3";
-    options = [
-      "uid=1000"
-      "gid=100"
-      "umask=022"
-      "fmask=022"
-      "dmask=022"
-      "noatime"
-      "nofail"
-      "windows_names"
-      "exec"
-    ];
-  };
+  # fileSystems."/home/${userSettings.username}/Windows" = {
+  #   device = "/dev/disk/by-label/ACER";
+  #   fsType = "ntfs3";
+  #   options = [
+  #     "uid=1000"
+  #     "gid=100"
+  #     "umask=022"
+  #     "fmask=022"
+  #     "dmask=022"
+  #     "noatime"
+  #     "nofail"
+  #     "windows_names"
+  #     "exec"
+  #   ];
+  # };
 
   fileSystems."/home/${userSettings.username}/Storage" = {
     device = "/dev/disk/by-label/KINGSTON";
