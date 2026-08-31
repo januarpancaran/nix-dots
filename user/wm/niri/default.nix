@@ -54,8 +54,8 @@
       ];
 
       cursor = {
-        xcursor-theme = "Bibata-Modern-Classic";
-        xcursor-size = 24;
+        xcursor-theme = "Elaina";
+        xcursor-size = 32;
       };
     };
   };

@@ -1,4 +1,16 @@
 { pkgs, ... }:
+let
+  elainaCursorTheme = pkgs.stdenvNoCC.mkDerivation {
+    pname = "elaina-cursor-theme";
+    version = "1.0";
+    src = ./cursors/elaina;
+    dontBuild = true;
+    installPhase = ''
+      install -dm755 $out/share/icons/Elaina
+      cp -r ./* $out/share/icons/Elaina/
+    '';
+  };
+in
 {
   gtk = {
     enable = true;
@@ -19,9 +31,9 @@
     };
 
     cursorTheme = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Classic";
-      size = 24;
+      package = elainaCursorTheme;
+      name = "Elaina";
+      size = 32;
     };
 
     gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;

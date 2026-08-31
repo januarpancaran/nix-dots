@@ -6,8 +6,8 @@
 {
   environment.sessionVariables = {
     EDITOR = "nvim";
-    XCURSOR_THEME = "Bibata-Modern-Classic";
-    XCURSOR_SIZE = 24;
+    XCURSOR_THEME = "Elaina";
+    XCURSOR_SIZE = 32;
     XDG_CURRENT_DESKTOP = "niri";
     XDG_SESSION_DESKTOP = "niri";
     XDG_SESSION_TYPE = "wayland";
