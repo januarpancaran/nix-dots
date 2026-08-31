@@ -136,6 +136,10 @@
     profiles = [ "personal" ];
   }
   {
+      path = ../system/services/warp.nix;
+      profiles = [ "personal" ];
+    }
+  {
     path = ../system/services/xdg-portal.nix;
     profiles = [ "personal" ];
   }
