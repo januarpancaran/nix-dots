@@ -135,21 +135,21 @@
         ])
 
         # Volumes
-        (bindBareProp "Mod+XF86AudioRaiseVolume" "allow-when-locked" true [
+        (bindBareProp "XF86AudioRaiseVolume" "allow-when-locked" true [
           "noctalia-shell"
           "ipc"
           "call"
           "volume"
           "increase"
         ])
-        (bindBareProp "Mod+XF86AudioLowerVolume" "allow-when-locked" true [
+        (bindBareProp "XF86AudioLowerVolume" "allow-when-locked" true [
           "noctalia-shell"
           "ipc"
           "call"
           "volume"
           "decrease"
         ])
-        (bindBareProp "Mod+XF86AudioMute" "allow-when-locked" true [
+        (bindBareProp "XF86AudioMute" "allow-when-locked" true [
           "noctalia-shell"
           "ipc"
           "call"
@@ -158,14 +158,14 @@
         ])
 
         # Brightness
-        (bindBareProp "Mod+XF86MonBrightnessUp" "allow-when-locked" true [
+        (bindBareProp "XF86MonBrightnessUp" "allow-when-locked" true [
           "noctalia-shell"
           "ipc"
           "call"
           "brightness"
           "increase"
         ])
-        (bindBareProp "Mod+XF86MonBrightnessDown" "allow-when-locked" true [
+        (bindBareProp "XF86MonBrightnessDown" "allow-when-locked" true [
           "noctalia-shell"
           "ipc"
           "call"
