@@ -1,5 +1,5 @@
 {
-  programs.niri.settings.environment = {
+  wayland.windowManager.niri.settings.environment = {
     "XDG_SESSION_TYPE" = "wayland";
     "XDG_CURRENT_DESKTOP" = "niri";
     "XDG_SESSION_DESKTOP" = "niri";

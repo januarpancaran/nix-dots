@@ -15,12 +15,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Niri
-    niri = {
-      url = "github:sodiboo/niri-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Noctalia
     noctalia = {
       url = "github:noctalia-dev/noctalia/legacy-v4";
@@ -128,7 +122,6 @@
         };
 
       personalPkgs = mkPkgs personalSettings.system [
-        inputs.niri.overlays.niri
         (import ./overlays/onlyoffice.nix)
       ];
       wslPkgs = mkPkgs wslSettings.system [ ];
@@ -171,7 +164,6 @@
           inherit userSettings;
         };
         modules = [
-          inputs.niri.homeModules.niri
           inputs.noctalia.homeModules.default
           inputs.catppuccin.homeModules.catppuccin
           ./profiles/personal/home.nix

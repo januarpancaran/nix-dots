@@ -1,5 +1,5 @@
 {
-  programs.niri.settings.input = {
+  wayland.windowManager.niri.settings.input = {
     keyboard = {
       xkb = {
         layout = "us";
@@ -9,9 +9,8 @@
     };
 
     touchpad = {
-      enable = true;
-      tap = true;
-      natural-scroll = true;
+      tap = { };
+      natural-scroll = { };
     };
   };
 }

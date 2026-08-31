@@ -1,10 +1,8 @@
 { pkgs, ... }:
 {
-  programs.niri.settings.spawn-at-startup =
+  wayland.windowManager.niri.settings._children =
     map
-      (exe: {
-        command = pkgs.lib.strings.splitString " " exe;
-      })
+      (cmd: { spawn-at-startup._args = pkgs.lib.strings.splitString " " cmd; })
       [
         "fcitx5 -d -r"
         "fcitx5-remote -d -r"

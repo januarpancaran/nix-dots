@@ -4,37 +4,67 @@
   ...
 }:
 {
-  programs.niri.settings.binds =
+  wayland.windowManager.niri.settings.binds =
     let
-      inherit (lib.attrsets) setAttrByPath recursiveUpdate;
+      # Simple action with no args: { action = {}; }
+      bind = key: action: {
+        "Mod+${key}"."${action}" = { };
+      };
 
-      bind = key: cmd: setAttrByPath [ "Mod+${key}" "action" cmd ] { };
+      # Action with a single value arg
+      bindVal = key: action: val: {
+        "Mod+${key}"."${action}" = val;
+      };
 
-      bindAttr =
-        key: cmd: attr: attrVal:
-        setAttrByPath [ "Mod+${key}" "action" cmd attr ] attrVal;
+      # Action with a prop
+      bindProp = key: action: prop: val: {
+        "Mod+${key}"."${action}"._props."${prop}" = val;
+      };
 
-      bindArgs =
-        key: args: argsVal: cmd:
-        recursiveUpdate (setAttrByPath [ "Mod+${key}" args ] argsVal) (
-          setAttrByPath [ "Mod+${key}" "action" cmd ] { }
-        );
+      # Bind with a top-level prop + simple action
+      bindWithProp = key: prop: propVal: action: {
+        "Mod+${key}" = {
+          _props."${prop}" = propVal;
+          "${action}" = { };
+        };
+      };
 
-      bindSpawn = key: cmd: setAttrByPath [ "Mod+${key}" "action" "spawn" ] cmd;
+      # Spawn a list of args
+      bindSpawn = key: cmd: {
+        "Mod+${key}".spawn = if builtins.isList cmd then cmd else [ cmd ];
+      };
 
-      bindSpawnArgs =
-        key: args: argsVal: cmd:
-        recursiveUpdate (setAttrByPath [ key args ] argsVal) (setAttrByPath [ key "action" "spawn" ] cmd);
+      # Spawn with a top-level prop
+      bindSpawnProp = key: prop: propVal: cmd: {
+        "Mod+${key}" = {
+          _props."${prop}" = propVal;
+          spawn = if builtins.isList cmd then cmd else [ cmd ];
+        };
+      };
 
-      bindSpawnShArgs =
-        key: args: argsVal: cmd:
-        recursiveUpdate (setAttrByPath [ "Mod+${key}" args ] argsVal) (
-          setAttrByPath [ "Mod+${key}" "action" "spawn-sh" ] cmd
-        );
+      # Bare key (no Mod) + prop + spawn
+      bindBareProp = key: prop: propVal: cmd: {
+        "${key}" = {
+          _props."${prop}" = propVal;
+          spawn = if builtins.isList cmd then cmd else [ cmd ];
+        };
+      };
 
-      bindVal =
-        key: cmd: cmdVal:
-        setAttrByPath [ "Mod+${key}" "action" cmd ] cmdVal;
+      # Bare key (no Mod) + prop + simple action
+      bindBareWithProp = key: prop: propVal: action: {
+        "${key}" = {
+          _props."${prop}" = propVal;
+          "${action}" = { };
+        };
+      };
+
+      # Spawn-sh bare (no Mod) + prop
+      bindSpawnShBareProp = key: prop: propVal: cmd: {
+        "Mod+${key}" = {
+          _props."${prop}" = propVal;
+          spawn-sh = cmd;
+        };
+      };
 
       bindList = [
         # Programs
@@ -77,7 +107,7 @@
           "--enable-wayland-ime"
         ])
         (bindSpawn "D" "discord")
-        (bindSpawnShArgs "Shift+SemiColon" "repeat" false
+        (bindSpawnShBareProp "Shift+SemiColon" "repeat" false
           "wl-mirror $(niri msg --json focused-output | jq -r .name)"
         )
 
@@ -105,21 +135,21 @@
         ])
 
         # Volumes
-        (bindSpawnArgs "XF86AudioRaiseVolume" "allow-when-locked" true [
+        (bindBareProp "Mod+XF86AudioRaiseVolume" "allow-when-locked" true [
           "noctalia-shell"
           "ipc"
           "call"
           "volume"
           "increase"
         ])
-        (bindSpawnArgs "XF86AudioLowerVolume" "allow-when-locked" true [
+        (bindBareProp "Mod+XF86AudioLowerVolume" "allow-when-locked" true [
           "noctalia-shell"
           "ipc"
           "call"
           "volume"
           "decrease"
         ])
-        (bindSpawnArgs "XF86AudioMute" "allow-when-locked" true [
+        (bindBareProp "Mod+XF86AudioMute" "allow-when-locked" true [
           "noctalia-shell"
           "ipc"
           "call"
@@ -128,14 +158,14 @@
         ])
 
         # Brightness
-        (bindSpawnArgs "XF86MonBrightnessUp" "allow-when-locked" true [
+        (bindBareProp "Mod+XF86MonBrightnessUp" "allow-when-locked" true [
           "noctalia-shell"
           "ipc"
           "call"
           "brightness"
           "increase"
         ])
-        (bindSpawnArgs "XF86MonBrightnessDown" "allow-when-locked" true [
+        (bindBareProp "Mod+XF86MonBrightnessDown" "allow-when-locked" true [
           "noctalia-shell"
           "ipc"
           "call"
@@ -143,7 +173,7 @@
           "decrease"
         ])
 
-        (bindArgs "O" "repeat" false "toggle-overview")
+        (bindBareWithProp "Mod+O" "repeat" false "toggle-overview")
 
         # Window/Workspace Management
         (bind "Q" "close-window")
@@ -179,10 +209,10 @@
         (bind "Shift+U" "move-workspace-down")
         (bind "Shift+I" "move-workspace-up")
 
-        (bindArgs "WheelScrollDown" "cooldown-ms" 150 "focus-workspace-down")
-        (bindArgs "WheelScrollUp" "cooldown-ms" 150 "focus-workspace-up")
-        (bindArgs "Ctrl+WheelScrollDown" "cooldown-ms" 150 "move-column-to-workspace-down")
-        (bindArgs "Ctrl+WheelScrollUp" "cooldown-ms" 150 "move-column-to-workspace-up")
+        (bindBareWithProp "Mod+WheelScrollDown" "cooldown-ms" 150 "focus-workspace-down")
+        (bindBareWithProp "Mod+WheelScrollUp" "cooldown-ms" 150 "focus-workspace-up")
+        (bindBareWithProp "Mod+Ctrl+WheelScrollDown" "cooldown-ms" 150 "move-column-to-workspace-down")
+        (bindBareWithProp "Mod+Ctrl+WheelScrollUp" "cooldown-ms" 150 "move-column-to-workspace-up")
 
         (bind "WheelScrollRight" "focus-column-right")
         (bind "WheelScrollLeft" "focus-column-left")
@@ -216,13 +246,13 @@
         (bind "Shift+V" "switch-focus-between-floating-and-tiling")
         (bind "W" "toggle-column-tabbed-display")
 
-        (bindAttr "Shift+S" "screenshot" "show-pointer" false)
-        (bindAttr "Shift+P" "screenshot-screen" "write-to-disk" true)
-        (bindAttr "P" "screenshot-window" "write-to-disk" true)
+        (bindProp "Shift+S" "screenshot" "show-pointer" false)
+        (bindProp "Shift+P" "screenshot-screen" "write-to-disk" true)
+        (bindProp "P" "screenshot-window" "write-to-disk" true)
 
-        (bindArgs "Escape" "allow-inhibiting" false "toggle-keyboard-shortcuts-inhibit")
+        (bindBareWithProp "Mod+Escape" "allow-inhibiting" false "toggle-keyboard-shortcuts-inhibit")
 
-        (bindAttr "Shift+M" "quit" "skip-confirmation" true)
+        (bindProp "Shift+M" "quit" "skip-confirmation" true)
       ]
       ++ (builtins.concatLists (
         builtins.genList (
