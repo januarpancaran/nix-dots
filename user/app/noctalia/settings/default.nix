@@ -12,6 +12,9 @@
     };
 
     shell = {
+      panel = {
+        launcher_placement = "attached";
+      };
       font_family = "Sans Serif";
       corner_radius_scale = 1.0;
       button_borders = true;
