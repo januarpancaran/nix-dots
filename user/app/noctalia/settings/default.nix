@@ -111,11 +111,9 @@
         hide_when_no_connected_device = true;
       };
 
-
       "control-center" = {
         glyph = "home";
       };
-
 
     };
 
