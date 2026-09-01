@@ -21,12 +21,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Antigravity
-    antigravity-nix = {
-      url = "github:jacopone/antigravity-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Catppuccin
     catppuccin = {
       url = "github:catppuccin/nix";
@@ -118,7 +112,7 @@
             allowUnfree = true;
             allowBroken = false;
           };
-          overlays = [ inputs.antigravity-nix.overlays.default ] ++ extraOverlays;
+          overlays = extraOverlays;
         };
 
       personalPkgs = mkPkgs personalSettings.system [

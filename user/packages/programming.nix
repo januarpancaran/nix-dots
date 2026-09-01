@@ -18,7 +18,7 @@
       gmp
       gnumake
       go
-      google-antigravity-cli
+      antigravity-cli
       jetbrains.jdk
       kiro-cli
       kotlin

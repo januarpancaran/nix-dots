@@ -24,7 +24,6 @@
     ]
     ++ lib.optionals userSettings.enableProgrammingPkgs [
       dbeaver-bin
-      google-antigravity
       jetbrains.idea
     ];
 }
