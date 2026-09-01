@@ -21,5 +21,6 @@ lib.mkIf systemSettings.enableSteam {
 
   environment.systemPackages = with pkgs; [
     mangohud
+    protontricks
   ];
 }
