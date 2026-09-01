@@ -113,64 +113,50 @@
 
         # Noctalia
         (bindSpawn "R" [
-          "noctalia-shell"
-          "ipc"
-          "call"
+          "noctalia"
+          "msg"
+          "panel-toggle"
           "launcher"
-          "toggle"
         ])
         (bindSpawn "S" [
-          "noctalia-shell"
-          "ipc"
-          "call"
-          "controlCenter"
-          "toggle"
+          "noctalia"
+          "msg"
+          "panel-toggle"
+          "control-center"
         ])
         (bindSpawn "Comma" [
-          "noctalia-shell"
-          "ipc"
-          "call"
-          "settings"
-          "toggle"
+          "noctalia"
+          "msg"
+          "settings-toggle"
         ])
 
         # Volumes
         (bindBareProp "XF86AudioRaiseVolume" "allow-when-locked" true [
-          "noctalia-shell"
-          "ipc"
-          "call"
-          "volume"
-          "increase"
+          "noctalia"
+          "msg"
+          "volume-up"
         ])
         (bindBareProp "XF86AudioLowerVolume" "allow-when-locked" true [
-          "noctalia-shell"
-          "ipc"
-          "call"
-          "volume"
-          "decrease"
+          "noctalia"
+          "msg"
+          "volume-down"
         ])
         (bindBareProp "XF86AudioMute" "allow-when-locked" true [
-          "noctalia-shell"
-          "ipc"
-          "call"
-          "volume"
-          "muteOutput"
+          "noctalia"
+          "msg"
+          "volume-mute"
         ])
 
         # Brightness
         (bindBareProp "XF86MonBrightnessUp" "allow-when-locked" true [
-          "noctalia-shell"
-          "ipc"
-          "call"
-          "brightness"
-          "increase"
+          "noctalia"
+          "msg"
+          "brightness-up"
         ])
         (bindBareProp "XF86MonBrightnessDown" "allow-when-locked" true [
-          "noctalia-shell"
-          "ipc"
-          "call"
-          "brightness"
-          "decrease"
+          "noctalia"
+          "msg"
+          "brightness-down"
         ])
 
         (bindBareWithProp "Mod+O" "repeat" false "toggle-overview")

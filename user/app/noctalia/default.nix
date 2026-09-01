@@ -1,10 +1,9 @@
 {
   imports = [
     ./settings
-    ./colors
   ];
 
-  programs.noctalia-shell = {
+  programs.noctalia = {
     enable = true;
   };
 }

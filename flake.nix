@@ -15,11 +15,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Noctalia
-    noctalia = {
-      url = "github:noctalia-dev/noctalia/legacy-v4";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     # Catppuccin
     catppuccin = {
@@ -158,7 +153,6 @@
           inherit userSettings;
         };
         modules = [
-          inputs.noctalia.homeModules.default
           inputs.catppuccin.homeModules.catppuccin
           ./profiles/personal/home.nix
         ];
