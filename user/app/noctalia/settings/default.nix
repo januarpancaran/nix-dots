@@ -51,6 +51,7 @@
         ];
         center = [ "clock" ];
         end = [
+          "tray"
           "volume"
           "brightness"
           "network"
@@ -92,6 +93,12 @@
         max_length = 180;
         hide_when_no_media = true;
         title_scroll = "on_hover";
+      };
+
+      tray = {
+        drawer = true;
+        hide_passive = false;
+        drawer_columns = 3;
       };
 
       volume = {
