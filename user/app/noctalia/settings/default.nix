@@ -41,6 +41,7 @@
         capsule_fill = "surface_variant";
         capsule_foreground = "on_surface";
         color = "on_surface";
+        icon_color = "primary";
         capsule_border = "outline";
         capsule_opacity = 0.86;
         show_on_workspace_switch = true;
@@ -63,6 +64,7 @@
 
     widget = {
       clock = {
+        color = "primary";
         format = "{:%H:%M}";
         tooltip_format = "{:%A, %B %d, %Y}";
         font_weight = 600;
@@ -81,6 +83,7 @@
       };
 
       "active-window" = {
+        color = "primary";
         type = "active_window";
         min_length = 80;
         max_length = 220;
@@ -102,6 +105,7 @@
       };
 
       volume = {
+        color = "primary";
         show_label = true;
       };
 
