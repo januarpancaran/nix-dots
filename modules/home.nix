@@ -60,10 +60,6 @@
     ];
   }
   {
-    path = ../user/app/vscode;
-    profiles = [ "personal" ];
-  }
-  {
     path = ../user/app/zed-editor;
     profiles = [ "personal" ];
   }
