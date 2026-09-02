@@ -67,6 +67,7 @@
   #     "dmask=022"
   #     "noatime"
   #     "nofail"
+  #     "nocase"
   #     "windows_names"
   #     "exec"
   #   ];
@@ -83,6 +84,7 @@
       "dmask=022"
       "noatime"
       "nofail"
+      "nocase"
       "windows_names"
       "exec"
     ];
