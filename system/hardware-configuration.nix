@@ -45,15 +45,15 @@
     enable = true;
     settings = {
       "udisks2.conf" = {
-	defaults = {
-	  encryption = "luks2";
-	  ntfs_driver = "ntfs";
-	};
+        defaults = {
+          encryption = "luks2";
+          ntfs_driver = "ntfs";
+        };
 
-	udisks2 = {
-	  modules = [ "*" ];
-	  modules_load_preference = "ondemand";
-	};
+        udisks2 = {
+          modules = [ "*" ];
+          modules_load_preference = "ondemand";
+        };
       };
     };
   };
