@@ -17,6 +17,7 @@ lib.mkIf systemSettings.enableSteam {
     ];
   };
 
+  programs.gamescope.enable = true;
   programs.gamemode.enable = true;
 
   environment.systemPackages = with pkgs; [
