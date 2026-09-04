@@ -88,6 +88,10 @@
     profiles = [ "personal" ];
   }
   {
+    path = ../system/services/gnome.nix;
+    profiles = [ "personal" ];
+  }
+  {
     path = ../system/services/gnome-keyring.nix;
     profiles = [ "personal" ];
   }
