@@ -11,6 +11,35 @@
       enable_overdrive = true;
     };
 
+    idle = {
+      behavior = {
+        lock = {
+          action = "lock";
+          enabled = true;
+          timeout = 600;
+        };
+
+        "screen-off" = {
+          action = "screen_off";
+          enabled = true;
+          timeout = 660;
+        };
+
+        "lock-and-suspend" = {
+          action = "lock_and_suspend";
+          enabled = true;
+          timeout = 900;
+        };
+      };
+
+      behavior_order = [
+        "lock"
+        "screen-off"
+        "lock-and-suspend"
+      ];
+      pre_action_fade_seconds = 2.0;
+    };
+
     shell = {
       panel = {
         launcher_placement = "attached";
