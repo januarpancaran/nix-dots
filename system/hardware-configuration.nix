@@ -33,6 +33,31 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
+  boot.supportedFilesystems.ntfs = lib.mkForce false;
+  boot.blacklistedKernelModules = [
+    "ntfs3"
+    "ntfs-3g"
+  ];
+
+  environment.systemPackages = [ pkgs.ntfsprogs-plus ];
+
+  services.udisks2 = {
+    enable = true;
+    settings = {
+      "udisks2.conf" = {
+	defaults = {
+	  encryption = "luks2";
+	  ntfs_driver = "ntfs";
+	};
+
+	udisks2 = {
+	  modules = [ "*" ];
+	  modules_load_preference = "ondemand";
+	};
+      };
+    };
+  };
+
   fileSystems."/" = {
     device = "/dev/disk/by-label/NIXOS_ROOT";
     fsType = "ext4";
@@ -58,7 +83,7 @@
 
   # fileSystems."/home/${userSettings.username}/Windows" = {
   #   device = "/dev/disk/by-label/ACER";
-  #   fsType = "ntfs3";
+  #   fsType = "ntfs";
   #   options = [
   #     "uid=1000"
   #     "gid=100"
@@ -75,7 +100,7 @@
 
   fileSystems."/home/${userSettings.username}/Storage" = {
     device = "/dev/disk/by-label/KINGSTON";
-    fsType = "ntfs3";
+    fsType = "ntfs";
     options = [
       "uid=1000"
       "gid=100"
