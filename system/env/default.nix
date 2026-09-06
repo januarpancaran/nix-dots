@@ -1,4 +1,5 @@
 {
+  lib,
   systemSettings,
   userSettings,
   ...
@@ -19,6 +20,10 @@
     MOZ_ENABLE_WAYLAND = 1;
     NIXOS_OZONE_WL = 1;
     NH_FLAKE = systemSettings.flakeDir;
+
+  } // lib.optionalAttrs (systemSettings.enableSteam or false) {
+    # Keep NVIDIA's shader cache from evicting compiled shaders in large games.
+    "__GL_SHADER_DISK_CACHE_SIZE" = "12000000000";
   };
 
   environment.pathsToLink = [
