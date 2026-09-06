@@ -128,7 +128,7 @@
     ];
   }
   {
-    path = ../system/services/power.nix;
+    path = ../system/services/tlp.nix;
     profiles = [ "personal" ];
   }
   {
