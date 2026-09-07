@@ -3,8 +3,11 @@
   xdg.portal.enable = lib.mkForce true;
 
   home.packages = with pkgs; [
+    grim
     pavucontrol
     polkit_gnome
+    slurp
+    wl-clipboard
     wl-mirror
   ];
 
