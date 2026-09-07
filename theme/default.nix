@@ -12,6 +12,15 @@ let
   };
 in
 {
+  home.pointerCursor = {
+    enable = true;
+    package = elainaCursorTheme;
+    name = "Elaina";
+    size = 32;
+    gtk.enable = true;
+    x11.enable = true;
+  };
+
   gtk = {
     enable = true;
 

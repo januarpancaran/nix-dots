@@ -70,6 +70,10 @@
   hardware.enableAllFirmware = true;
 
   programs.niri.enable = true;
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
   programs.bash.enable = true;
   programs.zsh.enable = true;
 

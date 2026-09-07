@@ -1,0 +1,17 @@
+{
+  wayland.windowManager.hyprland.settings.env = map (entry: { _args = entry; }) [
+    [ "XDG_SESSION_TYPE" "wayland" ]
+    [ "XDG_CURRENT_DESKTOP" "Hyprland" ]
+    [ "XDG_SESSION_DESKTOP" "Hyprland" ]
+    [ "QT_QPA_PLATFORMTHEME" "qt6ct" ]
+    [ "QT_QPA_PLATFORM" "wayland;xcb" ]
+    [ "QT_WAYLAND_DISABLE_WINDOWDECORATION" "1" ]
+    [ "GDK_BACKEND" "wayland" ]
+    [ "ELECTRON_OZONE_PLATFORM_HINT" "wayland" ]
+    [ "MOZ_ENABLE_WAYLAND" "1" ]
+    [ "NIXOS_OZONE_WL" "1" ]
+    [ "XCURSOR_THEME" "Elaina" ]
+    [ "XCURSOR_SIZE" "32" ]
+    [ "HYPRCURSOR_SIZE" "32" ]
+  ];
+}

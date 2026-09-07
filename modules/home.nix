@@ -103,6 +103,10 @@
     profiles = [ "personal" ];
   }
   {
+    path = ../user/wm/hyprland;
+    profiles = [ "personal" ];
+  }
+  {
     path = ../user/packages/cli.nix;
     profiles = [
       "personal"

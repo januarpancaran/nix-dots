@@ -9,8 +9,7 @@
     EDITOR = "nvim";
     XCURSOR_THEME = "Elaina";
     XCURSOR_SIZE = 32;
-    XDG_CURRENT_DESKTOP = "niri";
-    XDG_SESSION_DESKTOP = "niri";
+
     XDG_SESSION_TYPE = "wayland";
     QT_QPA_PLATFORMTHEME = "qt6ct";
     QT_QPA_PLATFORM = "wayland;xcb";
