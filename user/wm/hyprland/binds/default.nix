@@ -14,28 +14,34 @@ let
     else
       "${userSettings.defaultBrowser} --incognito";
   bind = keys: dispatcher: {
-    _args = [ keys (lua dispatcher) ];
+    _args = [
+      keys
+      (lua dispatcher)
+    ];
   };
   exec = keys: command: bind keys ''hl.dsp.exec_cmd("${command}")'';
   focus = keys: direction: bind keys ''hl.dsp.focus({ direction = "${direction}" })'';
   move = keys: direction: bind keys ''hl.dsp.window.move({ direction = "${direction}" })'';
-  workspace = keys: number: bind keys ''hl.dsp.focus({ workspace = ${toString number} })'';
-  moveWorkspace = keys: number: bind keys ''hl.dsp.window.move({ workspace = ${toString number} })'';
+  workspace = keys: number: bind keys "hl.dsp.focus({ workspace = ${toString number} })";
+  moveWorkspace = keys: number: bind keys "hl.dsp.window.move({ workspace = ${toString number} })";
   workspaceRelative = keys: direction: bind keys ''hl.dsp.focus({ workspace = "${direction}" })'';
   moveWorkspaceRelative = keys: direction: {
     _args = [
       keys
-      (lua ''function()
-        local current = hl.get_active_workspace().id
-        local target = current ${if direction == "+1" then "+ 1" else "- 1"}
-        hl.dispatch(hl.dsp.window.move({ workspace = target }))
-      end'')
+      (lua ''
+        function()
+                local current = hl.get_active_workspace().id
+                local target = current ${if direction == "+1" then "+ 1" else "- 1"}
+                hl.dispatch(hl.dsp.window.move({ workspace = target }))
+              end'')
     ];
   };
-  workspaceBinds = builtins.concatLists (builtins.genList (i: [
-    (workspace "SUPER + ${toString (i + 1)}" (i + 1))
-    (moveWorkspace "SUPER + SHIFT + ${toString (i + 1)}" (i + 1))
-  ]) 9);
+  workspaceBinds = builtins.concatLists (
+    builtins.genList (i: [
+      (workspace "SUPER + ${toString (i + 1)}" (i + 1))
+      (moveWorkspace "SUPER + SHIFT + ${toString (i + 1)}" (i + 1))
+    ]) 9
+  );
   simpleBinds = [
     (exec "SUPER + T" "ghostty")
     (exec "SUPER + B" browser)
