@@ -1,7 +1,12 @@
 { lib, ... }:
 let
   lua = lib.generators.mkLuaInline;
-  curve = name: definition: { _args = [ name (lua definition) ]; };
+  curve = name: definition: {
+    _args = [
+      name
+      (lua definition)
+    ];
+  };
   animation = definition: { _args = [ (lua definition) ]; };
 in
 {
