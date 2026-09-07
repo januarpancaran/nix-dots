@@ -3,6 +3,8 @@
   programs.nix-ld = {
     enable = true;
     libraries = with pkgs; [
+      # Use gcc16 for GLIBCXX_3.4.35+ support (required by Hyprland)
+      gcc16.cc.lib
       # List by default
       zlib
       zstd
