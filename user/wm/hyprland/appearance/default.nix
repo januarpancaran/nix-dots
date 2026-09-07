@@ -40,6 +40,7 @@ in
         force_split = 2;
         preserve_split = true;
       };
+      xwayland.force_zero_scaling = true;
       misc = {
         force_default_wallpaper = -1;
         disable_hyprland_logo = true;
