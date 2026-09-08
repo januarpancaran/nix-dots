@@ -157,6 +157,10 @@
 
     };
 
+    osd = {
+      position = "bottom_center";
+    };
+
     wallpaper = {
       enabled = true;
       directory = "/home/${userSettings.username}/Pictures/Wallpapers";
