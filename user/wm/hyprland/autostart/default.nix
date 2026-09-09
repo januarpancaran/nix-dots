@@ -10,6 +10,7 @@ let
         
         compact_timer = hl.timer(function()
           local workspaces = hl.get_workspaces()
+          local current_ws = hl.get_active_workspace().id
           
           -- Build a map of workspace IDs with their window counts
           local ws_map = {}
@@ -42,6 +43,9 @@ let
             return
           end
           
+          -- Check if workspace 1 is empty (needs special focus handling)
+          local ws1_empty = (ws_map[1] == nil or ws_map[1] == 0) and #occupied > 0
+          
           -- Move windows to compact positions
           for i, source_id in ipairs(occupied) do
             if source_id ~= i then
@@ -62,6 +66,11 @@ let
                 end
               end
             end
+          end
+          
+          -- If workspace 1 was empty and we're on it, stay on workspace 1
+          if ws1_empty and current_ws == 1 then
+            hl.dispatch(hl.dsp.focus({ workspace = 1 }))
           end
           
           compact_timer = nil
