@@ -3,43 +3,69 @@ let
   lua = lib.generators.mkLuaInline;
   compactWorkspaces = ''
     function()
-        hl.timer(function()
+        -- Debouncing: cancel previous timer if it exists
+        if compact_timer ~= nil and compact_timer.cancel ~= nil then
+          compact_timer:cancel()
+        end
+        
+        compact_timer = hl.timer(function()
           local workspaces = hl.get_workspaces()
-          local first_empty = nil
-          local highest = 0
-
-          for _, workspace in ipairs(workspaces) do
-            if workspace.id > highest then
-              highest = workspace.id
-            end
-            if workspace.id >= 1 and workspace.windows == 0 and first_empty == nil then
-              first_empty = workspace.id
+          
+          -- Build a map of workspace IDs with their window counts
+          local ws_map = {}
+          for _, ws in ipairs(workspaces) do
+            if ws.id >= 1 then
+              ws_map[ws.id] = ws.windows
             end
           end
-
-          if first_empty == nil then
+          
+          -- Find all occupied workspaces (sorted)
+          local occupied = {}
+          for id, windows in pairs(ws_map) do
+            if windows > 0 then
+              table.insert(occupied, id)
+            end
+          end
+          table.sort(occupied)
+          
+          -- Check if compacting is needed
+          local needs_compact = false
+          for i, id in ipairs(occupied) do
+            if id ~= i then
+              needs_compact = true
+              break
+            end
+          end
+          
+          if not needs_compact then
+            compact_timer = nil
             return
           end
-
-          for source_id = first_empty + 1, highest do
-            local source = nil
-            for _, workspace in ipairs(hl.get_workspaces()) do
-              if workspace.id == source_id then
-                source = workspace
-                break
+          
+          -- Move windows to compact positions
+          for i, source_id in ipairs(occupied) do
+            if source_id ~= i then
+              local workspace = nil
+              for _, ws in ipairs(hl.get_workspaces()) do
+                if ws.id == source_id then
+                  workspace = ws
+                  break
+                end
               end
-            end
-
-            if source ~= nil then
-              for _, window in ipairs(source:get_windows()) do
-                hl.dispatch(hl.dsp.window.move({
-                  window = window,
-                  workspace = source_id - 1,
-                }))
+              
+              if workspace ~= nil then
+                for _, window in ipairs(workspace:get_windows()) do
+                  hl.dispatch(hl.dsp.window.move({
+                    window = window,
+                    workspace = i,
+                  }))
+                end
               end
             end
           end
-        end, { timeout = 100, type = "oneshot" })
+          
+          compact_timer = nil
+        end, { timeout = 200, type = "oneshot" })
       end'';
   compactEvent = lua ''
     function()
@@ -55,6 +81,7 @@ in
         "hyprland.start"
         (lua ''
           function()
+                    compact_timer = nil
                     compact_workspaces = ${compactWorkspaces}
                     hl.exec_cmd("fcitx5 -d -r")
                     hl.exec_cmd("fcitx5-remote -d -r")
