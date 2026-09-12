@@ -146,5 +146,19 @@ in
           end'')
       ];
     }
+    {
+      # Re-initialize after config reload (e.g. after a `rebuild`):
+      # hyprland.start only fires at initial launch, so Lua globals are lost
+      # when home-manager applies a new generation and Hyprland reloads its config.
+      _args = [
+        "config.reloaded"
+        (lua ''
+          function()
+            compact_workspaces = ${compactWorkspaces}
+            compact_timer = nil
+            compact_running = false
+          end'')
+      ];
+    }
   ];
 }
