@@ -120,5 +120,18 @@ in
         compactEvent
       ];
     }
+    {
+      # Re-initialize after sleep/wake: hyprland.start only fires once at startup,
+      # so compact_workspaces global is lost after suspend. monitor.added fires when
+      # the display comes back, restoring the function.
+      _args = [
+        "monitor.added"
+        (lua ''
+          function()
+            compact_workspaces = ${compactWorkspaces}
+            compact_timer = nil
+          end'')
+      ];
+    }
   ];
 }
