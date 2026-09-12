@@ -3,12 +3,19 @@ let
   lua = lib.generators.mkLuaInline;
   compactWorkspaces = ''
     function()
+        -- Re-entrancy guard: don't debounce/restart if we're currently compacting
+        if compact_running then
+          return
+        end
+
         -- Debouncing: cancel previous timer if it exists
         if compact_timer ~= nil and compact_timer.cancel ~= nil then
           compact_timer:cancel()
         end
         
         compact_timer = hl.timer(function()
+          compact_running = true
+
           local workspaces = hl.get_workspaces()
           local current_ws = hl.get_active_workspace().id
           
@@ -40,13 +47,16 @@ let
           
           if not needs_compact then
             compact_timer = nil
+            compact_running = false
             return
           end
           
           -- Check if workspace 1 is empty (needs special focus handling)
           local ws1_empty = (ws_map[1] == nil or ws_map[1] == 0) and #occupied > 0
           
-          -- Move windows to compact positions
+          -- Move windows to compact positions.
+          -- Re-fetch workspaces each iteration so we find the correct workspace
+          -- object even after prior moves have changed IDs (e.g. gaps like 1, 4).
           for i, source_id in ipairs(occupied) do
             if source_id ~= i then
               local workspace = nil
@@ -74,6 +84,7 @@ let
           end
           
           compact_timer = nil
+          compact_running = false
         end, { timeout = 200, type = "oneshot" })
       end'';
   compactEvent = lua ''
@@ -91,6 +102,7 @@ in
         (lua ''
           function()
                     compact_timer = nil
+                    compact_running = false
                     compact_workspaces = ${compactWorkspaces}
                     hl.exec_cmd("fcitx5 -d -r")
                     hl.exec_cmd("fcitx5-remote -d -r")
@@ -130,6 +142,7 @@ in
           function()
             compact_workspaces = ${compactWorkspaces}
             compact_timer = nil
+            compact_running = false
           end'')
       ];
     }
