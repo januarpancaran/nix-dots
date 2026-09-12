@@ -18,6 +18,13 @@
         };
         no_focus = true;
       }
+      {
+        name = "steam-game-suppress-activate";
+        match.class = "^steam_app_.*$";
+        render_unfocused = true;
+        idle_inhibit = "always";
+        suppress_event = "activate";
+      }
     ];
   };
 }
