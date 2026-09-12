@@ -21,6 +21,7 @@
       spotify
       telegram-desktop
       zotero
+      zoom-us
     ]
     ++ lib.optionals userSettings.enableProgrammingPkgs [
       dbeaver-bin
