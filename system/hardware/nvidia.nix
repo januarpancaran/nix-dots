@@ -6,7 +6,7 @@
   ];
 
   hardware.nvidia = {
-    package = config.boot.kernelPackages.nvidiaPackages.latest;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
     open = true;
     nvidiaSettings = true;
     modesetting.enable = true;
