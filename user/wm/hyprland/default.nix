@@ -7,6 +7,7 @@
     pavucontrol
     polkit_gnome
     slurp
+    socat
     wl-clipboard
     wl-mirror
   ];

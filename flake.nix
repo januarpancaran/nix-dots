@@ -20,6 +20,12 @@
       url = "github:catppuccin/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Noctalia Community Plugins
+    noctalia-community-plugins = {
+      url = "github:noctalia-dev/community-plugins/main";
+      flake = false;
+    };
   };
 
   outputs =
