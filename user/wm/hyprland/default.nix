@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, inputs, ... }:
 {
   xdg.portal.enable = lib.mkForce true;
 
@@ -23,6 +23,8 @@
   ];
 
   wayland.windowManager.hyprland = {
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     enable = true;
     xwayland.enable = true;
     configType = "lua";

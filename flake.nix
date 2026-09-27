@@ -21,6 +21,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Hyprland
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Noctalia Community Plugins
     noctalia-community-plugins = {
       url = "github:noctalia-dev/community-plugins/main";
