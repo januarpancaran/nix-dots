@@ -5,7 +5,7 @@
         layout = "us";
         options = "ctrl:nocaps";
       };
-      numlock = true;
+      numlock = false;
     };
 
     touchpad = {
