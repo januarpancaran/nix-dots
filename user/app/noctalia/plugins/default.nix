@@ -2,8 +2,7 @@
 {
   programs.noctalia.settings = {
     plugins = {
-      # Enable the hypr-screen-mirror plugin
-      enabled = [ "profidev/hypr-screen-mirror" ];
+      enabled = [ ];
 
       # Add the community plugins as a source
       source = [

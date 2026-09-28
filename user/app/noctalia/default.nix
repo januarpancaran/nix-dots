@@ -3,6 +3,7 @@
   imports = [
     ./settings
     ./plugins
+    ./screen-mirror.nix
   ];
 
   programs.noctalia = {

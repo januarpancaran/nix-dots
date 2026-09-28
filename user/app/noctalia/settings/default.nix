@@ -81,7 +81,6 @@
         ];
         center = [ "clock" ];
         end = [
-          "profidev/hypr-screen-mirror:widget"
           "tray"
           "volume"
           "brightness"
