@@ -4,31 +4,31 @@ let
   outFile = "${configDir}/z-screen-mirror.toml";
 
   setupScript = pkgs.writeShellScript "noctalia-screen-mirror-setup" ''
-    desktop="''${XDG_CURRENT_DESKTOP:-}"
+        desktop="''${XDG_CURRENT_DESKTOP:-}"
 
-    case "$desktop" in
-      niri)
-        plugin="elijaharch/wl-screen-mirror"
-        widget="elijaharch/wl-screen-mirror:mirror"
-        ;;
-      Hyprland)
-        plugin="profidev/hypr-screen-mirror"
-        widget="profidev/hypr-screen-mirror:widget"
-        ;;
-      *)
-        # Unknown WM — remove any leftover override and bail out
-        rm -f "${outFile}"
-        exit 0
-        ;;
-    esac
+        case "$desktop" in
+          niri)
+            plugin="elijaharch/wl-screen-mirror"
+            widget="elijaharch/wl-screen-mirror:mirror"
+            ;;
+          Hyprland)
+            plugin="profidev/hypr-screen-mirror"
+            widget="profidev/hypr-screen-mirror:widget"
+            ;;
+          *)
+            # Unknown WM — remove any leftover override and bail out
+            rm -f "${outFile}"
+            exit 0
+            ;;
+        esac
 
-    cat > "${outFile}" <<TOML
-[plugins]
-enabled = ["$plugin"]
+        cat > "${outFile}" <<TOML
+    [plugins]
+    enabled = ["$plugin"]
 
-[bar.default]
-end = ["$widget", "tray", "volume", "brightness", "network", "battery", "control-center"]
-TOML
+    [bar.default]
+    end = ["$widget", "tray", "volume", "brightness", "network", "battery", "control-center"]
+    TOML
   '';
 in
 {
@@ -51,4 +51,3 @@ in
     Install.WantedBy = [ "graphical-session.target" ];
   };
 }
-
