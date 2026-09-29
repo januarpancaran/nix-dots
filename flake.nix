@@ -123,7 +123,6 @@
 
       personalPkgs = mkPkgs personalSettings.system [
         (import ./overlays/onlyoffice.nix)
-        (import ./overlays/xwayland-satellite.nix)
       ];
       wslPkgs = mkPkgs wslSettings.system [ ];
     in

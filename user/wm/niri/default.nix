@@ -4,6 +4,7 @@
     pavucontrol
     polkit_gnome
     wl-mirror
+    xwayland-satellite
   ];
 
   imports = [
