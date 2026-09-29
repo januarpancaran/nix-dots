@@ -4,6 +4,6 @@
       enable = true;
     };
 
-    defaultSession = "niri";
+    defaultSession = "hyprland";
   };
 }
