@@ -10,6 +10,7 @@
     icu
     jq
     neovim
+    p7zip
     ripgrep
     tree
     tumbler
