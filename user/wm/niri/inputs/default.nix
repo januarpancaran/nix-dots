@@ -12,5 +12,9 @@
       tap = { };
       natural-scroll = { };
     };
+
+    mouse = {
+      natural-scroll = { };
+    };
   };
 }
