@@ -81,6 +81,7 @@
   programs.zsh.enable = true;
 
   environment.systemPackages = with pkgs; [
+    distrobox
     home-manager
     libnotify
     mesa-demos
