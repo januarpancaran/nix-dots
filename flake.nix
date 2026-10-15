@@ -39,7 +39,7 @@
     let
       # ── Shared user settings ────────────────────────────────────────────────
       userSettings = {
-        username = "daangsangu";
+        username = "yuhshi";
         defaultShell = "zsh"; # or bash
         gitUsername = "Januar Pancaran";
         gitEmail = "januar352@gmail.com";
