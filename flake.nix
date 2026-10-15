@@ -47,14 +47,14 @@
         /**
           * Optional Features
           *
-          * enableBrowsers: List browsers to install, currently only "firefox", "google-chrome", and "vivaldi" are supported
+          * enableBrowsers: List browsers to install, currently only "brave-origin", "firefox", "google-chrome", and "vivaldi" are supported
           * defaultBrowser: Choose a default browser from the former list
           * enableProgrammingPkgs: Install all programming packages stated in user/packages/programming.nix
         */
         enableBrowsers = [
-          "firefox"
+          "brave-origin"
         ];
-        defaultBrowser = "firefox";
+        defaultBrowser = "brave-origin";
         enableProgrammingPkgs = true;
       };
 
