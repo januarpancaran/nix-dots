@@ -69,8 +69,18 @@
     profiles = [ "personal" ];
   }
   {
-    path = ../system/security/aspnet-devcert.nix;
-    profiles = [ "wsl" ];
+    path = ../system/security/localhost-devcert.nix;
+    profiles = [
+      "personal"
+      "wsl"
+    ];
+  }
+  {
+    path = ../system/services/web.nix;
+    profiles = [
+      "personal"
+      "wsl"
+    ];
   }
   {
     path = ../system/services/dbus.nix;
