@@ -11,6 +11,7 @@
     [
       bun
       cargo
+      devenv
       dotnet-sdk_10
       gcc
       github-cli
