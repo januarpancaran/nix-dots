@@ -31,7 +31,7 @@ in
     NH_FLAKE = systemSettings.flakeDir;
   }
   // lib.optionalAttrs (chromeExecutable != null) {
-    CHROME_EXECUTABLE = pkgs.${chromeExecutable};
+    CHROME_EXECUTABLE = chromeExecutable;
   }
   // lib.optionalAttrs (systemSettings.enableSteam or false) {
     # Keep NVIDIA's shader cache from evicting compiled shaders in large games.
