@@ -1,4 +1,5 @@
-{ lib, 
+{
+  lib,
   pkgs,
   systemSettings,
   userSettings,
@@ -6,11 +7,19 @@
 }:
 let
   chromeExecutable =
-    if builtins.elem "google-chrome" userSettings.enableBrowsers && userSettings.defaultBrowser == "google-chrome" then
+    if
+      builtins.elem "google-chrome" userSettings.enableBrowsers
+      && userSettings.defaultBrowser == "google-chrome"
+    then
       "google-chrome-stable"
-    else if builtins.elem "vivaldi" userSettings.enableBrowsers && userSettings.defaultBrowser == "vivaldi" then
+    else if
+      builtins.elem "vivaldi" userSettings.enableBrowsers && userSettings.defaultBrowser == "vivaldi"
+    then
       "vivaldi"
-    else if builtins.elem "brave-origin" userSettings.enableBrowsers && userSettings.defaultBrowser == "brave-origin" then
+    else if
+      builtins.elem "brave-origin" userSettings.enableBrowsers
+      && userSettings.defaultBrowser == "brave-origin"
+    then
       "brave-origin"
     else
       null;
