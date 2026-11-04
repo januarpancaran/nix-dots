@@ -121,9 +121,7 @@
           overlays = extraOverlays;
         };
 
-      personalPkgs = mkPkgs personalSettings.system [
-        (import ./overlays/onlyoffice.nix)
-      ];
+      personalPkgs = mkPkgs personalSettings.system [ ];
       wslPkgs = mkPkgs wslSettings.system [ ];
     in
     {
