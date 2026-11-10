@@ -103,14 +103,6 @@
     ];
   }
   {
-    path = ../user/wm/niri;
-    profiles = [ "personal" ];
-  }
-  {
-    path = ../user/wm/hyprland;
-    profiles = [ "personal" ];
-  }
-  {
     path = ../user/wm/umbriel;
     profiles = [ "personal" ];
   }

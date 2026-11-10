@@ -21,12 +21,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Hyprland
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Umbriel
     umbriel = {
       url = "github:noctalia-dev/umbriel";

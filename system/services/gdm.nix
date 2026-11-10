@@ -4,6 +4,6 @@
       enable = true;
     };
 
-    defaultSession = "hyprland-uwsm";
+    defaultSession = "umbriel";
   };
 }
