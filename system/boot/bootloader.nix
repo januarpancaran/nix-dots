@@ -21,6 +21,12 @@
 
       systemd-boot.enable = lib.mkDefault (systemSettings.bootloader == "systemd-boot");
 
+      limine = {
+	enable = lib.mkDefault (systemSettings.bootloader == "limine");
+	efiSupport = true;
+	secureBoot.enable = true;
+      };
+
       timeout = 5;
     };
   };
