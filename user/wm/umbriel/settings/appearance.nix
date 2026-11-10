@@ -14,7 +14,11 @@
 
     layout = {
       gap = 8;
-      extent_presets = [ 0.33333 0.5 0.66667 ];
+      extent_presets = [
+        0.33333
+        0.5
+        0.66667
+      ];
 
       scrolling = {
         center_focused = "never";

@@ -12,10 +12,11 @@
         repeat = false;
       };
       "Mod+I" = {
-        action = 
-          if userSettings.defaultBrowser == "firefox" || userSettings.defaultBrowser == "librewolf" 
-          then "spawn ${userSettings.defaultBrowser} --private-window"
-          else "spawn ${userSettings.defaultBrowser} --incognito";
+        action =
+          if userSettings.defaultBrowser == "firefox" || userSettings.defaultBrowser == "librewolf" then
+            "spawn ${userSettings.defaultBrowser} --private-window"
+          else
+            "spawn ${userSettings.defaultBrowser} --incognito";
         repeat = false;
       };
       "Mod+E" = {
