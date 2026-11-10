@@ -7,15 +7,15 @@
     ];
   }
   {
-    path = ../user/app/browser/brave-origin;
-    profiles = [ "personal" ];
-  }
-  {
     path = ../user/app/browser/firefox;
     profiles = [ "personal" ];
   }
   {
     path = ../user/app/browser/google-chrome;
+    profiles = [ "personal" ];
+  }
+  {
+    path = ../user/app/browser/librewolf;
     profiles = [ "personal" ];
   }
   {
