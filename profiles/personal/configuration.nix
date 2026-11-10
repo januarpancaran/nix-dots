@@ -85,6 +85,7 @@
     home-manager
     libnotify
     mesa-demos
+    sbctl
     trash-cli
   ];
 

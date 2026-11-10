@@ -20,7 +20,7 @@
       papers
       spotify
       telegram-desktop
-      zotero
+      # zotero
       zoom-us
     ]
     ++ lib.optionals userSettings.enableProgrammingPkgs [
