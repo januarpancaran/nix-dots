@@ -15,7 +15,6 @@
       dotnet-sdk_10
       gcc
       github-cli
-      github-copilot-cli
       gmp
       gnumake
       go
@@ -30,7 +29,6 @@
       nixd
       nssTools
       nodejs
-      opencode
       openssl
       php
       php84Packages.composer
