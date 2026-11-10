@@ -14,7 +14,7 @@
       };
 
       cursor = {
-        theme = "Bibata-Modern-Classic";
+        theme = "Elaina";
         size = 32;
       };
     };
