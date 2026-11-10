@@ -3,7 +3,7 @@
   imports = [
     ./settings
   ];
-  
+
   home.packages = with pkgs; [
     pavucontrol
     polkit_gnome
