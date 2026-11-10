@@ -67,11 +67,11 @@
         padding = 12;
         widget_spacing = 8;
         capsule = true;
-        capsule_fill = "surface_variant";
+        capsule_fill = "surface_container";
         capsule_foreground = "on_surface";
         color = "on_surface";
         icon_color = "primary";
-        capsule_border = "outline";
+        capsule_border = "outline_variant";
         capsule_opacity = 0.86;
         show_on_workspace_switch = true;
         start = [
@@ -84,6 +84,7 @@
           "tray"
           "volume"
           "brightness"
+          "bluetooth"
           "network"
           "battery"
           "control-center"
@@ -148,7 +149,7 @@
 
       bluetooth = {
         show_label = false;
-        hide_when_no_connected_device = true;
+        hide_when_no_connected_device = false;
       };
 
       "control-center" = {

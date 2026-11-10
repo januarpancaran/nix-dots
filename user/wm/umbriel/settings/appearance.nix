@@ -1,0 +1,25 @@
+{ ... }:
+{
+  programs.umbriel.settings = {
+    appearance = {
+      blur.radius = 3;
+      border_width = 3;
+      corner_radius = 12;
+    };
+
+    colors.border = {
+      focused = "#c4a7e7ff";
+      unfocused = "#403d52ff";
+    };
+
+    layout = {
+      gap = 8;
+      extent_presets = [ 0.33333 0.5 0.66667 ];
+
+      scrolling = {
+        center_focused = "never";
+        default_extent_fraction = 1.0;
+      };
+    };
+  };
+}

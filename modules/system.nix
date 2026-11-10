@@ -147,4 +147,8 @@
     path = ../system/services/xdg-portal.nix;
     profiles = [ "personal" ];
   }
+  {
+    path = ../system/wm/umbriel.nix;
+    profiles = [ "personal" ];
+  }
 ]

@@ -11,6 +11,8 @@ let
       "google-chrome-stable --incognito"
     else if userSettings.defaultBrowser == "firefox" then
       "firefox --private-window"
+    else if userSettings.defaultBrowser == "librewolf" then
+      "librewolf --private-window"
     else
       "${userSettings.defaultBrowser} --incognito";
   bind = keys: dispatcher: {

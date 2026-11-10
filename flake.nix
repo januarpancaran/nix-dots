@@ -27,6 +27,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Umbriel
+    umbriel = {
+      url = "github:noctalia-dev/umbriel";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Noctalia Community Plugins
     noctalia-community-plugins = {
       url = "github:noctalia-dev/community-plugins/main";
@@ -163,6 +169,7 @@
         };
         modules = [
           inputs.catppuccin.homeModules.catppuccin
+          inputs.umbriel.homeModules.default
           ./profiles/personal/home.nix
         ];
       };

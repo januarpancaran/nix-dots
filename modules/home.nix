@@ -111,6 +111,10 @@
     profiles = [ "personal" ];
   }
   {
+    path = ../user/wm/umbriel;
+    profiles = [ "personal" ];
+  }
+  {
     path = ../user/packages/cli.nix;
     profiles = [
       "personal"
