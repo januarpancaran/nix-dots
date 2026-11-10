@@ -2,9 +2,10 @@
 {
   programs.noctalia.settings = {
     plugins = {
-      enabled = [ ];
+      enabled = [
+        "elijaharch/wl-screen-mirror"
+      ];
 
-      # Add the community plugins as a source
       source = [
         {
           name = "community";
