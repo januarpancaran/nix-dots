@@ -24,7 +24,7 @@
         repeat = false;
       };
       "Mod+C" = {
-        action = "spawn zed";
+        action = "spawn zeditor";
         repeat = false;
       };
       "Mod+Shift+C" = {
