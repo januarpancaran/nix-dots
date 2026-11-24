@@ -7,6 +7,10 @@
     ];
   }
   {
+    path = ../user/app/browser/brave-origin;
+    profiles = [ "personal" ];
+  }
+  {
     path = ../user/app/browser/firefox;
     profiles = [ "personal" ];
   }
