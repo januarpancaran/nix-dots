@@ -11,7 +11,7 @@
       {
         match.app_id = "^steam_app_.*$";
         background_render = true;
-	default_floating = true;
+        default_floating = true;
       }
       {
         match.app_id = "^dev.noctalia.Noctalia$";
