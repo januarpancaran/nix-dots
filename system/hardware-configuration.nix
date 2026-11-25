@@ -27,39 +27,17 @@
   ];
   boot.initrd.kernelModules = [
     "dm-snapshot"
-    "cryptd"
   ];
-  boot.initrd.luks.devices.cryptlvm.device = "/dev/disk/by-label/NIXOS_LUKS";
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  boot.supportedFilesystems.ntfs = lib.mkForce false;
-  boot.blacklistedKernelModules = [
-    "ntfs3"
-    "ntfs-3g"
-  ];
-
-  environment.systemPackages = [ pkgs.ntfsprogs-plus ];
-
-  services.udisks2 = {
-    enable = true;
-    settings = {
-      "udisks2.conf" = {
-        defaults = {
-          encryption = "luks2";
-          ntfs_driver = "ntfs";
-        };
-
-        udisks2 = {
-          modules = [ "*" ];
-          modules_load_preference = "ondemand";
-        };
-      };
-    };
-  };
-
   fileSystems."/" = {
     device = "/dev/disk/by-label/NIXOS_ROOT";
+    fsType = "ext4";
+  };
+
+  fileSystems."/home" = {
+    device = "/dev/disk/by-label/NIXOS_HOME";
     fsType = "ext4";
   };
 
@@ -77,41 +55,33 @@
     ];
   };
 
-  swapDevices = [
-    { device = "/dev/disk/by-label/NIXOS_SWAP"; }
-  ];
-
   # fileSystems."/home/${userSettings.username}/Windows" = {
   #   device = "/dev/disk/by-label/ACER";
-  #   fsType = "ntfs";
+  #   fsType = "ntfs3";
   #   options = [
   #     "uid=1000"
   #     "gid=100"
-  #     "umask=022"
   #     "fmask=022"
   #     "dmask=022"
   #     "noatime"
   #     "nofail"
   #     "nocase"
   #     "windows_names"
-  #     "exec"
   #   ];
   # };
 
   fileSystems."/home/${userSettings.username}/Storage" = {
     device = "/dev/disk/by-label/KINGSTON";
-    fsType = "ntfs";
+    fsType = "ntfs3";
     options = [
       "uid=1000"
       "gid=100"
-      "umask=022"
       "fmask=022"
       "dmask=022"
       "noatime"
       "nofail"
       "nocase"
       "windows_names"
-      "exec"
     ];
   };
 
