@@ -10,8 +10,8 @@
       }
       {
         match.app_id = "^steam_app_.*$";
-        confine_pointer = true;
         background_render = true;
+	default_floating = true;
       }
       {
         match.app_id = "^dev.noctalia.Noctalia$";
