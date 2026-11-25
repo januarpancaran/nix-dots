@@ -81,8 +81,8 @@
         ];
         center = [ "clock" ];
         end = [
-          "elijaharch/wl-screen-mirror:mirror"
           "tray"
+          "elijaharch/wl-screen-mirror:mirror"
           "volume"
           "brightness"
           "bluetooth"
