@@ -8,6 +8,7 @@
       GDK_BACKEND = "wayland";
       ELECTRON_OZONE_PLATFORM_HINT = "wayland";
       MOZ_ENABLE_WAYLAND = "1";
+      NIXOS_OZONE_WL = "1";
     };
   };
 }
