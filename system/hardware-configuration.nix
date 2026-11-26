@@ -55,6 +55,11 @@
     ];
   };
 
+  swapDevices = [{
+    device = "/var/lib/swapfile";
+    size = 16*1024;
+  }];
+
   # fileSystems."/home/${userSettings.username}/Windows" = {
   #     device = "/dev/disk/by-label/ACER";
   #     fsType = "ntfs-3g";
