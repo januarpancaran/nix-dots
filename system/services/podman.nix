@@ -13,10 +13,10 @@ lib.mkIf systemSettings.enableContainers {
 
   virtualisation = {
     containers = {
-    	enable = true;
-	registries.settings = {
-	  unqualified-search-registries = [ "docker.io" ];
-	};
+      enable = true;
+      registries.settings = {
+        unqualified-search-registries = [ "docker.io" ];
+      };
     };
 
     podman = {
