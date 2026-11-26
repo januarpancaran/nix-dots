@@ -26,5 +26,13 @@
     };
   };
 
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowBroken = false;
+    permittedInsecurePackages = [
+      "firefox-esr-140-bin-unwrapped-140.17.0esr"
+    ];
+  };
+
   programs.home-manager.enable = true;
 }
