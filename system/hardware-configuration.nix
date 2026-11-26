@@ -56,31 +56,31 @@
   };
 
   # fileSystems."/home/${userSettings.username}/Windows" = {
-  #   device = "/dev/disk/by-label/ACER";
-  #   fsType = "ntfs3";
-  #   options = [
-  #     "uid=1000"
-  #     "gid=100"
-  #     "fmask=022"
-  #     "dmask=022"
-  #     "noatime"
-  #     "nofail"
-  #     "nocase"
-  #     "windows_names"
-  #   ];
-  # };
+  #     device = "/dev/disk/by-label/ACER";
+  #     fsType = "ntfs-3g";
+  #     options = [
+  #       "uid=1000"
+  #       "gid=100"
+  #       "umask=022"
+  #       "exec"
+  #       "noatime"
+  #       "nofail"
+  #       "big_writes"
+  #       "windows_names"
+  #     ];
+  #   };
 
   fileSystems."/home/${userSettings.username}/Storage" = {
     device = "/dev/disk/by-label/KINGSTON";
-    fsType = "ntfs3";
+    fsType = "ntfs-3g";
     options = [
       "uid=1000"
       "gid=100"
-      "fmask=022"
-      "dmask=022"
+      "umask=022"
+      "exec"
       "noatime"
       "nofail"
-      "nocase"
+      "big_writes"
       "windows_names"
     ];
   };
