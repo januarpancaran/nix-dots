@@ -26,6 +26,6 @@
       options snd slots=snd-hda-intel
     '';
 
-    extraModulePackages = [ config.boot.kernelPackages.nvidiaPackages.stable ];
+    extraModulePackages = [ config.boot.kernelPackages.nvidiaPackages.latest ];
   };
 }
